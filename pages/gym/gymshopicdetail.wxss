@@ -1,0 +1,43 @@
+.picheaderlist{
+  overflow: hidden;
+  height: 90.2rpx;
+  line-height: 90.2rpx;
+}
+.picheaderlistcontent{
+  float: left;
+  text-align: center;
+  width: 90rpx;
+  margin: 0 30rpx;
+  color: #9FA0A0;
+  font-size: 23.6rpx;
+}
+.picheaderlistcontentchecked{
+  float: left;
+  text-align: center;
+  width: 90rpx;
+  margin: 0 30rpx;
+  height: 87.5rpx;
+  color: #0090FF;
+  font-size: 23.6rpx;
+  border-bottom: 2.7rpx solid #0090FF;
+}
+.gympicbox{
+  width: 722.4rpx;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.gympicboximgage{
+  float: left;
+  width: 333.3rpx;
+  border-radius: 6.9rpx;
+  height: 256.9rpx;
+  margin: 0 13.8rpx;
+  margin-top: 38.8rpx;
+}
+.getmore{
+  margin-top: 56.9rpx;
+ font-size: 22.2rpx;
+ color: #0090FF;
+ text-align: center;
+ margin-bottom: 38.8rpx;
+}

@@ -1,0 +1,86 @@
+<view class='gaybox'>
+  <view class='allbox'>
+    <view class='nowenergy'>您当前的能量值余额:{{surplusEneygy?surplusEneygy:'0'}}</view>
+    <view class='cardbox'>
+      <view class="cardshow{{type == 1?'checked':''}}" bindtap='changecard' data-type='1'>健身卡</view>
+      <view class="cardshow{{type == 2?'checked':''}}" bindtap='changecard' data-type='2'>课程</view>
+    </view>
+    <view class="store_filter_container">
+      <view bindtap="changetype" data-typeid="0" class="{{types==0?'all_filter':'other_filter'}}">
+        <text>全部</text>
+      </view>
+      <view bindtap="changetype"  data-typeid="1" class="{{types==1?'all_filter':'other_filter'}}">
+        <text>申请时间</text>
+        <image src='../../image/icon_filter_store_2.png' />
+      </view>
+      <view bindtap="changetype" class="{{types==2?'all_filter':'other_filter'}}" data-typeid="2">
+        <text>办理时间</text>
+        <image src='../../image/icon_filter_store_2.png' />
+      </view>
+    </view>
+    <!-- 日历 -->
+    <view wx:if="{{filter}}" class='modalContainer'>
+      <view class='calendar-box'>
+        <view class="selected_date">
+          <view bindtap="preMonth">
+            <image style='margin-left:20rpx' class="select_icon" src="../../res/imgs/left.png"></image>
+          </view>
+          <view class="text_center">{{curYear+'-'+curMonth}}</view>
+          <view style="text-align:right;" bindtap="nextMonth">
+            <image style='margin-right:20rpx' class="select_icon" src="../../res/imgs/right.png"></image>
+          </view>
+        </view>
+        <view class="calendar_panel">
+          <view class="calendar_box">
+            <view class="weekday_label">日</view>
+            <view class="weekday_label">一</view>
+            <view class="weekday_label">二</view>
+            <view class="weekday_label">三</view>
+            <view class="weekday_label">四</view>
+            <view class="weekday_label">五</view>
+            <view class="weekday_label">六</view>
+          </view>
+          <view class="calendar_box" wx:for="{{dateList}}" wx:for-item="week">
+            <view class="weekday_label" wx:for="{{week}}">
+              <text class="{{item.value==selectedDate?'active_date':''}}" bindtap="selectDate" data-date="{{item}}">{{item.date}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='cardlistcss' wx:key='*this'  wx:for='{{listshow}}'>
+        <view class='cardtopbox' data-jhcode='{{item.activationCode}}' bindtap='goapplydetail'>
+          <view class='cardtopleft'>
+            <view class='cardtopleftleft'><image src='{{item.cardTypePO.url}}' /></view>
+            <view class='cardtopleftright'>
+              <view>{{item.gymShopPO.gymName}}</view>
+              <view>{{item.cardTypePO.name}}</view>
+              <view class='scprice'>市场价 <title>￥{{item.cardTypePO.marketPrice}}</title></view>
+            </view>
+          </view>
+          <view class='cardtopright'>
+            <view>{{item.energy}}能量兑换</view>
+            <view class='stateshow'>{{item.type==0?'申请中':item.type==1?'待激活':item.type==2?'已完成':''}}</view>
+          </view>
+        </view>
+          <view class='sqtime' wx:if='{{item.type==1}}'>申请时间:{{item.creattimes}}</view>
+          <view class='sqtime' wx:if='{{item.type==2}}'>申请时间:{{item.creattimes}}<text style="margin-left:30rpx">办理时间:{{item.creattimes}}</text></view>
+        <view bindtap='changeshow'  data-show='{{index}}' class='cardbottombox'>
+          <view class='cardbottomleft'>查看详情</view>
+          <image class='cardbottomright' src="{{item.show==true?'../../image/up.png':'../../image/down.png'}}" />
+        </view>
+        <view wx:if='{{item.show==true}}' class='detailbox'>
+            <view>健身房电话号码：{{item.gymShopPO.gymPhone?item.gymShopPO.gymPhone:'暂无'}}</view>
+            <view>转卡订单号：{{item.orderNumber}}</view>
+            <view wx:if='{{item.type==2}}'>健身卡账号：{{item.cardAccount}}</view>
+            <view wx:if='{{item.type==2}}'>健身卡密码：{{item.cardPassword}}</view>
+            <view>OYOC客服工号：001</view>
+            <view>正在与对方沟通中，预计需要2-3个工作日，办理完成后客服人员 将进行电话通知您。  </view>
+        </view>
+    </view>
+    <view class='exchangebox'>
+      兑换申明：点击申请转卡按钮后，会跳转至健身首页。选择点击您需要转卡或转课程的健身房后，在健身房商家详情页内点击兑换即可。
+    </view>
+    <view class='jsexchange' bindtap="goindex">健身兑换</view>
+  </view>
+</view>

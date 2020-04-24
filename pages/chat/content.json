@@ -1,0 +1,6 @@
+{
+  "onReachBottomDistance": 100,
+  "usingComponents": {
+    "region-picker": "../../components/region-picker/index"
+  }
+}

@@ -1,0 +1,141 @@
+page {
+  background-color: #F6F7F7;
+}
+.all{
+  width: 750rpx;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 70rpx;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-nav-container{
+  width: 100%;
+  position: relative;
+}
+
+.userinfo-avatar{
+  width: 162rpx;
+  height: 162rpx;
+  /* border-radius: 50%; */
+  position: absolute;
+  top: 38rpx;
+}
+.info_container{
+  border-radius: 17rpx;
+  background: #FFF;
+  width: 694rpx;
+}
+
+.kfname{
+  display: block;
+  width: 100%;
+  font-size: 23.6rpx;
+  font-weight: bold;
+  margin-top: 60rpx;
+  text-align: center;
+}
+.kfid{
+  display: block;
+  width: 100%;
+  margin-top: 10rpx;
+  text-align: center;
+  font-size: 25rpx;
+}
+.kfds{
+  font-size: 25rpx;
+  text-align: center;
+  color: #9FA0A0;
+  margin-top: 31.1rpx;
+  margin-bottom: 31.9rpx;
+}
+.kfds>text{
+  font-size: 30rpx;
+  color: #008FFF;
+  margin-left: 37.5rpx;
+}
+/* 客服评价 */
+
+/* 评价按钮 */
+.bootombtn{
+  position: fixed;
+  display: flex;
+  align-items:center;
+  bottom: 0;
+  width: 750rpx;
+  height: 118rpx;
+  background: #FFF
+}
+.bootombtn>view{
+  width: 319.4rpx;
+  height: 79.1rpx;
+  text-align: center;
+  border-radius: 13.8rpx;
+  color: #FFF;
+  margin-left: 20rpx;
+  line-height: 79.1rpx;
+  background: #4EB2FF;
+}
+.dsbtn{
+  margin-left: 56.9rpx;
+  background: #008FFF;
+}
+.textareabox{
+  width: 616.6rpx;
+  height: 166rpx;
+  margin: 20rpx auto;
+  font-size: 36rpx;
+}
+.pjbtn{
+  width: 683.3rpx;
+  height: 76.3rpx;
+  line-height: 76.3rpx;
+  margin: 20.3rpx auto;
+  text-align: center;
+  border-radius: 9.7rpx;
+  background: #008FFF;
+  color: #FFF;
+  font-size: 33.3rpx;
+}
+/* 打赏金额 */
+.info_message_box{
+  width: 694rpx;
+  height: 94rpx;
+  margin: 51.3rpx auto;
+  border-radius: 16.6rpx;
+  background: #FFF;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.unittext{
+  font-size: 31rpx;
+  margin-left: 33.3rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 33rpx;
+}
+.info_message_box .title{
+  font-size: 31rpx;
+  margin-left: 33.3rpx;
+  position: absolute;
+  left: 0;
+}
+.info_message_box .content{
+  text-align: right;
+  font-size: 31rpx;
+  color: #000;
+  position: absolute;
+  right: 60rpx;
+  top: 28rpx;
+  width: 400rpx;
+}
+.usergivemoney{
+  font-size: 69.4rpx;
+  text-align: center;
+  margin-top: 52.7rpx;
+}

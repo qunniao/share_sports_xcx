@@ -1,0 +1,45 @@
+<view class="all">
+  <view class="home-nav-container">
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+  </view>
+  <view class='flex'>
+    <image class="userinfo-avatar" bindtap="navigate" data-url="userheaderpic" mode="cover" src="{{kfdata.cover?kfdata.cover:'../../image/kfheader.png'}}" ></image>
+  </view>
+  <view class='flex'>
+    <view class='info_container'>
+      <view >
+        <view class='kfname'>{{kfdata.name?kfdata.name:'OYOC专属客服'}}</view>
+        <view class='kfid'>工号{{kfdata.workNumber?kfdata.workNumber:''}}</view>
+        <view class="comment1-description">
+          <text class='xxtext'>会员满意度</text>
+            <view class="star-pos" >
+              <image src="{{flag>=1? '../../image/selected.png': '../../image/noselected.png'}}" class="stars" />
+              <image src="{{flag>=2? '../../image/selected.png': '../../image/noselected.png'}}" class="stars" />
+              <image src="{{flag>=3? '../../image/selected.png': '../../image/noselected.png'}}" class="stars" />
+              <image src="{{flag>=4? '../../image/selected.png': '../../image/noselected.png'}}" class="stars" />
+              <image src="{{flag>=5? '../../image/selected.png': '../../image/noselected.png'}}" class="stars" />
+              <!-- <view class="stars  {{flag>=2? 'on': ''}}" ></view>
+              <view class="stars  {{flag>=3? 'on': ''}}" ></view>
+              <view class="stars  {{flag>=4? 'on': ''}}" ></view>
+              <view class="stars  {{flag>=5? 'on': ''}}" ></view> -->
+            </view>
+        </view>
+        <view class='kfds'>获得打赏:<text>{{kfreward}}次</text></view>
+      </view>
+    </view>
+  </view>
+  <view class='flex'>
+    <view class='info_container2'>
+      <view wx:for='{{kflist}}' class='info_message_box'>
+        <view class='usercontent'>
+          <image src="{{item.userPO.avatarUrl?item.userPO.avatarUrl:'../../res/imgs/default.jpg'}}"/>
+          <text class='title'>{{item.userPO.userNike?item.userPO.userNike:'OYOC用户'}}</text>
+          <text class='content'>{{item.createTime?item.createTime:''}}</text>
+        </view>
+        <view class='pingyu'>{{item.content?item.content:''}}</view>
+      </view>
+      
+    </view>
+  </view>
+  <view class='bootombtn'><view bindtap='gokfevaluate'>我要评价</view><view bindtap='gokfreward' class='dsbtn'>我要打赏</view></view>
+</view>

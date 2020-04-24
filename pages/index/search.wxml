@@ -1,0 +1,45 @@
+ <view class='all'>
+
+ <view class="home-nav-container">
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+    <view class='top_container'>
+      <view class='search-box'>
+          <image src='../../res/imgs/icon_search.png' />
+          <input bindconfirm='searchshop' placeholder='点击输入您想要的内容' maxlength='16' bindblur='changesearch' confirm-type="search" placeholder-style="color:rgba(0,0,0,0.4)"/>
+        </view>
+        <view class='search_btn' bindtap='searchGymShop'>搜索</view>
+    </view>
+
+
+    <view class="gym-box">
+    <view class='fliter-box'>
+      <!-- <view class='fliter-condition'>
+        <text>价格</text>
+        <text>距离</text>
+      </view>
+      <view class='fliter-btn' bindtap="setModalStatus" data-status="1">
+        <text>筛选</text>
+        <image src='../../res/imgs/icon_arrow_hui.png' />
+      </view> -->
+    </view>
+    <view class='gym-list' wx:for="{{gymList}}" bindtap='navigate' data-url="../../pages/gym/index?id={{item.gymShopId}}">
+          <image src='{{item.image}}' class='gym-image'/>
+          <text class='gym-name'>{{item.gymName}}</text>
+          <view class='gym-position-box'>
+            <text class='gym-position'>{{item.address}}</text>
+          </view>
+          <wxs src="./../filter.wxs" module="filter" />
+          <view class='features-box'>
+            <view class="features_1">场地{{item.gymBuildingPOList.length}}</view>
+            <view class="features_2">课程{{item.gymSubjectPOList.length}}</view>
+
+            <text class='power_value'>{{item.gymEnergy}}<text style="color:rgba(0,0,0,0.6);font-size:14rpx">能量值 每人每次</text></text>
+          </view>
+          <image src='../../res/imgs/icon_phone.png' class='phone' bindtap='callPhone' data-number='{{item.gymPhone}}'/>
+          <image src='../../res/imgs/icon_member_blue.png' class='member-blue'/>
+        </view>
+    </view>
+    
+  </view>
+
+</view>

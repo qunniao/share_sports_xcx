@@ -1,0 +1,11 @@
+<view class="all-box">
+  <view class='picheaderlist'>
+    <view class="picheaderlistcontent{{item.show==1?'checked':''}}" wx:for='{{pictuerlist}}' bindtap='changepictype' data-index='{{index}}'>
+          {{item.name}}
+    </view>
+  </view>
+  <view class='gympicbox'>
+    <image class='gympicboximgage' src='{{item.url}}' wx:for='{{piclists}}' />
+  </view>
+  <view class='getmore' bindtap='getmorepic'>查看更多</view>
+</view>

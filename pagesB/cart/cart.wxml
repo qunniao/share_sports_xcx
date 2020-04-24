@@ -1,0 +1,87 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='cardbg'>
+    <image src='../image/cardbg.png'></image>
+  </view>
+  <view class='chack'>
+    <view class='chack_img' bindtap='selectALL'>
+      <image src="{{chackimg ? '../image/shop.png' : '../image/shopnone.png'}}"></image>
+      <text>全选</text>
+    </view>
+    <view wx:if='{{cardnum==0}}' class='card'>购物车</view>
+    <view wx:else class='card'>购物车({{cardnum}})</view>
+    <view class='edit' bindtap='edit'>{{edits}}</view>
+  </view>
+  <view class='paycon'>
+    <view class="patconleft {{patconleft ? 'patconleftshow' : 'patconleftnone'}}" bindtap='patconleft'>
+      <image src="{{patconleft ? '../image/par.png' : '../image/parnone.png'}}"></image>
+      <text>现金支付</text>
+    </view>
+    <view class="patconright {{patconright ? 'patconleftshow' : 'patconleftnone'}}" bindtap='patconright'>
+      <image src="{{patconright ? '../image/cardnone.png' : '../image/card.png'}}"></image>
+      <text>能量值抵扣</text>
+    </view>
+    <!-- 现金支付 -->
+    <view class='patconlist' hidden='{{prilist}}'>
+      <view class='patconlist_shop' wx:key='*this' wx:for='{{patconlist}}'>
+        <image class='patconlist_chack_img' data-index='{{index}}' data-id='{{item.id}}' bindtap='patconlist' src="{{item.patconlist_chack_img==true ? '../image/quan.png' : '../image/quannone.png'}}"></image>
+        <image class='patconlist_shop_img' src='{{item.productPO.image}}'></image>
+        <view class='patconlist_shop_text'>
+          <view class='patconlist_shop_name'>{{item.productPO.name}}</view>
+          <view class='patconlist_shop_con'>
+            <view wx:if='{{item.productPO[0].isAgent ==1}}' class='patconlist_shop_conpon'>{{item.productPO.isAgent==1?'可使用优惠劵':''}}</view>
+            <view class='addre'>
+              <image src='../image/jia.png' class='reduce' bindtap='reduce' data-inventory='{{item.productPO.inventory}}' data-index='{{index}}'></image>
+              <text>{{item.number}}</text>
+              <image src='../image/jian.png' class='add' bindtap='add' data-index='{{index}}' data-inventory='{{item.productPO.inventory}}'></image>
+            </view>
+          </view>
+          <view class='patconlist_shop_pri'>
+            <text class='patconlist_shop_conpon1'>￥{{item.productPO.realPrice}}</text>
+            <text class='patconlist_shop_conpon2'>市场价:￥{{item.productPO.showPrice}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 能量支付 -->
+    <view class='patconlist' hidden='{{nenglist}}'>
+      <view class='patconlist_shop' wx:key='*this' wx:for='{{nengconlist}}'>
+        <image class='patconlist_chack_img' bindtap='nengconlist' data-index='{{index}}' data-id='{{item.id}}' src="{{item.patconlist_chack_img==true ? '../image/quan.png' : '../image/quannone.png'}}"></image>
+        <image class='patconlist_shop_img' src='{{item.productPO.image}}'></image>
+        <view class='patconlist_shop_text'>
+          <view class='patconlist_shop_name'>{{item.productPO.name}}</view>
+          <view class='patconlist_shop_con'>
+            <view class='patconlist_shop_conpon' wx:if='{{item.productPO[0].isAgent ==1}}'>{{item.productPO.isAgent==1?'可使用优惠劵':''}}</view>
+            <view class='addre'>
+              <image src='../image/jia.png' data-inventory='item.inventory' class='reduce' bindtap='reduces' data-index='{{index}}'></image>
+              <text>{{item.number}}</text>
+              <image src='../image/jian.png' class='add' bindtap='adds' data-index='{{index}}'></image>
+            </view>
+          </view>
+          <view class='patconlist_shop_pri'>
+            <text class='patconlist_shop_conpon1'>￥{{item.productPO.realPrice}}能量值</text>
+            <text class='patconlist_shop_conpon2'>市场价:￥{{item.productPO.showPrice}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='total' hidden='{{total}}'>
+    <view class='kefu'>
+      <image src='../image/kefu.png'></image>
+      <text>客服</text>
+    </view>
+    <view class='heji'>
+      <text class='yunfei' hidden='{{yunfei}}'>不含运费</text>
+      <text class='heji1'>合计:</text>
+      <text class='heji2' hidden='{{renminbi}}'>￥</text>
+      <text class='heji2'>{{count}}</text>
+      <text class='heji3' hidden='{{nengliang}}'>能量值</text>
+      <view wx:if='{{totalnum==0}}' class='purch'>确定购买</view>
+      <view wx:else class='purch' bindtap='Goset'>确定购买({{totalnum}})</view>
+    </view>
+  </view>
+  <view class='delect' hidden='{{delect}}'>
+    <view class='delect2' bindtap='detail'>删除</view>
+  </view>
+</view>

@@ -1,0 +1,89 @@
+<view class="all">
+  <view class='nav_container'>
+    <view class="{{type==1?'select':'unselect'}}" style="{{userrole==3?'':'width:100%'}}" bindtap="chooseType" data-type="1">发展客户</view>
+    <view wx:if='{{userrole==3}}' class="{{type==2?'select':'unselect'}}" bindtap="chooseType" data-type="2">发展二级渠道</view>
+  </view>
+
+  <view style="display:{{type==1?'':'none'}}">
+    <view class='top_container'>
+        <image wx:key='*this' wx:for="{{imagesList}}" wx:if="{{item.name=='icon_qrcode_bg_1'}}"src='{{item.url}}' class='icon_qrcode_bg_1' />
+        <view class='flex' style='position:absolute;bottom:160rpx'>
+          <canvas class='canvas' bindtap='ewshow' canvas-id='canvas'></canvas>
+        </view>
+        <text class='qr_title'>转发好友 识别并关注</text>
+        <view class='head_container'>
+           <image src='../../res/imgs/icon_agent_customer.png'  />
+           <text>如何发展用户</text>
+        </view>
+    </view>
+
+    <view class="bottom_container" style='display: inline-block'>
+      <view class="step_container">
+        <text class='title'>第一步</text>
+        <text class='content'>转发该图片或商品链接给微信好友；</text>
+      </view>
+      <view class="step_container">
+        <text class='title'>第二步</text>
+        <text class='content'>从您转发的图片或链接进入公众号的好友，系统将自动锁定成为您的客户，他们在微信公众号中购买的商品，您都可以获得客户佣金；</text>
+      </view>
+      <view class="step_container">
+        <text class='title'>第三步</text>
+        <text class='content'>您可以在代理中心查看【订单管理】和【我的团队】，客户确定收货后佣金方可提现。</text>
+      </view>
+      <view class='tips_container'>
+          <text>说明:分享后会带独有的推荐码，您的好友访问之后，系统会自动检测并记录客户关系/如果您的好友已呗其他人抢先发展成了客户，图级不能成为您的客户，以最早发展成为客户为准。</text>
+      </view>
+    </view>
+  </view>
+
+
+  <view style="display:{{type==2?'':'none'}}">
+    <view class='top_container'>
+        <image wx:key='*this' wx:for="{{imagesList}}" wx:if="{{item.name=='icon_qrcode_bg_2'}}"src='{{item.url}}' class='icon_qrcode_bg_1' />
+        <view class='flex' style='position:absolute;bottom:160rpx'>
+          <canvas class='canvas' bindtap='ewshow' canvas-id='canvas2'></canvas>
+        </view>
+        <text class='qr_title'>转发潜在代理 识别并关注</text>
+        <view class='head_container'>
+           <image src='../../res/imgs/icon_agent_customer.png'  />
+           <text>如何发展代理</text>
+        </view>
+    </view>
+
+    <view class="bottom_container">
+      <view class="step_container2">
+        <view class='titlecontainer'>
+            <text class='number'>1</text>
+            <text class='title'>代理资格</text>
+            
+        </view>
+        <view class="flex" style="width:600rpx;margin:0 75rpx">
+         <text class='content'>前期无要求。......</text>
+        </view>
+      </view>
+
+       <view class="step_container2">
+        <view class='titlecontainer'>
+            <text class='number'>2</text>
+            <text class='title'>操作流程</text>
+        </view>
+        <view class="flex" style="width:600rpx;margin:0 75rpx">
+         <text class='content'>需要发送二级渠道推广二维码 ，要求潜在二级渠道人员通过该二维码进入公众号进行绑定，并联系客服发送该潜在二级渠道的账户信息，经后台审核后即可成功成为二级渠道合伙人。</text>
+        </view>
+       
+      </view>
+
+    </view>
+  </view>
+    <view hidden='{{twoshow}}'>
+    <view class='tsbg' bindtap='ewhiden'></view>
+    <canvas class='cavbox' canvas-id="shareCanvas"></canvas>
+    <view bindtap='save' class='savebtn'>保存</view>
+  </view>
+  <view  hidden='{{twoshow2}}'>
+      <view class='tsbg' bindtap='ewhiden'></view>
+      <canvas class='cavbox' canvas-id="shareCanvas2"></canvas>
+      <view bindtap='save' class='savebtn'>保存</view>
+  </view>
+</view>
+

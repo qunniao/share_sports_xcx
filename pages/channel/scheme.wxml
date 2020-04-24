@@ -1,0 +1,39 @@
+<view class="all">
+
+      <view class='search-box'>
+        <image src='../../res/imgs/icon_search.png' bindtap='searchshop' />
+        <input bindconfirm='searchshops' placeholder='点击输入您想要的内容' bindblur='changesearchtext' maxlength='16' confirm-type="search" placeholder-style="color:rgba(0,0,0,0.4)"/>
+      </view>
+    <view class='filter_container'>
+      <view class="{{type==0?'select':'unselect'}}" bindtap="chooseType" data-type="0">全部</view>
+      <view class="{{type==1?'select':'unselect'}}" bindtap="chooseType" data-type="1">会员</view>
+      <view class="{{type==2?'select':'unselect'}}" bindtap="chooseType" data-type="2">商城产品</view>
+      <view class='question_conatiner'  bindtap="navigate" data-url="desc">
+        <text>如何发展二级渠道</text>
+        <image src='../../res/imgs/icon_agent_question_40.png' />
+      </view>
+    </view>
+
+     <view class='data_container' wx:key='*this' wx:for="{{dataList}}">
+      <image src='{{item.productPO.image}}' />
+      <text class='pcode'>产品编码:{{item.productPO.productNumber}}</text>
+      <text class='name'>{{item.productPO.name}}</text>
+      <text class='price'>{{item.productPO.floorPrice?item.productPO.floorPrice:'0'}}元</text>
+      <text class='line'></text>
+      <text class='code'>一级渠道方案编码：{{item.channelCode}}</text>
+      <text class='custom_price'>一级渠道价:{{item.channelPrice}}</text>
+       <text class='agent_price'>一级渠道利润:{{item.profit}}</text>
+       <view class='agentcontent'>
+          <view class='agentleftcontent'>
+            <view>二级渠道佣金分配方案码:0</view>
+            <view>二级渠道价:0元</view>
+            <view>二级渠道利润:0元</view>
+            <view>设置时间:2019年5月8日</view>
+          </view>
+          <view data-typeid='{{item.type}}' data-id='{{item.productId}}' data-price='{{item.productPO.floorPrice}}' class='agentrightcontent' bindtap='goconfig' data-oneid='{{item.userId}}' data-level='{{item.memberLevel}}' data-oneoperid='{{item.operatorId}}' data-channelcode='{{item.channelCode}}'>
+            <view>二级渠道</view>
+            <view>佣金分配设置</view>
+          </view>
+       </view>
+    </view>
+</view>

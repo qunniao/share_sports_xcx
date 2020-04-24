@@ -1,0 +1,90 @@
+<view class='header'>
+  <text>买家已付款，待发货</text>
+  <image src=''></image>
+</view>
+
+<view class='area'>
+  <view class='area-img'>
+    <image src='/image/jiesuan.png'></image>
+  </view>
+  <view class='person-address'>
+    <view class='per-add'>
+      <text>奶黄包</text>
+      <text class='phone'>1388888888</text>
+    </view>
+    <view class='address'>
+      <text>浙江省</text>
+      <text>杭州市</text>
+      <text>滨江区</text>
+      <text>长河街道</text>
+      <text>滨文路520号</text>
+    </view>
+  </view>
+</view>
+
+<view class='order'>
+  <view class='details'>
+    <view class='img-title' wx:for="{{items}}">
+      <view class='sp-img'>
+        <image></image>
+      </view>
+      <view class='sp-xh'>
+        <text class='titlename'>{{item.title}}</text>
+        <text class='model'>规格；型号</text>
+        <view class='num-price'>
+          <text class='price'>￥159.00</text>
+          <text class='num'>x1</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='totle'>
+    <view class='delivery'>
+      <text class='freight'>配送运费</text>
+      <text class='fee'>配送费:</text>
+      <text class='money'>￥10.00</text>
+    </view>
+    <view class='sp-total'>
+      <text class='freight'>商品总价</text>
+      <text class='xs-total'>共2件商品</text>
+      <text class='tmoney'>￥308.00</text>
+    </view>
+  </view>
+
+  <view class='totle'>
+    <view class='delivery'>
+      <text class='freight'>优惠金额</text>
+      <text class='fee'>满300元可使用20元优惠券</text>
+    </view>
+    <view class='sp-totala'>
+      <text class='freighta'>实付款</text>
+      <text class='smoney'>￥288.00</text>
+    </view>
+  </view>
+</view>
+
+<view class='bottom'>
+  <view class='remarks'>
+  <view class='remarks-x'>
+    <text>订单备注：</text>
+    <text class='content'>叭叭叭叭</text>
+  </view>
+  <view class='remarks-x'>
+    <text>订单编号：</text>
+    <text class='content'>123456789987654321</text>
+  </view>
+  <view class='remarks-x'>
+    <text>下单时间：</text>
+    <text class='content'>2019-04-16 17:00</text>
+  </view>
+  <view class='remarks-x'>
+    <text>付款时间：</text>
+    <text class='content'>2019-04-16 18:56</text>
+  </view>
+  <view class='remarks-x'>
+    <text>支付方式：</text>
+    <text class='content'>微信</text>
+  </view>
+</view>
+</view>

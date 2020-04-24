@@ -1,0 +1,24 @@
+<view class="all">
+  <view class='flex'>
+    <view class='info_container'>
+        <view class="comment1-description">
+          <text class='xxtext'>会员满意度:</text>
+            <view class="star-pos" >
+            <image src="{{flag>=1? '../../image/selected.png': '../../image/noselected.png'}}" class="stars" bindtap="changeColor1"/>
+            <image src="{{flag>=2? '../../image/selected.png': '../../image/noselected.png'}}" class="stars" bindtap="changeColor2"/>
+            <image src="{{flag>=3? '../../image/selected.png': '../../image/noselected.png'}}" class="stars" bindtap="changeColor3"/>
+            <image src="{{flag>=4? '../../image/selected.png': '../../image/noselected.png'}}" class="stars" bindtap="changeColor4"/>
+            <image src="{{flag>=5? '../../image/selected.png': '../../image/noselected.png'}}" class="stars" bindtap="changeColor5"/>
+              <!-- <view class="stars  {{flag>=1? 'on': ''}}" </view>
+              <view class="stars  {{flag>=2? 'on': ''}}" bindtap="changeColor2"></view>
+              <view class="stars  {{flag>=3? 'on': ''}}" bindtap="changeColor3"></view>
+              <view class="stars  {{flag>=4? 'on': ''}}" bindtap="changeColor4"></view>
+              <view class="stars  {{flag>=5? 'on': ''}}" bindtap="changeColor5"></view> -->
+            </view>
+        </view>
+        <textarea bindblur='changelength' placeholder='您可以对客服服务进行评价...' maxlength='40' class='textareabox'></textarea>
+        <text class='textmaxlength'>{{pjlength}}/40</text>
+      </view>
+  </view>
+  <view bindtap='subcontent' class='pjbtn'>提交评价</view>
+</view>

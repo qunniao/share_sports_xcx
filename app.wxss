@@ -1,0 +1,180 @@
+/*  底部悬浮导航  */
+page{background: #F7F8F8}
+.fix_nav_wp .nav_link{flex:1;}
+.flex{display:-webkit-flex;display: flex;width:100%;}
+.center_content{
+  display:flex;
+  justify-content: center
+}
+.fix_nav_wp{height:110rpx;position: fixed;left:0;bottom:0;background:#fff;z-index: 10}
+.scan_tabbar{
+  height:145rpx;
+  width:145rpx;
+  border-radius: 50%;
+  background:linear-gradient(90deg,rgba(78,178,255,1) 0%,rgba(0,144,255,1) 100%);
+  margin-top:-50rpx;
+  position: relative;
+}
+.scan_tabbar>view{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fix_nav_wp .nav_link image{
+  width:60rpx;
+  height:60rpx;
+  margin-top: 10rpx;
+  margin-bottom: 4rpx;
+}
+.fix_nav_wp .nav_link .scan_tabbar image{width:59rpx;height:38rpx;margin-top: 16rpx;}
+.content_status{
+  font-size: 20rpx;
+  color: #FFF;
+  line-height: 28rpx;
+  margin-top: 8rpx;
+}
+.content_time{
+  font-size: 28rpx;
+  color: #FFF;
+  font-weight: 500;
+  line-height: 40rpx;
+}
+.tabbar_select{
+  font-size:24rpx;
+  color:#0090FF;
+  height:30rpx;
+}
+.tabbar_unselect{
+  font-size:24rpx;
+  color:#898989;
+  height:30rpx;
+}
+
+
+
+/* 筛选弹窗 */
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+.drawer_attr_box {
+  width: 70%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2000;
+  background: #fff;
+
+}
+.drawer_attr_content {
+  height: 100%;
+  overflow-x: scroll;
+  margin-top: 15rpx;
+  padding-bottom: 80rpx;
+}
+.home-property-box .property-title{
+  font-size: 30rpx;
+  color:'#2A2E33';
+  font-weight: 800;
+  margin-left: 20rpx;
+  margin-bottom: 18rpx;
+}
+.home-property-box .property-content{
+  float: left;
+  width: 204rpx;
+  height: 60rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: 24rpx;
+  border-radius: 5rpx;
+  align-items: center;
+  margin-bottom: 15rpx;
+  margin-left: 15rpx;
+  box-sizing: border-box;
+}
+.home-property-box .unselect{
+  background: #F1F2F6;
+  color:#2A2E33;
+}
+.home-property-box .select{
+  color: #0090FF;
+  border: 1rpx solid #0090FF;
+  background: #FFF;
+}
+.btn-box{
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  height: 80rpx;
+  width:100%;
+}
+.btn-box>button{
+  width: 50%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+
+}
+.btn-box>button:first-of-type{
+  background: #0090FF;
+  color: #FFF;
+  font-weight: 500;
+  font-size: 32rpx;
+}
+.btn-box>button:last-of-type{
+  background: #FFF;
+  color: #2A2E33;
+  font-size: 32rpx;
+  border-top: 1px solid #F7F8FA;
+}
+
+
+/* 获取用户信息弹窗 */
+.user_screen_box{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+.user_screen_box>image{
+  position: absolute;
+  top: 120rpx;
+  width: 597rpx;
+  height: 695rpx;
+}
+.user_screen_box>.checkbtnone{
+  position: absolute;
+  top: 736rpx;
+  left: 78rpx;
+  width: 298rpx;
+  height: 80rpx;
+  border: none;
+  /* border:0rpx solid #fff; */
+}
+.user_screen_box>.checkbtntwo{
+  position: absolute;
+  top: 736rpx;
+  left: 378rpx;
+  width: 298rpx;
+  height: 80rpx;
+  border: none;
+  /* border:0rpx solid #fff; */
+}  

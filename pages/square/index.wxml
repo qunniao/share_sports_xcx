@@ -1,0 +1,69 @@
+<view class="all">
+  <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+  <view class='search_container'>
+      <view class='search-box'>
+        <image src='../../res/imgs/icon_search.png' bindtap='searchsquare' />
+        <input placeholder='点击输入您想要的内容' maxlength='16' bindblur='searchtextchange' bindconfirm='searchshop' confirm-type="search" placeholder-style="color:rgba(0,0,0,0.4)"/>
+      </view>
+      <image src='../../res/imgs/icon_square_logo_44.png' class='add_dynamic' bindtap="navigate" data-url="publish" />
+  </view>
+
+
+  <view class='info_container'>
+    <view style='width:100%;height:224rpx' bindtap="navigateuser" data-url="principal" >
+      <image src="{{userdata.avatarUrl?userdata.avatarUrl:'../../res/imgs/default.jpg'}}" class='default'/>
+      <text class='name'>{{userdata.userNike?userdata.userNike:'暂无'}}</text>
+      <text class='signature'>个性签名：{{usergxqm}}</text>
+      <image src="../../res/imgs/icon_square_details_28.png" class='details'/>
+    </view>   
+      <view class='bottom_container'>
+        <view class='follow' bindtap='gomyfollow'>
+          <view class='number'>{{ourdata.attentionNumber}}</view>
+          <view class='title'>我的关注</view>
+        </view>
+        <view class='partner'>
+          <view class='number'>{{ourdata.friendNumber}}</view>
+          <view class='title'>我的搭伙好友</view>
+        </view>
+        <view  class='info'>
+          <view class='number'>{{usernoread}}</view>
+          <view class='title'>未读消息</view>
+        </view>
+      </view>
+  </view>
+
+  <view class='container-box'>
+    <view class='social-btn-box'>
+      <view class="social-btn-1 {{type==1?'social-select':'social-unselect'}} {{type==3?'border_right_no':''}}" bindtap="chooseType" data-type="1">附近圈</view>
+      <view class="social-btn-2 {{type==2?'social-select':'social-unselect'}}" bindtap="chooseType" data-type="2"><text>关注圈</text></view>
+      <view class="social-btn-3 {{type==3?'social-select':'social-unselect'}} {{type==1?'border_left_no':''}}" bindtap="chooseType" data-type="3"><text>好友圈</text></view>
+    </view>
+  </view>
+
+  <view class='square_container'>
+      <view class='dataList_container' wx:for="{{dataList}}"  >
+          <view class='dataList_info_container'>
+               <image bindtap='gotousers' data-id='{{item.userId}}' src="{{item.userPO.avatarUrl?item.userPO.avatarUrl:'../../res/imgs/default.jpg'}}" class='default'/>
+               <text class='name'>{{item.userPO.userNike?item.userPO.userNike:'暂无'}}</text>
+               <text class='create_time'>{{item.createTime}}</text>
+               <image src="{{item.follow?'../../res/imgs/icon_square_cancel_follow.png':'../../res/imgs/icon_square_follow.png'}}" data-id='{{item.userId}}' data-ischeck='{{item.follow}}' bindtap='followthis' class="{{item.follow?'follow':'cancel_follow'}}"/>
+          </view>
+          <view class='content'>{{item.content}}</view>
+          <view class='imgs_container'>
+           <image wx:for='{{item.groupPictorePOList}}' src='{{item.url}}' />
+          </view>
+          <view class='operator_container'>
+            <view class='chat_container'>
+              <image src="{{item.chat?'../../res/imgs/icon_square_chat_t_28.png':'../../res/imgs/icon_square_chat_f_28.png'}}"/>
+              <text>{{item.gymSubjectPO.length?item.gymSubjectPO.length:'0'}}</text>
+            </view>
+            <view class='fabulous_container'>
+              <image data-index='{{index}}' data-mid='{{item.mid}}' bindtap='giveFabulous' src="{{item.chat?'../../res/imgs/icon_square_fabulous_t_28.png':'../../res/imgs/icon_square_fabulous_f_28.png'}}"/>
+              <text>{{item.grouplength?item.grouplength:'0'}}</text>
+            </view>
+          </view>
+      </view>
+  </view>
+
+
+</view>

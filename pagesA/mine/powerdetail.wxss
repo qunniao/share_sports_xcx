@@ -1,0 +1,19 @@
+page {
+  background-color: #F7F8F8;
+}
+
+.detailimages{
+  width: 100%;
+  height: 1200rpx;
+  /* height: auto; */
+}
+.nowreserve{
+  width: 100%;
+  line-height: 97.2rpx;
+  background: #0090FF;
+  color: #FFFFFF;
+  font-size: 33.3rpx;
+  position: fixed;
+  bottom: 0;
+  text-align: center
+}

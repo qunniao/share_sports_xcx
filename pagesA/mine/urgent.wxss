@@ -1,0 +1,86 @@
+page {
+  background-color: #F6F7F7;
+}
+.all{
+  width: 750rpx;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.title{
+  font-size: 33rpx;
+  height: 40rpx;
+  color: #000;
+  margin-top: 37rpx;
+  text-align: center;
+}
+.content{
+  font-size: 25rpx;
+  height: 30rpx;
+  color: #9FA0A0;
+  margin-top: 1rpx;
+  text-align: center;
+  margin-bottom: 29rpx;
+}
+.info_container{
+  width: 694rpx;
+  background: #FFF;
+  border-radius: 20rpx;
+  padding-bottom: 90rpx;
+}
+.input_container{
+  width: 556rpx;
+}
+.input_container>.label{
+  height: 35rpx;
+  display: flex;
+  flex-direction: row;
+  color: #000;
+  margin: 65rpx 0 10rpx 0;
+}
+.input_container>input{
+  width: 100%;
+  height: 56rpx;
+  background: #F7F8F8;
+  font-size: 22rpx;
+  color: #000;
+  border-radius: 8rpx;
+  padding-left: 25rpx;  
+}
+.tips_container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 31rpx;
+  margin-top: 28rpx;
+}
+.tips_container>image{
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 94rpx;
+  margin-right: 4rpx;
+}
+.tips_container>text{
+  font-size: 22rpx;
+  color: #0090FF;
+}
+.confirm_btn{
+  width: 564rpx;
+  height: 76rpx;
+  background: #0090FF;
+  font-size:  36rpx;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40rpx;
+  font-weight: bold;
+  margin-top: 200rpx;
+  margin-bottom: 50rpx;
+
+}

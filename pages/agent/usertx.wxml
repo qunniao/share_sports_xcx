@@ -1,0 +1,21 @@
+<view class="all">
+    <view class='buyuserbox'>
+      <view>我的可提现佣金 <title class='usermoney'>￥{{surplusmoney}}</title></view>
+     <input class='getmoney' bindblur='changeuserprice' placeholder="请输入提现的金额"/>
+    </view>
+  <view class='buyusercontentbox'>
+    <view class='getmongybox'>提现到{{gettype==2?'支付宝':gettype==1?'微信':''}}<image src="{{gettype==2?'../image/zhifubao.png':gettype==1?'../image/weixin.png':''}}"/></view>
+    <view class='usernamebox'><title>姓名</title><input bindblur='changeusername' placeholder='请输入姓名'/></view>
+    <view class='usernamebox2'><title>{{gettype==2?'支付宝':gettype==1?'微信':''}}账号</title><input bindblur='changeuseraccount' placeholder="请输入{{gettype==2?'支付宝':gettype==1?'微信':''}}账号"/></view>
+    <view class='usernamebox3'><title>确认账号</title><input bindblur='changecheckuseraccount' placeholder="请再次输入{{gettype==2?'支付宝':gettype==1?'微信':''}}账号"/></view>
+  </view>  
+  <view bindtap='gotolast' class='golast'>下一步</view>
+    <modal title="提示" hidden="{{modalHidden}}" bindconfirm="modalConfirm" bindcancel="modalCandel">
+    <view>
+      <view>确认要提现到{{gettype==2?'支付宝':gettype==1?'微信':''}}？</view>
+      <view>姓名:{{username}}</view>
+      <view>{{gettype==2?'支付宝':gettype==1?'微信':''}}账号:{{useraccount}}</view>
+    </view>
+  </modal>
+</view>
+

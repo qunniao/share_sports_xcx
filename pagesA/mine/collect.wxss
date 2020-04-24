@@ -1,0 +1,217 @@
+page {
+  background-color: #F6F7F7;
+}
+.all{
+  width: 750rpx;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.nav_container{
+  width: 100%;
+  height: 83rpx;
+  display: flex;
+  flex-direction: row;
+  background: #FFF;
+}
+.nav_container>view{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav_container .select{
+  font-size: 28rpx;
+  color: #008FFF;
+  border-bottom: 4rpx solid #008FFF;
+}
+.nav_container .unselect{
+  font-size: 28rpx;
+  color: #9E9F9F;
+}
+.gym-list{
+  width: 694rpx;
+  height: 186rpx;
+  background: #FFF;
+  border-radius: 20rpx;
+  margin:0 28rpx 30rpx 28rpx;
+  position: relative;
+}
+.gym-image{
+  height: 136rpx;
+  width: 170rpx;
+  border-radius: 10rpx;
+  position: absolute;
+  left: 25rpx;
+  top: 25rpx;
+}
+.gym-list .phone,.gym-list .member-blue{
+  width: 26rpx;
+  height: 26rpx;
+  position: absolute;
+  top: 44rpx;
+}
+.phone{
+  right: 104rpx;
+}
+.member-blue{
+  right: 72rpx; 
+}
+.gym-name{
+  font-size: 26rpx;
+  font-weight: 800;
+  height: 26rpx;
+  color: #000;
+  position: absolute;
+  top: 40rpx;
+  left: 210rpx;
+}
+.gym-position{
+  position: absolute;
+  left: 210rpx;
+  font-size: 24rpx;
+  height: 36rpx;
+  color: rgba(0, 0, 0, 0.4);
+  top: 85rpx;
+  width: 690rpx;
+  line-height: 36rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowarp;
+}
+.power_value{
+  font-size: 32rpx;
+  color: #F00;
+  position: absolute;
+  right: 72rpx;
+  bottom: 43rpx;
+}
+.coach_container{
+  flex-wrap: wrap;
+  position: relative;
+  display: flex;
+  padding-top: 67rpx;
+  margin-bottom: 97rpx;
+}
+.coach_box{
+  width: 192rpx;
+  height: 324rpx;
+  border:1px solid rgba(159,160,160,1);
+  border-radius: 17rpx;
+  margin-left: 40rpx;
+  justify-items: center;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 40rpx;
+}
+.coach_box>image{
+  width: 192rpx;
+  height: 215rpx;
+}
+.coach_box .name{
+  font-size: 32rpx;
+  color: #000;
+  text-align: center;
+  height: 40rpx;
+  position: absolute;
+  top: 226rpx;
+  width: 192rpx;
+  left: 0;
+  font-weight: 500;
+}
+.coach_box .type{
+  text-align: center;
+  width: 192rpx;
+  font-size: 28rpx;
+  height: 33rpx;
+  color: #9FA0A0;
+  position: absolute;
+  top: 270rpx;
+  left: 0
+}
+.coach_btn{
+  position: absolute;
+  right: 42rpx;
+  top: 14rpx;
+  background: #008FFF;
+  border-radius: 7rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #FFF;
+  height: 40rpx;
+  padding: 0 28rpx;
+}
+
+
+.submit-box{
+  width: 100%;
+  height: 98rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  z-index: 4;
+  background: #FFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}   
+.submit-info{
+  width:520rpx;
+  height:100%;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+}
+.submit-info>image{
+  width: 38rpx;
+  height: 38rpx;
+  margin-left: 42rpx;
+}
+.submit-info>text{
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #000;
+  margin-left: 11rpx;
+}
+.submit-btn{
+  width:230rpx;
+  height:100%;
+  background:#008FFF;
+  display: flex;justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: #FFF;
+  font-weight: 500;
+}
+.choose_container{
+  position: absolute;
+  right: 13rpx;
+  top: 13rpx;
+}
+.choose_container>image{
+  width: 32rpx;
+  height: 32rpx;
+}
+.delbtnbox{
+  position: absolute;
+  z-index: 200;
+  height:186rpx;
+  width: 210rpx;
+  line-height: 186rpx;
+  font-size: 30.5rpx;
+  border-radius: 16.6rpx;
+  text-align: center;
+  color: #FFF;
+  background: #008FFF;
+  right: 0;
+  top: 0;
+}

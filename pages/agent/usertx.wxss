@@ -1,0 +1,131 @@
+.buyuserbox{
+  width: 694.4rpx;
+  height:141.6rpx;
+  background: #FFF;
+  color: #9FA0A0;
+  border-radius: 16.6rpx;
+  margin: 0 auto;
+  margin-top: 15.2rpx;
+  padding-top: 36.1rpx;
+  font-size: 25rpx;
+}
+.buyuserbox>view{
+  margin-left: 36.1rpx;
+}
+.usermoney{
+  font-size: 37.5rpx;
+  color: #0090FF;
+  font-weight: bold;
+}
+
+.buyusercontentbox{
+  width: 694.4rpx;
+  height:381.9rpx;
+  background: #FFF;
+  color: #9FA0A0;
+  border-radius: 16.6rpx;
+  margin: 0 auto;
+  margin-top: 15.2rpx;
+  padding-top: 36.1rpx;
+  font-size: 25rpx;
+}
+.buyusercontentbox>view{
+  padding-left: 36.1rpx;
+}
+.getmongybox{
+  border-bottom: 1rpx solid rgba(180, 180, 181, 0.2);
+  padding-bottom: 23.6rpx;
+}
+.buyusercontentbox>view>image{
+  margin-left: 20rpx;
+  width: 25rpx;
+  height: 25rpx;
+}
+.usernamebox{
+  overflow: hidden;
+  font-size: 25rpx;
+  border-bottom: 1rpx solid rgba(180, 180, 181, 0.2);
+}
+.usernamebox>input{
+  display: inline-block;
+  border-radius: 8.3rpx;
+  width: 420.1rpx;
+  height: 106.9rpx;
+  line-height: 106.9rpx;
+  color: #9FA0A0;
+  padding-left: 23.6rpx;
+  font-size: 22.2rpx;
+}
+.usernamebox>title{
+  float: left;
+  width: 140rpx;
+  font-size: 27.7rpx;
+  line-height: 106.9rpx;
+  margin-right: 44.4rpx;
+}
+/* 支付宝账号 */
+.usernamebox2{
+  overflow: hidden;
+  font-size: 25rpx;
+  border-bottom: 1rpx solid rgba(180, 180, 181, 0.2);
+}
+.usernamebox2>input{
+  display: inline-block;
+  border-radius: 8.3rpx;
+  width: 420.1rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #9FA0A0;
+  padding-left: 23.6rpx;
+  font-size: 22.2rpx;
+}
+.usernamebox2>title{
+  float: left;
+  width: 140rpx;
+  font-size: 27.7rpx;
+  line-height: 100rpx;
+  margin-right: 44.4rpx;
+}
+/* 确认账号 */
+.usernamebox3{
+  overflow: hidden;
+  font-size: 25rpx;
+  border-bottom: 1rpx solid rgba(180, 180, 181, 0.2);
+}
+.usernamebox3>input{
+  display: inline-block;
+  border-radius: 8.3rpx;
+  width: 420.1rpx;
+  height: 94.4rpx;
+  line-height: 94.4rpx;
+  color: #9FA0A0;
+  padding-left: 23.6rpx;
+  font-size: 22.2rpx;
+}
+.usernamebox3>title{
+  float: left;
+  width: 140rpx;
+  font-size: 27.7rpx;
+  line-height: 94.4rpx;
+  margin-right: 44.4rpx;
+}
+
+.golast{
+  width: 694.4rpx;
+  height:83.3rpx; 
+  background: #0090FF;
+  margin: 0 auto;
+  margin-top: 140.2rpx;
+  border-radius: 16.6rpx;
+  color: #FFF;
+  text-align: center;
+  line-height: 83.3rpx;
+  font-size: 29.1rpx;
+}
+.getmoney{
+  margin-left:36.1rpx;
+    margin-top: 30rpx;
+  font-size: 37.5rpx;
+  color: #0090FF;
+  font-weight: bold;
+}

@@ -1,0 +1,112 @@
+<view class="all">
+  <view class='commission_container'>
+      <view class='info_container'>
+          <view class='info_child_container1'>
+            <view>客户佣金(元)</view>
+            <view>{{userdata.clientCommission?userdata.clientCommission:'0'}}</view>
+          </view>
+          <text class='line'></text>
+          <view class='info_child_container1'>
+            <view>二级渠道佣金(元)</view>
+            <view>{{userdata.channelCommission?userdata.channelCommission:'0'}}</view>
+          </view>
+          <text class='details' bindtap='gotxdetail'>提现明细</text>
+      </view>
+      <view class='amount_total'>{{userdata.clientCommission+userdata.channelCommission}}</view>
+      <view class='commission_title'>累计佣金(元)</view>
+  </view>
+
+  <view class='flex' style='margin-top:28rpx'>
+      <view class='common_container'>
+          <view>
+            <image src='../../res/imgs/icon_commission_btn_1.png'/>
+            <text class='title'>可提现佣金</text>
+            <text class='amount' style='color:#0090FF'>{{usercomdata.canCarry?usercomdata.canCarry:'0'}}元</text>
+          </view>
+      </view>
+  </view>
+
+  <view class='flex' style='margin-top:22rpx'>
+      <view class='common_container'>
+          <view class='bottom_border'>
+            <image src='../../res/imgs/icon_commission_btn_2.png'/>
+            <text class='title'>已申请佣金</text>
+            <text class='amount'  >{{usercomdata.applied?usercomdata.applied:'0'}}元</text>
+          </view>
+          <view class='bottom_border'>
+            <image src='../../res/imgs/icon_commission_btn_3.png'/>
+            <text class='title'>待打款佣金</text>
+            <text class='amount'  >{{usercomdata.waitCashed?usercomdata.waitCashed:'0'}}元</text>
+          </view>
+          <view class='bottom_border'>
+            <image src='../../res/imgs/icon_commission_btn_4.png'/>
+            <text class='title'>无效佣金</text>
+            <text class='amount'  >{{usercomdata.invalid?usercomdata.invalid:'0'}}元</text>
+          </view>
+          <view>
+            <image src='../../res/imgs/icon_commission_btn_5.png'/>
+            <text class='title'>成功提现佣金</text>
+            <text class='amount'  >{{usercomdata.cashed?usercomdata.cashed:'0'}}元</text>
+          </view>
+      </view>
+  </view>
+
+  <view class='flex' style='margin-top:22rpx'>
+      <view class='common_container'>
+          <view class='bottom_border'>
+            <image src='../../res/imgs/icon_commission_btn_6.png'/>
+            <text class='title'>待收款佣金</text>
+            <text class='amount'  >{{usercomdata.waitReceive?usercomdata.waitReceive:'0'}}元</text>
+          </view>
+          <view>
+            <image src='../../res/imgs/icon_commission_btn_7.png'/>
+            <text class='title'>未结算佣金</text>
+            <text class='amount'  >{{usercomdata.noSettlement?usercomdata.noSettlement:'0'}}元</text>
+          </view>
+      </view>
+  </view>
+
+
+  <view class='flex' style='margin-top:17rpx'>
+      <view class='common_container'>
+        <view class='title_container bottom_border'>
+          <text>提现到</text>
+        </view>
+        <view class='pay_conatiner' style='height:154rpx'>
+            <view class='wechat'>
+              <view class="{{type==1?'select':'unselect'}}" bindtap='choosePay' data-type='1'>
+                <image src='../../res/imgs/icon_wechat.png'/>
+                <text>微信</text>
+              </view>
+            </view>
+            <view class='alipay'>
+              <view  class="{{type==2?'select':'unselect'}}" bindtap='choosePay' data-type='2'>
+                <image src='../../res/imgs/icon_alipay.png'/>
+                <text>支付宝</text>
+              </view>
+            </view>
+        </view>
+      </view>
+  </view>
+
+
+  <view class='flex' style='margin-top:17rpx;margin-bottom:20rpx'>
+      <view class='common_container'>
+        <view class='title_container bottom_border'>
+          <text>用户须知</text>
+        </view>
+
+        <view class='desc_content'>
+          <text>待拟定待拟定待拟定待拟定待拟定待拟定待拟定待拟定待拟定待拟定待拟定待拟定待拟定待拟定待拟定待拟定</text>
+        </view>
+      </view>
+  </view>
+
+</view>
+
+
+<view class='submit-box'>
+  <view bindtap='getmoney' class='submit-info'>
+      我要提现
+  </view>
+</view>

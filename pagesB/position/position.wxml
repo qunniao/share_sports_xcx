@@ -1,0 +1,23 @@
+
+<view class='all'>
+  <view class='new_add_address_box' bindtap="navigate" data-url="../editpos/editpos">
+    <view>添加新地址</view>
+  </view>
+  <view class='address_list'   wx:for="{{poslist}}">
+    <view bindtap="changeadress" data-adress='{{item}}' class="ardessbox">
+      <view  class='top_container'>
+        <text class='name'>{{item.consignee}}</text>
+        <text class='phone'>{{item.phoneNumber}}</text>
+      </view>
+      <view class='container'>
+        <view class='default' wx:if="{{item.isDefault==1}}">默认</view>
+        <text class="{{item.isDefault==1?'address_0':'address_1'}}">{{item.area}}{{item.detailedAddress}}</text>
+      </view>
+    </view>
+    <view class='edit_btn_container' bindtap="navigate2" data-value="{{item}}">
+      编辑
+    </view>
+  </view>
+</view>
+
+

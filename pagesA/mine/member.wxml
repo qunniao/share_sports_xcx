@@ -1,0 +1,218 @@
+<view class="all">
+  <view class="home-nav-container">
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+    <view class='flex'>
+      <view class='info_container'>
+          <image class="icon_member_info_bg" mode="cover" src="../../res/imgs/icon_member_info_bg.png" ></image>
+          <image class="userinfo-avatar" mode="cover" src="{{userdata.avatarUrl?userdata.avatarUrl:'../../res/imgs/default.jpg'}}" ></image>
+          <text class='address'>浙江省 杭州市 下城区</text>
+          <text class='create_time'>创建时间：{{userdata.createTime?userdata.createTime:''}}</text>
+          <view class='level_container'>
+            <image src="../../res/imgs/icon_member_star.png" ></image>
+            <text>{{userdata.level==0?'普通用户':userdata.level==1?'体验会员':userdata.level==2?'大众会员':userdata.level==3?'精英会员':userdata.level==4?'皇家会员':'暂未开通'}}</text>
+          </view>
+          <text class='desc_title'>震撼你自己</text>
+          <text class='desc_title_en'>SHOCK YOURSELF</text>
+          <view class='power_container'>
+            <text>能量值:</text>
+            <text>{{userdata.energy?userdata.energy:'0'}}</text>
+          </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='flex'>
+    <view class='info_container2'>
+      <view class='info_message_box' bindtap='gomember'>
+          <text class='title'>会员办理</text>
+          <image src='../../res/imgs/right.png' />
+        </view>
+        <view class='info_message_box' style='border-bottom:0' bindtap='gomember'>
+          <text class='title'>查看其他会员</text>
+          <image src='../../res/imgs/right.png'/>
+        </view>
+    </view>
+  </view>
+
+<view class='flex'>
+   <view class='rights-container'>
+    <view class='title'>会员权益</view>
+    <view class='rights-power-container'>
+      <view class='rights-box'>
+        <image class='icon_power'  src='../../res/imgs/icon_power_1.png'/>
+        <text class='rights-sm-title'>消费特权<text class='rights-sm-content'>线下健身俱乐部消费服务</text></text>
+        <view class='rights-details-box' bindtap="switch" data-type="2">
+          <text>{{power_1?'查看':'点击查看'}}</text>
+          <image src="{{power_1?'../../res/imgs/icon_white_up.png':'../../res/imgs/icon_white_arrow.png'}}" />
+        </view>
+      </view>
+      <view wx:if="{{power_1}}">
+        <view class='power-content-1' >
+        <text>A.全城通用:（解除区域限制）\n </text>
+        <text>B.俱乐部可按次消费:（解除资金限制）\n</text>
+        <text>C.会员永不过期，用完为止:（解除时间限制）\n</text>
+        <text>D.可无损失转化为专属健身俱乐部时卡:（解除风险限制）\n</text>
+      </view>
+        <view class='table'>
+            <view class='tr'>
+              <view class='td td1'>城市</view>
+              <view class='td td2'>会员等级</view>
+              <view class='td td3'>售价</view>
+              <view class='td td4'>能量</view>
+              <view class='td td5'>平均健身房使用</view>
+              <view class='td td6'>可使用人数</view>
+            </view>
+            <view class='tr'>
+              <view class='td td1'></view>
+              <view class='td td2'>{{levedata[0].name}}</view>
+              <view class='td td3'>{{levedata[0].price}}</view>
+              <view class='td td4'>{{levedata[0].energy}}</view>
+              <view class='td td5'>4次</view>
+              <view class='td td6'>单人</view>
+            </view>
+            <view class='tr'>
+              <view class='td td1' style='border-top:0'></view>
+              <view class='td td2'>{{levedata[1].name}}</view>
+              <view class='td td3'>{{levedata[1].price}}</view>
+              <view class='td td4'>{{levedata[1].energy}}</view>
+              <view class='td td5'>80次</view>
+              <view class='td td6'>单人</view>
+            </view>
+            <view class='tr'>
+              <view class='td td1' style='border-top:0'></view>
+              <view class='td td2'>{{levedata[2].name}}</view>
+              <view class='td td3'>{{levedata[2].price}}</view>
+              <view class='td td4'>{{levedata[2].energy}}</view>
+              <view class='td td5'>200次</view>
+              <view class='td td6'>双人</view>
+            </view>
+            <view class='tr' style='border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>
+              <view class='td td1' style='border-top:0'></view>
+              <view class='td td2'>{{levedata[3].name}}</view>
+              <view class='td td3'>{{levedata[3].price}}</view>
+              <view class='td td4'>{{levedata[3].energy}}</view>
+              <view class='td td5'>400次</view>
+              <view class='td td6'>三人</view>
+            </view>
+            <text class='table-city'>浙\n江\n杭\n州</text>
+        </view>
+      </view>
+      
+        
+    </view>
+    <view class='rights-power-container'>
+      <view class='rights-box'>
+        <image class='icon_power'  src='../../res/imgs/icon_power_2.png'/>
+        <text class='rights-sm-title'>社交特权<text class='rights-sm-content'>健身社交服务</text></text>
+        <view class='rights-details-box' bindtap="switch" data-type="2">
+          <text>{{power_1?'查看':'点击查看'}}</text>
+          <image src="{{power_1?'../../res/imgs/icon_white_up.png':'../../res/imgs/icon_white_arrow.png'}}" />
+        </view>
+      </view>
+    <view wx:if="{{power_1}}">
+      <view class='power-content-1'>
+        <text> A.线下健身目的一致的同伴匹配，共勉健身目标达成。\n </text>
+        <text>B.健身放松之余，精英社交，人脉拓展。\n</text>
+      </view>
+      <view class='table2'>
+          <view class='tr'>
+            <view class='td td1'>等级</view>
+            <view class='td td2'>可匹配等级</view>
+            <view class='td td3'>平均健身房使用</view>
+            <view class='td td4'>人数匹配额度</view>
+          </view>
+          <view class='tr'>
+            <view class='td td1'>体验会员</view>
+            <view class='td td2'>大众会员</view>
+            <view class='td td3'>四项基本条件</view>
+            <view class='td td4'>每天5人</view>
+          </view>
+          <view class='tr'>
+            <view class='td td1'>大众会员</view>
+            <view class='td td2'>大众会员</view>
+            <view class='td td3'>四项基本条件</view>
+            <view class='td td4'>每天5人</view>
+          </view>
+          <view class='tr' style='height:80rpx'>
+            <view class='td td1' style='height:80rpx'>精英会员</view>
+            <view class='td td2' style='height:80rpx'>大众、精英会员</view>
+            <view class='td td3' style='height:80rpx'>四项基本条件+五项高级条件</view>
+            <view class='td td4' style='height:80rpx'>不限</view>
+          </view>
+           <view class='tr'  style='height:80rpx'>
+            <view class='td td1' style='height:80rpx;border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>皇家会员</view>
+            <view class='td td2' style='height:80rpx;border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>大众、精英、皇家会员</view>
+            <view class='td td3' style='height:80rpx;border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>四项基本条件+六项高级条件</view>
+            <view class='td td4' style='height:80rpx;border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>不限</view>
+          </view>
+      </view>
+    
+    </view>
+     
+    </view>
+    <view class='rights-power-container'>
+      <view class='rights-box'>
+        <image class='icon_power'  src='../../res/imgs/icon_power_3.png'/>
+        <text class='rights-sm-title'>服务特权<text class='rights-sm-content'>会员私人专属特权服务</text></text>  
+         <view class='rights-details-box' bindtap="switch" data-type="2">
+          <text>{{power_1?'查看':'点击查看'}}</text>
+          <image src="{{power_1?'../../res/imgs/icon_white_up.png':'../../res/imgs/icon_white_arrow.png'}}" />
+        </view>
+      </view>
+      <view wx:if="{{power_1}}">
+        <view class='power-content-1'>
+          <text>A.专属运动险特权服务\n </text>
+          <text>B.专属健身房余额年卡转换服务\n</text>
+          <text>C.健身社交-人群选配特权\n</text>
+          <text>D.一对一私人管家\n</text>
+        </view>
+        <view class='table3'>
+          <view class='tr'>
+            <view class='td td1'>城市</view>
+            <view class='td td2'>会员等级</view>
+            <view class='td td3'>特权项</view>
+          </view>
+          <view class='tr'>
+            <view class='td td1'></view>
+            <view class='td td2'>体验会员</view>
+            <view class='td td3'>4项</view>
+
+          </view>
+          <view class='tr'>
+            <view class='td td1' style='border-top:0'></view>
+            <view class='td td2'>大众会员</view>
+            <view class='td td3'>8项</view>
+          </view>
+          <view class='tr'>
+            <view class='td td1' style='border-top:0'></view>
+            <view class='td td2'>精英会员</view>
+            <view class='td td3'>10项</view>
+          </view>
+          <view class='tr' style='border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>
+            <view class='td td1' style='border-top:0'></view>
+            <view class='td td2'>皇家会员</view>
+            <view class='td td3'>12项</view>
+          </view>
+          <text class='table-city'>杭州</text>
+      </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='flex' style='margin-bottom:40rpx'>
+   <view class='rights-container'>
+    <view class='title'>会员礼包</view>
+
+    <view class='rights-power-container' bindtap="gotoshop" wx:for='{{coupondata}}'>
+      <view class='rights-box'>
+        <image class='icon_power'  src='../../res/imgs/icon_member_gift.png'/>
+        <text class='rights-sm-title'>{{item.couponPO.content}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+</view>

@@ -1,0 +1,254 @@
+.gaybox{
+  background: #F6F7F7
+}
+.allbox{
+  width: 695rpx;
+  margin: 0 auto;
+}
+.nowenergy{
+  padding-top: 36.1rpx;
+  font-size: 30.5rpx;
+}
+
+.cardbox{
+  margin-top: 27.7rpx;
+  width: 693rpx;
+  border:1rpx solid #9E9F9F;
+  height: 80.5rpx;
+  overflow: hidden;
+  border-radius: 16.6rpx;
+}
+.cardshow{
+  float: left;
+  width: 347.2rpx;
+  height: 80.5rpx;
+  line-height: 80.5rpx;
+  text-align: center;
+  color: #000000;
+  font-size: 30.5rpx;
+}
+
+.cardshowchecked{
+  float: left;
+  width: 347.2rpx;
+  height: 80.5rpx;
+  line-height: 80.5rpx;
+  text-align: center;
+  color: #FFFFFF;
+  background: #008FFF;
+  font-size: 30.5rpx;
+  border-radius: 16.6rpx;
+}
+
+.store_filter_container{
+  width: 100%;
+  height: 92rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.store_filter_container>view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 25rpx;
+}
+.all_filter{
+  /* margin-left: 40rpx; */
+  border-bottom: 1rpx solid #008FFF;
+  padding-bottom: 6.9rpx;
+}
+.all_filter>text{
+  font-size: 27.7rpx;
+  color: #008FFF;
+  margin-right: 8rpx;
+}
+.all_filter>image{
+  width: 20rpx;
+  height: 20rpx;
+}
+.other_filter{
+    padding-bottom: 6.9rpx;
+}
+.other_filter>text{
+  font-size: 27.7rpx;
+  color: #000000;
+  margin-right: 8rpx;
+}
+.other_filter>image{
+  width: 20rpx;
+  height: 20rpx;
+}
+
+/* 内容部分 */
+.cardlistcss{
+  margin-top: 37.5rpx;
+  padding: 22.2rpx;
+  width: 650rpx;
+  background: #FFFFFF;
+  border-radius: 16.6rpx;
+  font-size: 25rpx;
+}
+.cardtopbox{
+  overflow: hidden
+}
+.cardtopleft{
+  float: left;
+}
+.cardtopright{
+  float: right;
+  text-align: right;
+}
+.cardtopleftleft{
+  float: left;
+}
+.cardtopleftleft>image{
+  width: 125rpx;
+  height: 125rpx;
+  background: #9FA0A0;
+  margin-right: 23.6rpx;
+}
+.cardtopleftright{
+  float: right;
+}
+.scprice{
+  color: #9FA0A0;
+}
+.scprice>title{
+  font-size: 30.5rpx;
+  color: #0090FF;
+}
+.stateshow{
+  width: 105.5rpx;
+  height: 37.5rpx;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 6.9rpx;
+  display: inline-block;
+  margin-top: 9.7rpx;
+  margin-bottom: 37.5rpx;
+  line-height: 37.5rpx;
+  background: #0090FF;
+}
+
+.cardbottombox{
+  margin-top: 18rpx;
+  overflow: hidden
+}
+.cardbottomleft{
+  float: left;
+}
+.cardbottomright{
+  float: right;
+  width: 23.6rpx;
+  height: 15.2rpx;
+  margin-top:10rpx;
+}
+.detailbox{
+  color: #9FA0A0;
+  font-size: 22.2RPX;
+}
+.detailbox>view{
+  margin-top: 18rpx;
+}
+.exchangebox{
+  margin-top: 170.8rpx;
+  font-size: 25rpx;
+  color: #9FA0A0;
+  width: 641.6rpx;
+  height: 123.6rpx;
+  background: #FFFFFF;
+  padding: 30.5rpx 26.3rpx 30.5px 26.3rpx;
+}
+
+.jsexchange{
+  width: 340.2rpx;
+  height: 83.3rpx;
+  line-height: 83.3rpx;
+  font-size: 33.3rpx;
+  background: #008FFF;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 45.8rpx;
+  margin-bottom: 55.5rpx;
+  border-radius: 13.8rpx;
+}
+.sqtime{
+  text-align: right;
+}
+
+.modalContainer{
+  position: absolute;
+  z-index: 1001;
+  right: 28rpx;
+  top: 288rpx;
+  background: #FFF;
+
+}
+
+/* 日历 */
+.calendar-box{
+  width: 640rpx;
+  height: 600rpx;
+  position: relative;
+}
+.selected_date {
+  padding: 20rpx 0;
+  overflow: hidden;
+  width: 640rpx;
+}
+
+.selected_date>view {
+  width: 33.3%;
+  float: left;
+}
+.text_center{
+  text-align: center;
+}
+.calendar_panel {
+  width: 100%;
+}
+
+.calendar_box {
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.weekday_label {
+  width: 14.28%;
+  float: left;
+  display: block;
+  text-align: center;
+  font-size: 26rpx;
+  padding: 10rpx 0;
+}
+
+.weekday_label>text {
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  display: inline-block;
+}
+
+.select_icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.active_date {
+  background: #0090FF;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.show_box {
+  padding: 20rpx;
+  font-size: 26rpx;
+}
+
+.calendar_box:nth-child(2) .weekday_label{
+  float: right;
+}

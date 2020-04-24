@@ -1,0 +1,64 @@
+<view class="all">
+
+
+
+  <view class='team_container'>
+
+      <view class='nav_container'>
+        <view  class="{{type==1?'select':'unselect'}}" style="{{userrole==3?'':'width:100%'}}" bindtap="chooseType" data-type="1">客户团队</view>
+        <view class="{{type==2?'select':'unselect'}}" bindtap="chooseType" data-type="2" wx:if='{{userrole==3}}'>二级团队</view>
+      </view>
+
+      <view class='info_container'>
+          <view class='info_child_container1'>
+            <view>{{allcustomer}}</view>
+            <view>{{type==2?'累计二级数':'累计客户数'}}</view>
+          </view>
+          <text class='line'></text>
+          <view class='info_child_container2'>
+            <view>{{khcommission==null?'0':khcommission}}</view>
+            <view>累计佣金（元）</view>
+          </view>
+          <text class='line'></text>
+          <view class='info_child_container3'>
+            <view>{{sales==null?'0':sales}}</view>
+            <view>累计销售额（万元）</view>
+          </view>
+      </view>
+      
+  </view>
+
+  <view class='data_container' wx:key='*this'  wx:for="{{dataList}}" wx:if="{{type==1}}">
+    <image src="{{item.avatarUrl?item.avatarUrl:'../../res/imgs/default.jpg'}}" />
+    <text class='name'>{{item.userNike?item.userNike:'OYOC用户'}}</text>
+    <text class='time'>注册时间： {{item.createTime}}</text>
+    <text class='line'></text>
+    <text class='order_number'>订单数：{{item.totalNumber}}</text>
+    <text class='order_amount'>销售额：{{item.sales}}元</text>
+    <text class='comm_amount'>贡献佣金：{{item.totalCommission}}元</text>
+  </view>
+
+  <view wx:if="{{type==2}}">
+
+    <view class='flex' style='height:90rpx'>
+      <view class='second_choose_container'>
+        <view class="{{filter==0?'select':'unselect'}}" bindtap="filterType" data-type="0">全部</view>
+        <view class="{{filter==1?'select':'unselect'}} {{filter==0?'border_right':''}} {{filter==2?'border_left':''}}" bindtap="filterType" data-type="1">正式二级</view>
+        <view class="{{filter==2?'select':'unselect'}}" bindtap="filterType" data-type="2">审核中二级</view>
+      </view>
+    </view>
+    <view class='data_container' wx:key='*this'  wx:for="{{dataList2}}" >
+      <image src="{{item.userPO.avatarUrl?item.userPO.avatarUrl:'../../res/imgs/default.jpg'}}" />
+      <view class='name_container'><text>{{item.userPO.userName?item.userPO.userName:'OYOC用户'}}</text><view><text>{{item.status==2?'正式二级':item.status==1?'二级审核中':''}}</text></view></view>
+      <text class='time'>注册时间：{{item.createTime}}</text>
+      <text class='line' wx:if="{{item.status==2}}"></text>
+      <text class='order_number' wx:if="{{item.status==2}}">订单数：{{item.totalNumber?item.totalNumber:'0'}}</text>
+      <text class='order_amount' wx:if="{{item.status==2}}">销售额：{{item.sales?item.sales:'0'}}元</text>
+      <text class='comm_amount' wx:if="{{item.status==2}}">贡献佣金：{{item.totalCommission?item.totalCommission:'0'}}元</text>
+    </view>
+  </view>
+  
+
+
+</view>
+

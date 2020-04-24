@@ -1,0 +1,36 @@
+<view class="all">
+  <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+
+
+  <view class='info_container'>
+      <image src="{{userdata.avatarUrl?userdata.avatarUrl:'../../res/imgs/default.jpg'}}" class='default'/>
+      <text class='name'>{{userdata.userNike?userdata.userNike:'暂无'}}</text>
+      <text class='signature'>个性签名：{{usergxqm}}</text>
+      <view wx:if='{{showtype==2}}' class='edit-btn' bindtap="navigate" data-url="../../pagesA/mine/person">编辑资料</view>
+      <image wx:if='{{showtype==1}}' src="{{follow?'../../res/imgs/icon_square_cancel_follow.png':'../../res/imgs/icon_square_follow.png'}}"  bindtap='followthis' class="checkimg"/>
+  </view>
+
+  <view class='dynamic_list_container'>
+      <view class='line'></view>
+      <view class='dynamic_list' wx:for="{{dataList}}">
+        <text class='create_time'>{{item.createlist[1]}}/{{item.createlist[2]}}\n<text style='font-size:17rpx'>{{item.createlist[0]}}</text></text>
+        <view class='dynamic_content'>
+          <view class='content'>{{item.content}}</view>
+          <view class='imgs_container' wx:for='{{item.groupPictorePOList}}'>
+            <image src='{{item.url}}' />
+          </view>
+          <view class='operator_container'>
+            <view class='chat_container'>
+              <image src="{{item.chat?'../../res/imgs/icon_square_chat_t_28.png':'../../res/imgs/icon_square_chat_f_28.png'}}"/>
+              <text>{{item.groupCommentPOList.length}}</text>
+            </view>
+            <view class='fabulous_container'>
+              <image src="{{item.chat?'../../res/imgs/icon_square_fabulous_t_28.png':'../../res/imgs/icon_square_fabulous_f_28.png'}}"/>
+              <text>{{item.groupPraisePOList.length}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+  </view>
+
+</view>

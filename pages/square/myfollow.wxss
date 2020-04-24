@@ -1,0 +1,50 @@
+.firendlist-box{
+  background: #FFF;
+  width: 694rpx;
+  margin: 0 28rpx;
+  border-radius: 17rpx;
+  padding: 26rpx 0 15rpx;
+}
+.firendlist{
+  height: 110rpx;
+  width: 618rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: row-reverse;
+  margin:0 38rpx;
+  padding-bottom: 20rpx;
+}
+.firendlist>image{
+  width: 84rpx;
+  height: 84rpx;
+  position: absolute;
+  left: 0;
+  border-radius:7px;
+}
+.firend-info-box{
+  width: 520rpx;
+  height: 100%;
+  border-bottom: 1rpx solid #E8E8E8;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.firend-info-box .name{
+  font-size: 26rpx;
+  color: #000;
+  position: absolute;
+  top: 20rpx;
+}
+.firend-info-box .info{
+  color: #989898;
+  font-size: 22rpx;
+  position: absolute;
+  top: 60rpx;
+}
+.firend-info-box .time{
+  color: #989898;
+  font-size: 22rpx;
+  position: absolute;
+  right: 0;
+}

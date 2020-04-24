@@ -1,0 +1,210 @@
+page{
+  background: #F7F8F8;
+}
+
+.header{
+  width: 100%;
+  height: 200rpx;
+  line-height: 200rpx;
+  background: linear-gradient(to right,#4DB1FF,#0090FF);
+}
+
+.header text{
+  font-size: 36rpx;
+  color: #fff;
+  margin-left: 100rpx;
+}
+
+.header image{
+  width: 120rpx;
+  height: 120rpx;
+  float: right;
+  margin-top: 50rpx;
+  margin-right: 60rpx;
+}
+
+.area{
+  width: 90%;
+  height: 200rpx;
+  line-height: 200rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.area .area-img image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 85rpx;
+  margin-left: 25rpx;
+}
+
+.per-add{
+  font-size: 28rpx;
+  margin-left: 15rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  padding: 7rpx 0;
+}
+
+.phone{
+  font-size: 26rpx;
+  color: #9FA0A0;
+  margin-left: 20rpx;
+}
+
+.address text{
+  font-size: 26rpx;
+  margin-right: 10rpx;
+}
+
+.address{
+  margin-left: 15rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  padding: 7rpx 0;
+}
+
+.order{
+  width: 90%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 30rpx;
+}
+
+.order .details{
+  width: 100%;
+  position: relative;
+  top: 40rpx;
+}
+
+.sp-img image{
+  width: 160rpx;
+  height: 160rpx;
+  background: #3C4447;
+  margin: 20rpx;
+  border-radius: 20rpx;
+}
+
+.img-title{
+  display: flex;
+}
+
+.titlename{
+  position: relative;
+  top: 25rpx;
+  font-size: 28rpx;
+}
+
+.sp-xh{
+  display: flex;
+  flex-direction: column;
+}
+
+.model{
+  font-size: 22rpx;
+  margin-top: 40rpx;
+  padding: 6rpx 0rpx;
+  border-radius: 10rpx;
+  background: #EFEFEF;
+  color: #A1A2A2;
+  text-align: center;
+}
+
+.num-price{
+  margin-top: 10rpx;
+}
+
+.price{
+  font: 28rpx;
+  color: #008EFF;
+}
+
+.num{
+  position: relative;
+  left: 250rpx;
+  font-size: 26rpx;
+}
+
+.totle{
+  margin-top: 20rpx;
+}
+
+.delivery{
+  padding: 20rpx;
+}
+
+.freight{
+  font-size: 26rpx;
+}
+
+.freighta{
+  font-size: 28rpx;
+}
+
+.fee{
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  color: #A1A2A2;
+}
+
+.money{
+  font-size: 24rpx;
+  color: #A1A2A2;
+  margin-left: 10rpx;
+}
+
+.sp-total{
+  border-bottom: 1px solid #E1E1E1;
+  padding: 0 10rpx 30rpx 20rpx;
+}
+
+.xs-total{
+  margin-left: 240rpx;
+  font-size: 24rpx;
+  color: #A1A2A2;
+}
+
+.tmoney{
+  color: #008EFF;
+  margin-right: 25rpx;
+  float: right;
+}
+
+.smoney{
+  float: right;
+  margin-right: 25rpx;
+  color: #008EFF;
+}
+
+.remarks{
+  width: 90%;
+  position: relative;
+  top: 30rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin: 0 auto;
+}
+.sp-totala{
+  padding: 0 10rpx 30rpx 20rpx;
+}
+
+.remarks-x{
+  padding: 20rpx;
+}
+
+.remarks-x text{
+  font-size: 26rpx;
+}
+
+.content{
+  color: #A1A2A2;
+  margin-left: 10rpx;
+}
+
+.bottom{
+  padding-bottom:60rpx;
+}

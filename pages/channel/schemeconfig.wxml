@@ -1,0 +1,32 @@
+<view class="all">
+  <view class='whitebox'>
+     <view class='data_container'>
+      <image src='{{onedatas.productPO.image}}' />
+      <text class='pcode'>产品编码:{{onedatas.productPO.productNumber}}</text>
+      <text class='name'>{{onedatas.productPO.name}}</text>
+      <text class='price'>{{onedatas.productPO.floorPrice}}元</text>
+      <text class='line'></text>
+      <text class='code'>一级渠道方案编码：{{onedatas.channelCode}}</text>
+      <text class='custom_price'>一级渠道价:{{onedatas.channelPrice}}</text>
+      <text class='agent_price'>一级渠道利润:{{onedatas.profit}}</text>
+    </view>
+    <view class='agentcontent'>
+      <view class='agenttitle'>二级渠道佣金分配方案码:</view>
+      <view class='agenttext'>{{schemecode?schemecode:'自动生成'}}</view>
+    </view>
+    <view class='agentcontent'>
+      <view class='agenttitle'>二级渠道价:</view>
+      <view class='agenttext'>{{showprice}}</view>
+    </view>
+    <view class='agentcontent'>
+      <view class='agenttitle'>二级渠道利润:</view>
+      <input class='agenttextbtn' value='{{twoprice}}' bindblur='changprice'  placeholder='填入修改金额'></input>
+    </view>
+    <view class='agentcontent'>
+      <view class='agenttitle'>设置时间:</view>
+      <view class='agenttext'>{{updateTime?updateTime:'自动生成'}}</view>
+    </view>
+  </view>
+  <view class='agentexplain'>说明：确定佣金分配方案修改后，对于团队里的客户、二级渠道合伙人已经产生的订单，依旧按照改前的方案来执行。此修改后的佣金分配方案仅对后续产生的订单有效。</view>
+  <view bindtap='checkchange' class='agentexplainbtn'>确定修改</view>
+</view>

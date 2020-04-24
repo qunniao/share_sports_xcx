@@ -1,0 +1,36 @@
+<view class="all">
+  <view class="home-nav-container">
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+    <text class='value'>余额：{{userwallet.userEnergy?userwallet.userEnergy:'0'}}</text>
+    <view class='use'>已消耗{{userwallet.sumEnergy?userwallet.sumEnergy:'0'}}能量值</view>
+  </view>
+  <view class="recharge_btn" bindtap="navigate" data-url="../recharge/recharge">
+    <text>充值</text>
+    <image src='../../res/imgs/icon_next_32.png'></image>
+  </view>
+  <view class='details_container'>
+    <view class='details_title'>
+      <text>消费明细</text>
+      <view class='filter' bindtap="modalChoose">
+        <text>筛选</text>
+        <image src='../../res/imgs/icon_wallet_down_17.png'></image>
+      </view>
+      <view class='modal_bg' wx:if="{{filter}}"  bindtap="modalChoose"></view>
+      <view class='modalStyle'  wx:if="{{filter}}">
+        <view class="{{type==0?'select':'unselect'}}" bindtap="chooseType" data-type="0">全部</view>
+        <view class="{{type==2?'select':'unselect'}}"  bindtap="chooseType" data-type="2">转入</view>
+        <view class="{{type==1?'select':'unselect'}}"  bindtap="chooseType" data-type="1">消费</view>
+        <view class="{{type==5?'select':'unselect'}}"  bindtap="chooseType" data-type="5">转出</view>
+        <view class="{{type==3?'select':'unselect'}}"  bindtap="chooseType" data-type="3">冻结</view>
+      </view>
+     
+    </view>
+
+     <view wx:for='{{walletlist}}' class="details_list_container">
+        <text class='status'>{{item.caption}}</text>
+        <text class='time'>{{item.operatingTime}}</text>
+        <text class='values'>{{item.titleType ==2?'+':item.titleType ==4?'+':'-'}}{{item.energy}}</text>
+        <text class='balance'>{{item.surplusPrice}}</text>
+      </view>
+  </view>
+</view>

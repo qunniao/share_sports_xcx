@@ -1,0 +1,5 @@
+<view class="all">
+  <image class="detailimages" src="{{powerdetail.cover}}" title="xxx"  alt='健身图片' />
+  <view class="nowreserve" bindtap="gotoshop">立即预定</view>
+</view>
+

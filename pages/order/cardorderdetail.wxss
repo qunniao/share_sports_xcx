@@ -1,0 +1,289 @@
+.orderheader{
+  overflow: hidden;
+  width: 750rpx;
+  height: 145.8rpx;
+  line-height: 145.8rpx;
+  background:linear-gradient(to right, #4EB2FF , #0090FF); 
+}
+.orderheaderleft{
+  float: left;
+  margin-left: 77.7rpx;
+  color: #FFF;
+  font-size: 29.1rpx;
+}
+
+.orderheaderright{
+  float: right;
+  width: 79.1rpx;
+  height: 79.1rpx;
+  margin-top: 33.3rpx;
+  margin-right: 77.7rpx;
+}
+
+/* 主要内容部分 */
+.ordercontent{
+  width: 694.4rpx;
+  margin: 0 auto;
+}
+.orderuserbox{
+  overflow: hidden;
+  background: #FFF;
+  border-radius: 16.6rpx;
+  padding-left: 23.6rpx;
+  padding-top: 45.8rpx;
+  padding-bottom: 41.6rpx;
+}
+.orderuserbox2{
+  overflow: hidden;
+  background: #FFF;
+  border-radius: 16.6rpx;
+  padding-left: 23.6rpx;
+  padding-top: 45.8rpx;
+  padding-bottom: 41.6rpx;
+  border:1rpx solid rgba(222,222,222,0.2);
+}
+
+.userimg{
+  float: left;
+  width:80rpx;
+  height:80rpx;
+  margin-right:40rpx;
+}
+
+.useradress{
+  float: left;
+  font-size: 25rpx;
+}
+.gayphone{
+  color: #9FA0A0;
+}
+
+.sp-list{
+  background: #FFF;
+  margin-top: 26.3rpx;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+  border-radius: 16.6rpx;
+}
+.sp-list image{
+  float: left;
+  width: 160rpx;
+  height: 160rpx;
+  background: #3C4447;
+  border-radius: 20rpx;
+  margin: 10rpx 30rpx 10rpx 30rpx;
+}
+.xp-right{
+  float: left;
+  margin-top: 20rpx;
+  width: 460rpx;
+}
+
+.xp-title{
+  font-size: 25rpx;
+}
+.gg-xh{
+  font-size: 22rpx;
+  margin-top: 15rpx;
+  background: #EFEFEF;
+  text-align: center;
+  padding: 2rpx 20rpx;
+  border-radius: 10rpx;
+  color: #A7A8A8;
+}
+
+
+.price-num{
+  margin-top: 15rpx;
+}
+
+.price{
+  font-size: 36rpx;
+  color: #008EFF;
+  float: left;
+}
+
+#num{
+  position: absolute;
+  right: 70rpx;
+  font-size: 26rpx;
+}
+.spbox{
+  overflow: hidden;
+  margin-top: 40rpx;
+}
+
+.pstext{
+  font-size: 23.6rpx;
+  width: 644.4rpx;
+  margin: 0 auto;
+}
+.pspritext{
+  margin-left: 20.8rpx;
+  color: #9FA0A0;
+}
+.pstextlabel{
+  overflow: hidden;
+  margin-top: 44.4rpx;
+}
+.psnumcon{
+  float: right;
+  color: #9FA0A0;
+  display: inline-block;
+}
+.sp-text1{
+  margin-right: 23.6rpx;
+}
+.sp-text2{
+  font-size: 36.1rpx;
+  color: #008EFF;
+}
+.lineshow{
+  height: 0;
+  border: 1rpx solid rgba(222,222,222,0.2);
+}
+
+.ddbox{
+  margin-top: 26.3rpx;
+  padding: 33.3rpx 23.6rpx;
+  background: #FFF;
+  font-size: 23.6rpx;
+  overflow: hidden;
+}
+.ddboxleft{
+  float: left;
+  width: 590rpx;
+}
+.ddboxright{
+  float: right;
+  margin-top: 46rpx;
+  display: inline-block;
+  font-size: 23.6rpx;
+  color: #008EFF;
+}
+
+.footerbtnlist{
+  overflow: hidden;
+  line-height: 129.2rpx;
+  height: 129.2rpx;
+  margin-top: 43rpx;
+  background: #FFF;
+}
+.footerbtn{
+  float: right;
+  width: 180.5rpx;
+  height: 62.5rpx;
+  font-size: 27.7rpx;
+  margin-top: 34.7rpx;
+  margin-right: 23.6rpx;
+  border-radius: 34.7rpx;
+  line-height: 62.5rpx;
+  text-align: center;
+  color: #FFF;
+  background: #008EFF;
+}
+.payment{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.payment_k{
+  width: 100%;
+  height: 700rpx;
+  background: #FFFFFF;
+  position: absolute;
+  bottom: 0
+}
+.payment_none{
+  position: relative;
+  top: 30rpx;
+  left: 30rpx;
+  width: 100%;
+}
+.payment_none image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.payment_none text{
+  font-size: 36rpx;
+  text-align: center;
+  margin-left: 32%;
+}
+.payment_price{
+  text-align: center;
+  position: relative;
+  top: 100rpx;
+  font-size: 80rpx;
+}
+.pri_method{
+  width: 80%;
+  margin: auto;
+  margin-top: 140rpx;
+}
+.primethod1{
+  color: #9FA0A0;
+  font-size: 34rpx;
+}
+.we_pei{
+  width: 100%;
+  height: 80rpx;
+}
+.we_pei_img{
+  width: 50rpx;
+  height: 50rpx;
+  transform: translate(0,20%)
+}
+.we_pei text{
+  font-size: 32rpx;
+  color: #333333;
+  margin-left: 20rpx;
+}
+.patconlist_chack_img{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  transform: translate(0,50%)
+}
+.li_pri{
+  text-align: center;
+  margin-top: 80rpx;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  background: #0090FF;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.nengpri{
+  text-align: center;
+  margin-top: 140rpx;
+}
+.nengpri1{
+  font-size: 80rpx;
+}
+.nengpri2{
+  font-size: 50rpx;
+}
+.current_pri{
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  background: #0090FF;
+  color: #FFFFFF;
+  font-size: 36rpx;
+  margin-top: 80rpx;
+}
+.current_pri2{
+  font-size: 44rpx;
+}
+
+.top_container{
+  display: inline-block;
+}

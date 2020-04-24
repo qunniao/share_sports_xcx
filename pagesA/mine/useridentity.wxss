@@ -1,0 +1,87 @@
+.buyuserbox{
+  width: 694.4rpx;
+  height: 213rpx;
+  background: #FFF;
+  color: #9FA0A0;
+  border-radius: 16.6rpx;
+  margin: 0 auto;
+  margin-top: 15.2rpx;
+}
+.usernamebox{
+  overflow: hidden;
+}
+.boxpadding{
+  padding-top: 33rpx;
+  margin-bottom: 10rpx;
+}
+.boxmaring{
+  border-top: 1rpx solid rgba(180, 180, 181, 0.4);
+  padding-top: 18rpx;
+}
+.usernamebox>input{
+  display: inline-block;
+  border-radius: 8.3rpx;
+  width: 440.1rpx;
+  height: 55.5rpx;
+  line-height: 55.5rpx;
+  color: #9FA0A0;
+  padding-left: 23.6rpx;
+  font-size: 22.2rpx;
+}
+.usernamebox>title{
+  float: left;
+  width: 111.1rpx;
+  font-size: 27.7rpx;
+  line-height: 55.5rpx;
+  margin-left: 44.4rpx;
+  margin-right: 44.4rpx;
+}
+.useridcard{
+  font-size: 26.3rpx;
+  color: #9FA0A0;
+  margin: 37.5rpx 63.8rpx; 
+}
+.imageList{
+  display: inline-block;
+  float: left
+}
+.imageList>view{
+  width: 308.3rpx;
+  height: 231.9rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:30.5rpx;
+  margin-left: 50rpx;
+  background: #fff;
+}
+.imagebox{
+  overflow: hidden;
+  padding-left: 50rpx;
+}
+.images{
+  width: 62rpx;
+  height: 62rpx;
+}
+.idpic{
+  width: 308.3rpx;
+  height: 231.9rpx;
+}
+
+.tjshbtn{
+  width: 694.4rpx;
+  height: 83.3rpx;
+  margin: 0 auto;
+  margin-top: 300rpx;
+  text-align: center;
+  line-height: 83.3rpx;
+  font-size: 30.5rpx;
+  background: #0090FF;
+  color: #fff;
+  border-radius: 16.6rpx;
+}
+.tstext{
+  color: #9FA0A0;
+  font-size: 22.2rpx;
+  margin-left: 63.8rpx;
+}

@@ -1,0 +1,45 @@
+<view class="all-box">
+  <image src='../../res/imgs/home_nav_bg_373.png' class='home-nav-bg'></image>
+  <view class='recharge_container'>
+      <view class='title_container'>
+        <text class='title'>充值金额 </text>
+        <text class='content' wx:if="{{type==0}}">（补能量值差额）</text>
+        <text class='content' wx:if="{{type==1}}">（升级为大众会员）</text>
+        <text class='content' wx:if="{{type==2}}">（升级为精英会员）</text>
+        <text class='content' wx:if="{{type==3}}">（升级为皇家会员）</text>
+      </view>
+      <view class='input_container'>
+        <text class='symbol'>¥</text>
+        <input placeholder='请输入充值金额' disabled='true' bindblur='changeprice' value="{{price}}" placeholder-style="color:rgba(0,0,0,0.4)"/>
+        <image src='../../res/imgs/icon_recharge_close.png' />
+        </view>
+        <view wx:for="{{dataList}}" class="{{type==item.id?'choose_type_container_sel':'choose_type_container_unsel'}}" bindtap="chooseMember" data-type='{{item.id}}' data-text='{{item.text}}' data-value='{{item.price}}'>
+          <text>
+              <text style='margin-left:44rpx;'>¥ {{item.price}}</text>
+              <text style='font-size:25rpx;margin-left:29rpx;'>可获得</text>
+              <text>{{item.power}}</text>
+              <text style='font-size:25rpx'>能量值</text>
+              <text style='font-size:17rpx;color:#0090FF'>{{item.text}}</text>          
+          </text>               
+        </view>
+  </view>
+  <view bindtap="paymentshow" class='payment_btn'>立即付款</view>
+  <view class='payment' hidden='{{payment}}'>
+      <view class='payment_k'>
+        <view class='payment_none'>
+          <image src='../image/jiesuannone.png' bindtap='paymentnone'></image>
+          <text>确认付款</text>
+        </view>
+        <view class='payment_price'>￥{{price}}</view>
+        <view class='pri_method'>
+          <view class='primethod1'>请选择支付方式</view>
+          <view bindtap='patconlist' class='we_pei'>
+            <image class='we_pei_img' src='../image/weixin.png'></image>
+            <text>微信支付</text>
+            <image class='patconlist_chack_img'  src="{{patconlist_chack_img ? '../image/quan.png' : '../image/quannone.png'}}"></image>
+          </view>
+          <view class='li_pri' bindtap='paynow'>立即付款</view>
+        </view>
+      </view>
+    </view>
+</view>

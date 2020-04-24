@@ -1,0 +1,48 @@
+<view class="all">
+
+  <view class='order_container'>
+    <text>累计佣金：+4999.00元</text>
+  </view> 
+
+  <view class='nav_container'>
+      <view class="{{type==1?'select':'unselect'}}" bindtap="chooseType" data-type="1">所有</view>
+      <view class="{{type==2?'select':'unselect'}}" bindtap="chooseType" data-type="2">待付款</view>
+      <view class="{{type==3?'select':'unselect'}}" bindtap="chooseType" data-type="3">已付款</view>
+      <view class="{{type==4?'select':'unselect'}}" bindtap="chooseType" data-type="4">已完成</view>
+  </view>
+  
+
+  <view class='data_container' wx:key='*this' wx:for="{{dataList}}" wx:if="{{type==1||type==item.type}}">
+      <view class='top_container'>
+          <text class='title'>客户:</text>
+          <image src='../../res/imgs/default.jpg' />
+          <text class='name'>我叫星星吖</text>
+          <text class='order_type'>{{item.type2==1?"客户订单":"团队订单"}}</text>
+      </view>
+       <view class='center_container'>
+          <image src='../../res/imgs/default.jpg' />
+          <text class='name'>大众会员卡</text>
+          <text class='amount'>×1</text>
+          <text class='price'>1980元</text>
+          <text class='line'></text>
+          <text class='number'>预计+99</text>
+          <text class='code'>渠道方案编码：45633</text>
+      </view>
+      <view class='center_container_2'>
+          <view>订单编号：SH20190416155152469612</view>
+          <view>购买数量：1张</view>
+          <view>订单金额：1980元</view>
+          <view>下单时间： 2019-4-16  17:57</view>
+      </view>
+
+      <view class='bottom_container'>
+         <text class='amount'>+99.00</text>
+         <text class='title'>预计佣金：</text>
+         <wxs src="./../filter.wxs" module="filter2" />
+         <view><text>{{filter2.turnText(item.type)}}</text></view>
+      </view>
+  </view>
+
+
+</view>
+

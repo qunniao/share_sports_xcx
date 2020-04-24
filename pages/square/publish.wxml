@@ -1,0 +1,17 @@
+<view class="all">
+  <textarea class='textarea' bindblur="blur" wx:value="{{content}}" placeholder='这一刻的想法...' maxlength="-1" placeholder-style="color:rgba(0,0,0,0.4)"/>
+  <view class='imageList'>
+    <image src='{{item}}' bindtap='choosePhoto' data-index='{{index}}' wx:for="{{imageList}}" />
+    <view data-index='-1' bindtap="choosePhoto"><image src='../../image/icon_add_square_64.png' /></view>
+  </view>
+  <view class='publish_btn_container'>
+    <button plain="true" bindtap="publish">发表</button>
+  </view>
+
+  <view class='position_container' bindtap="getAddress">
+    <image src='../../image/icon_publish_position_logo_50.png' />
+    <text>所在位置（{{!name?'请选择':name}}）</text>
+    <image src="../../res/imgs/icon_square_details_28.png"/>
+  </view>
+  
+</view>

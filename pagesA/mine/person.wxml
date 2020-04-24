@@ -1,0 +1,139 @@
+<view class="all">
+  <view class="home-nav-container">
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+  </view>
+  <view class='flex'>
+    <image class="userinfo-avatar" bindtap="navigate" data-url="userheaderpic" mode="cover" src="{{avatarUrl?avatarUrl:'../../res/imgs/default.jpg'}}" ></image>
+  </view>
+  <view class='flex'>
+    <view class='info_container'>
+      <view class='flex'>
+        <view class='autograph'>
+            <text>个性签名：</text><input class='geqmbox' bindblur='changegxqm' value='{{gxqm}}' placeholder='请输入个性签名' />
+            <image src='../../res/imgs/icon_autograph_19.png'></image>
+        </view>
+      </view>
+      <view class='info_message_box'>
+        <text class='title'>昵称</text>
+        <input class='content' placeholder='请输入用户昵称' bindblur='changeuserNike' value='{{userinfodata.userPO.userNike}}'/>
+      </view>
+      <view class='info_message_box'>
+        <text class='title'>会员ID</text>
+        <text class='content'>{{levelcard?levelcard:'无'}}</text>
+      </view>
+      <view class='info_message_box'>
+        <text class='title'>会员等级</text>
+        <text class='content'>{{userdata.level==0?'普通用户':userdata.level==1?'体验会员':userdata.level==2?'大众会员':userdata.level==3?'精英会员':userdata.level==4?'皇家会员':'暂未开通'}}</text>
+      </view>
+      <view class='info_message_box'>
+        <text class='title'>性别</text>
+        <picker mode='selector' bindchange="bindsex" value="{{multiIndex}}" range-key='name' range="{{sexlist}}">
+          <text class='content'>{{userdata.sex==0?'男':userdata.sex==1?'女':'请选择性别'}}</text>
+      </picker>
+      </view>
+      <view class='info_message_box' style='border-bottom:0'>
+        <text class='title'>区域</text>
+            <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{index}}" range-key='name' range="{{multiArray}}">
+                    <text class='content'>{{usercitynames||'请选择所在区域'}}</text>
+                    <!-- <text class='content'>当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}</text> -->
+              <!-- <view class="picker">
+                当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+              </view> -->
+            </picker>
+          </view>
+    </view>
+  </view>
+
+  <view class='flex'>
+    <view class='info_container2'>
+      <view class='flex'><view class='title_container'>会员认证
+      </view></view>
+      <view class='info_message_box'>
+          <text class='title'>会员姓名</text>
+          <text class='content'>{{userdata.userName||'暂无'}}</text>
+        </view>
+        <view class='info_message_box' style='border-bottom:0'>
+          <text class='title'>手  机  号</text>
+          <text class='content'>{{userdata.userPhone||'暂无'}}</text>
+        </view>
+    </view>
+  </view>
+
+
+  <view class='flex'>
+    <view class='info_container2'>
+      <view class='flex'><view class='title_container'>社交功能认证
+      </view></view>
+        <view class='info_message_box'>
+          <text class='title'>体型</text>
+              <picker mode='selector' bindchange="bindPickerChange" value="{{multiIndex}}" range-key='name' range="{{txarray}}">
+         <view class='content' >{{tixingname?tixingname:'请选择'}}型<image src='../../res/imgs/icon_next_32.png'/></view>   
+        </picker>
+          <!-- <view class='content' bindtap='showtxview'>{{userinfodata.height?userinfodata.height:'请输入'}}cm  {{userinfodata.weight?userinfodata.weight:'请输入'}}kg  {{tixingname?tixingname:'请选择'}}型<image src='../../res/imgs/icon_next_32.png'/></view>          -->
+        </view>
+        <view class='info_message_box'>
+          <text class='title'>健身目的</text>
+          <picker mode='selector' bindchange="bindmd" value="{{multiIndex}}" range-key='name' range="{{mdarray}}">
+           <view class='content'>{{mudiname?mudiname:'请选择'}}<image src='../../res/imgs/icon_next_32.png'/></view>
+          </picker>
+        </view>
+        <view class='info_message_box'>
+          <text class='title'>职业</text>
+          <picker mode='selector' bindchange="bindzy" value="{{multiIndex}}" range-key='name' range="{{zyarray}}">
+            <view class='content'>{{zhiyename?zhiyename:'请选择'}}<image src='../../res/imgs/icon_next_32.png'/></view>
+          </picker>
+        </view>
+        <view class='info_message_box'>
+          <text class='title'>年收入</text>
+          <picker mode='selector' bindchange="bindsr" value="{{multiIndex}}" range-key='name' range="{{srarray}}">
+          <view class='content'>{{shouru?shouru:'请选择'}}<image src='../../res/imgs/icon_next_32.png'/></view>
+          </picker>
+        </view>
+        <view class='info_message_boxs'>
+          <text class='title'>实名认证</text>
+          <view wx:if="{{idCardname !=''}}" class='content real_name'>{{idCardname!=''?idCardname:''}}
+            <view>
+              <image src='../../res/imgs/icon_real_name_logo.png'/>
+              <text>{{idState==0?'审核中':idState==2?'已实名':''}}</text>
+            </view>
+            <image src='../../res/imgs/icon_next_32.png'/>
+          </view>
+          <view wx:else class='content real_name' bindtap="navigate" data-url="useridentity">
+            <title>请认证</title>
+            <image src='../../res/imgs/icon_next_32.png'/>
+          </view>                    
+        </view>
+        <view class='info_message_box' bindtap="navigate" data-url="urgent">
+          <text class='title'>紧急联系人</text>
+          <view class='content'>{{userinfodata.crashName?userinfodata.crashName:'请输入'}} {{userinfodata.crashUserPhone?userinfodata.crashUserPhone:'请输入'}}<image src='../../res/imgs/icon_next_32.png'/></view>
+        </view>
+        <view class='flex'>
+            <view bindtap='okchange' class='confirm_btn'>确定修改</view>
+        </view>
+    </view>
+
+
+  </view>
+<!-- <view wx:if='{{txshowcheck}}'>
+  <view class='txcontentboxbacg'></view>
+  <view class='footercontent'>
+    <view class='okbtnbox'>
+      <view class='okbtn' bindtap='checkchange'>确定</view>
+    </view>
+    <view class='heightbox'>
+        <title class='headertitle'>身高:</title><input class='footerinput' value='{{changeheight}}' bindblur='heightchange' placeholder='请输入身高' />cm
+    </view>
+    <view class='heightbox'>
+        <title class='headertitle'>体重:</title><input class='footerinput' value='{{changeweight}}' bindblur='weightchange' placeholder='请输入身高' />kg
+    </view>
+    <view class='pickbox'>
+      <picker mode='selector' bindchange="bindPickerChange" value="{{multiIndex}}" range-key='name' range="{{txarray}}">
+      <view class="picker">
+        体型：{{changetixing}}型
+      </view>
+    </picker>
+    </view>
+  </view>
+</view> -->
+
+</view>

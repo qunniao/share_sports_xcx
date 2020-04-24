@@ -1,0 +1,14 @@
+<view class="page-body">
+  <view class="page-section page-section-gap">
+    <map
+      id="myMap"
+      style="width: 100%; height:100vh"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      bindmarkertap='gogymshop'
+      show-location
+    ></map>
+  </view>
+
+</view>

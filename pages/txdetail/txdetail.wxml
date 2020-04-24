@@ -1,0 +1,15 @@
+<view class="all">
+  <view class="home-nav-container">
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+  </view>
+  <view class='details_container'>
+    <view class='details_title'>
+      <text>提现明细</text>     
+    </view>
+     <view wx:for='{{walletlist}}' class="details_list_container">
+        <text class='status'>{{item.content}}</text>
+        <text class='time'>{{item.createTime}}</text>
+        <text class='values'>{{item.transactionType==1?'+':'-'}}{{item.money}}</text>
+      </view>
+  </view>
+</view>

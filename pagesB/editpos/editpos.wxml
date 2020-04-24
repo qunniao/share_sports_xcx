@@ -1,0 +1,41 @@
+
+
+
+<view class='all'>
+  <view class='info_box'>
+    <text class='label'>收货人：</text>
+    <input type='text' bindblur='recenamechange' value='{{consignee}}' placeholder-style='color:#9FA0A0' placeholder='请填写收货人姓名' />
+  </view>
+  <view class='info_box'>
+    <text class='label'>手机号：</text>
+    <input type='text' bindblur='recephonechange' value='{{phoneNumber}}' maxlength='11' placeholder-style='color:#9FA0A0' placeholder='请填写收货人手机号' />
+  </view>
+      <view class='info_box'>
+      <picker mode='region' value='{{area}}' bindchange='goodspos'>
+      <view class='info_box'>
+        <text class='label'>所在地区：</text>
+          
+            <input type='text' disabled='{{true}}' value='{{area}}' placeholder-style='color:#9FA0A0' placeholder='选择省市区'/>
+      </view>
+  </picker>
+      </view>
+  <view class='info_box'>
+    <text class='label'>详细地址：</text>
+    <input type='text' bindblur='receadreesschange' value='{{detailedAddress}}' placeholder-style='color:#9FA0A0' placeholder='请输入详细地址（如门牌号、小区、楼栋等）' />
+  </view>
+
+  <view class='default'>
+    <text class='label'>设置为默认地址</text>
+    <switch checked='{{isDefault==1}}' bindchange="switchChange"  color="#0090FF" />
+  </view>
+
+
+</view>
+
+  <view wx:if="{{id}}">
+    <view class='pos_buts3' bindtap="saveAddress">保存地址</view>
+    <view class='pos_buts2' bindtap="deleteAddess">删除地址</view>
+  </view>
+  <view wx:else>
+    <view class='pos_but1' bindtap="saveAddress">保存地址</view>
+  </view>

@@ -1,0 +1,111 @@
+<view class='all'>
+<view class='scan_screen_box' wx:if="{{scanModal}}">
+  <view class='scan_screen'>
+    <view class='title_container'>
+      <text wx:if='{{scanshow==2}}'>结束健身申请</text>
+      <text wx:if='{{scanshow==1}}'>等待前台人员确认...</text>
+    </view>
+    <view style='font-size:31rpx;color:#000;text-align:center;margin-top:64rpx;'>
+    已停止计时 本次健身时长：
+    </view>
+    <wxs src="./../filter.wxs" module="filter" />
+    <view class='scan_time_container'>
+      <text>{{filter.count(countdown)[0]}}<text style='font-size:67rpx;color:#000'>小时</text>{{filter.count(countdown)[1]}}<text style='font-size:67rpx;color:#000'>分钟</text>
+      </text>
+    </view>
+    <view style='display:flex;align-items: center;justify-content: center;'>
+      <view wx:if='{{scanshow==2}}' class='scan_status'>
+        您已成功结束！
+      </view>
+      <view wx:if='{{scanshow==1}}' class='scan_status'>
+        设置前台，提醒工作人员确认并结束
+      </view>
+    </view>
+
+     <view style='display:flex;align-items: center;justify-content: center;'>
+      <view class='scan_tips_container'>
+        结束提醒：若前台人员繁忙暂时无法结束，可先行离开。
+        <text bindtap='endgymbtn' class='scan_tips_text'>20分钟内，离开300米后，点击可立即结束</text>
+      </view>
+    </view>
+    <view style='display:flex;align-items: center;justify-content: center;' >
+      <image src='../../res/imgs/icon_screen_close.png' class='icon_screen_close' bindtap="closeModal" />
+    </view>
+  </view>
+</view>
+
+<view class="all-box">
+       <!-- <image  wx:for="{{imagesList}}" wx:if="{{item.name=='icon_scan_bg'}}"src='{{item.url}}' class='icon_scan_bg' /> -->
+        <image src='http://gymfiles.oss-cn-hangzhou.aliyuncs.com/dadcc5c2f690418388090094178907d9.png' class='icon_scan_bg' />
+  <view class='number_container'>
+    <view class='info-container'>
+      <view class='icon_scan_container'>
+        <image src='../../res/imgs/icon_scan_member.png' class='icon_scan_member' />
+        <text class='icon_scan_member_text'>此次健身人数</text>
+      </view>
+      <view class='icon_member_level_container'>
+        <text class='icon_scan_member_level'>您的会员等级为:</text>
+        <image src='../../res/imgs/icon_scan_star_bule_18.png' class='icon_scan_star_bule' />
+        <text wx:if="{{userInfo2.level==0}}" class='icon_scan_member_value'>初始会员</text>
+        <text wx:if="{{userInfo2.level==1}}" class='icon_scan_member_value'>体验会员</text>
+        <text wx:if="{{userInfo2.level==2}}" class='icon_scan_member_value'>大众会员</text>
+        <text wx:if="{{userInfo2.level==3}}" class='icon_scan_member_value'>精英会员</text>
+        <text wx:if="{{userInfo2.level==4}}" class='icon_scan_member_value'>皇家会员</text>
+      </view>
+    </view>
+      <view class='choose_number_container'>
+          <view class="choose_number_box {{type==2?'select':'unselect'}}"  bindtap="chooseNumber"  data-type="2">
+              <image src="{{type==2?'../../res/imgs/icon_scan_number_2.png':'../../res/imgs/icon_scan_number_un2.png'}}" />
+              <view>双人</view>
+          </view> 
+          <view class="choose_number_box {{type==1?'select':'unselect'}}" bindtap="chooseNumber" data-type="1">
+              <image src="{{type==1?'../../res/imgs/icon_scan_number_1.png':'../../res/imgs/icon_scan_number_un1.png'}}" />
+              <view>单人</view>
+          </view>
+          <view class="choose_number_box {{type==3?'select':'unselect'}}" bindtap="chooseNumber" data-type="3">
+              <image src="{{type==3?'../../res/imgs/icon_scan_number_3.png':'../../res/imgs/icon_scan_number_un3.png'}}" />
+              <view>三人</view>
+          </view>
+      </view>
+     <view class='tips_container'>
+        <image src='../../res/imgs/icon_scan_star_14.png' class='icon_scan_star_14' />
+        <text>大众可选择单人   精英会员可选择双人   皇家会员可选择三人</text>
+      </view>
+  </view>
+  <view class='power_container'>
+      <view>
+        <text style='overflow: hidden;text-overflow: ellipsis;white-space: nowarp;width: 325rpx;text-align:center'>
+          <text style='font-size:19rpx;color:#000'>所需能量值：</text>
+          <text style='font-size:28rpx;color:#F39800'>{{gymInfo.gymEnergy}}</text>
+          <text style='font-size:17rpx;color:#F39800'>每次/每人（{{gymInfo.unit}}小时）</text>
+        </text>
+      </view>
+      <view>
+        <text style='overflow: hidden;text-overflow: ellipsis;white-space: nowarp;width: 325rpx;text-align:center'>
+          <text style='font-size:19rpx;color:#000'>当前拥有能量值：</text>
+          <text style='font-size:28rpx;color:#F39800'>{{userInfo2.energy}}</text>
+        </text>
+      </view>
+  </view>
+  <view class='time_container'>
+    <view class="{{!status?'time_select':'time_unselect'}}">
+      <view>
+        <view class='time_title'>{{!status?'即将开始':'您已健身'}}</view>
+        <view class='time_hour'>{{!status?'0小时0分0秒':filter.count2(countdown2)}}</view>
+      </view>
+    </view>
+  </view>
+ 
+  <view class="{{!status?'scan_btn_select':'scan_btn_unselect'}}" bindtap="start">
+    <view>
+      <text>{{!status?'开始健身':'扫码结束健身'}}</text>
+    </view>
+  </view>
+  <view class='first_aid_container'>
+    <view bindtap='callphone' class='first_aid_btn'>急救</view>
+    <image src='../../res/imgs/icon_scan_star_19.png' class='icon_scan_star_19' />
+    <text>非紧急情况请勿按动此按钮，如若按下,
+将以短信形式通知紧急联系人。</text>
+  </view>
+</view>
+</view>

@@ -1,0 +1,423 @@
+/* pages/set/set.wxss */
+page{
+  background: #F8F8F8;
+}
+.control{
+  width: 100%;
+}
+.couponlist{
+  float: left;
+  display: inline-block;
+  margin-right: 100rpx;
+}
+.position{
+  width: 90%;
+  height: 130rpx;
+  padding-top: 30rpx;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 20rpx;
+  background: #FFFFFF;
+  margin-top: 40rpx;
+}
+.dizhi_img{
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin-left: 40rpx;
+  transform: translate(0,30%)
+}
+.name{
+  width: 170rpx;
+}
+.container{
+  width: 300rpx;
+}
+.position .tstext{
+  font-size: 27.7rpx;
+  margin-top: 30rpx;
+}
+.jinru_img{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-top:30rpx;
+  margin-right:20rpx
+}
+.position text{
+  font-size: 25rpx;
+  color: #9FA0A0;
+  display: inline-block;
+  overflow: hidden;
+  margin-left: 30rpx;
+}
+.positions{
+  width: 90%;
+  height: 160rpx;
+  margin: auto;
+  border-radius: 20rpx;
+  background: #FFFFFF;
+  margin-top: 40rpx;
+}
+.dizhi_imgs{
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 40rpx;
+  transform: translate(0,-20%)
+}
+.position_text{
+  display: inline-block;
+  width: 70%;
+  height: 160rpx;
+  margin-left: 5%;
+}
+.position_text_top{
+  width: 70%;
+  margin: 20rpx 0 20rpx 0;
+}
+.position_text_left{
+  font-size: 32rpx;
+  color: #333333;
+}
+.position_text_right{
+  font-size: 28rpx;
+  color: #9FA0A0;
+}
+.position_text_pos{
+  font-size: 24rpx;
+  color: #231815;
+}
+.address_1{
+  width: 400rpx;
+}
+.jinru_imgs{
+  width: 40rpx;
+  height: 40rpx;
+  transform: translate(0,-40%)
+}
+.shop{
+  width: 90%;
+  margin: auto;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  margin-top: 40rpx;
+  padding-top: 20rpx;
+}
+.shoplist{
+  width: 90%;
+  margin: auto;
+  padding-top: 60rpx;
+}
+.shoplist image{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+}
+.shoplist_text{
+  display: inline-block;
+  width: 66%;
+  margin-left: 20rpx;
+}
+.shoplist_text_name{
+  font-size: 32rpx;
+  color: #333333;
+  transform: translate(0,-60%)
+}
+.shoplist_text_pri{
+  font-size: 36rpx;
+  color: #008EFF
+}
+.shoplist_text_num{
+  font-size: 32rpx;
+  color: #333333;
+  margin-left: 50%;
+}
+.very{
+  width: 100;
+  margin-top: 40rpx;
+}
+.verylist{
+  width: 80%;
+  height: 80rpx;
+  line-height: 8rpx;
+  margin-left: 18%;
+  margin-top: 10rpx;
+}
+.verylist{
+  font-size: 34rpx;
+  color: #333333;
+}
+.verylist input{
+  width: 70%;
+  display: inline-block;
+  font-size: 28rpx;
+  color: #9FA0A0;
+  transform: translate(10%,23%)
+}
+.set_pri{
+  width: 60%;
+  margin-left: 40%;
+  padding-bottom: 40rpx;
+}
+.set_pri1{
+  font-size: 24rpx;
+  color: #9FA0A0
+}
+.set_pri2{
+  font-size: 32rpx;
+  color: #333333;
+  margin-left: 20rpx;
+}
+.set_pri3{
+  color: #008EFF;
+  font-size: 38rpx;
+  margin-left: 20rpx;
+}
+.coupon{
+  overflow: hidden;
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: auto;
+  border-radius: 20rpx;
+  background: #FFFFFF;
+  margin-top: 40rpx;
+}
+.coupon1{
+  float: left;
+  font-size: 32rpx;
+  color: #333333;
+  margin-left: 40rpx;
+}
+.couponone{
+  float: right;
+  width:400rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 32rpx;
+  color: #333333;
+  margin-right: 40rpx;
+  text-align: right;
+}
+.coupon2{
+  font-size: 28rpx;
+  color: #9FA0A0;
+  margin-left: 20%;
+  width: 34-0rpx;
+  display: inline-block;
+}
+.coupon image{
+  width: 30rpx;
+  height: 30rpx;
+  transform: translate(0,20%)
+}
+.but_price{
+  position: relative;
+  top: 40rpx;
+  bottom: 0;
+  background: #FFFFFF;
+  width: 100%;
+  height: 120rpx;
+}
+.but_price1{
+  font-size: 28rpx;
+  color: #333333;
+  margin-left: 30%;
+  line-height: 120rpx;
+}
+.but_price2{
+  color: #008EFF;
+  font-size: 36rpx;
+  line-height: 120rpx;
+}
+.zhifu{
+  display: inline-block;
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #FFFFFF;
+  background: #008EFF;
+  margin-left: 20rpx;
+}
+.payment{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.payment_k{
+  width: 100%;
+  height: 700rpx;
+  background: #FFFFFF;
+  position: absolute;
+  bottom: 0
+}
+.payment_none{
+  position: relative;
+  top: 30rpx;
+  left: 30rpx;
+  width: 100%;
+}
+.payment_none image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.payment_none text{
+  font-size: 36rpx;
+  text-align: center;
+  margin-left: 32%;
+}
+.payment_price{
+  text-align: center;
+  position: relative;
+  top: 100rpx;
+  font-size: 80rpx;
+}
+.pri_method{
+  width: 80%;
+  margin: auto;
+  margin-top: 140rpx;
+}
+.primethod1{
+  color: #9FA0A0;
+  font-size: 34rpx;
+}
+.we_pei{
+  width: 100%;
+  height: 80rpx;
+}
+.we_pei_img{
+  width: 50rpx;
+  height: 50rpx;
+  transform: translate(0,20%)
+}
+.we_pei text{
+  font-size: 32rpx;
+  color: #333333;
+  margin-left: 20rpx;
+}
+.patconlist_chack_img{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  transform: translate(0,50%)
+}
+.li_pri{
+  text-align: center;
+  margin-top: 80rpx;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  background: #0090FF;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.nengpri{
+  text-align: center;
+  margin-top: 140rpx;
+}
+.nengpri1{
+  font-size: 80rpx;
+}
+.nengpri2{
+  font-size: 50rpx;
+}
+.current_pri{
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  background: #0090FF;
+  color: #FFFFFF;
+  font-size: 36rpx;
+  margin-top: 80rpx;
+}
+.current_pri2{
+  font-size: 44rpx;
+}
+
+.top_container{
+  display: inline-block;
+}
+
+/* 优惠券弹窗 */
+.couponbox{
+  position: absolute;
+  bottom: 0;
+  height:700rpx;
+  width: 750rpx;
+  overflow-x: hidden;
+  z-index: 40;
+  background: #FFF;
+}
+.footercoupon{
+  position: fixed;
+  width: 750rpx;
+  bottom: 0;
+  height: 100%;
+}
+.couponbg{
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 750rpx;
+  height: 100%;
+  z-index: 20;
+}
+.radiobox{
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+  overflow: hidden;
+}
+.radiobox>title{
+  display: inline-block;
+  float: left;
+}
+.couponheader{
+  text-align: center;
+  margin:40rpx auto;
+}
+.radiobox>radio{
+  float: right;
+}
+radio .wx-radio-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx;
+   height: 40rpx;
+   
+}
+.couponbtn{
+  width: 240rpx;
+  height: 80rpx;
+  margin: 40rpx auto;
+  background: orange;
+  text-align: center;
+  line-height: 80rpx;
+  color: #FFF;
+  border-radius: 10rpx;
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked{
+   border: none;
+   background: red;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}

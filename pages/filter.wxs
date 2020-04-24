@@ -1,0 +1,108 @@
+var index = function (a, b) {
+  
+  return a.indexOf(b)>=0;
+}
+
+var container = function (a, b,type) {
+  if(type==1){
+    if(a!=null){
+      for (var i = 0; i < a.length; i++) {
+        if (a[i].bid == b) {
+          return true
+        }
+      }
+    }
+    return false;
+  }else if(type==2){
+    if(a!=null){
+      for (var i = 0; i < a.length; i++) {
+        if (a[i].sid == b) {
+          return true
+        }
+      }
+    }
+    return false;
+  }
+}
+var count = function (countdown) {
+  var hour_1 = 60*60;
+  var minute_1 = 60; 
+  var hour = 0; 
+  var minute = 0;
+  if (countdown < minute_1) { 
+    hour = 0; minute = 0; 
+  } else if (countdown < minute_1) {
+    hour = 0; minute = parseInt(countdown / minute_1);
+  }else { 
+    hour = parseInt(countdown / hour_1) 
+    minute = parseInt(countdown % hour_1 / minute_1) 
+  }
+  return [hour,minute];
+}
+
+var count3 = function (countdown) {
+  var hour_1 = 60 * 60;
+  var minute_1 = 60;
+  var hour = 0;
+  var minute = 0;
+  if (countdown < minute_1) {
+    hour = 0; minute = 0;
+  } else if (countdown < minute_1) {
+    hour = 0; minute = parseInt(countdown / minute_1);
+  } else {
+    hour = parseInt(countdown / hour_1)
+    minute = parseInt(countdown % hour_1 / minute_1)
+  }
+  if (hour < 10) {
+    hour = "0" + hour;
+  }
+  if (minute < 10) {
+    minute = "0" + minute;
+  }
+  return hour + ":" + minute;
+}
+
+var count2 = function (countdown) {
+  var hour_1 = 60 * 60;
+  var minute_1 = 60;
+  var hour = 0;
+  var minute = 0;
+  if (countdown < minute_1) {
+    hour = 0; minute = 0;
+  } else if (countdown < minute_1) {
+    hour = 0; minute = parseInt(countdown / minute_1);
+  } else {
+    hour = parseInt(countdown / hour_1)
+    minute = parseInt(countdown % hour_1 / minute_1)
+  }
+  second = parseInt(countdown % hour_1 % minute_1)
+  return hour+"时"+minute+"分"+second+"秒";
+}
+
+var turnText = function (type) {
+  if (type == 1) {
+    return "待付款";
+  }else if(type==2){
+    return "待发货";
+  }else if(type==3){
+    return "已付款";
+  }else if(type==4){
+    return "已完成";
+  }
+}
+var sportTurn = function (filter_0_list,type) {
+  type.split(",")[0]
+  for(var i=0;i<filter_0_list.length;i++){
+    if (type.split(",")[0]==filter_0_list[i].typeid){
+      return filter_0_list[i].name;
+      break;
+    }
+  }
+}
+
+var timeTurn = function (startTime, endTime) {
+  return startTime.split(" ")[0].split("-")[1] + "月"+startTime.split(" ")[0].split("-")[2] +" "+ startTime.split(" ")[1].split(":")[0] + "-" + endTime.split(" ")[1].split(":")[0]+"点"
+}
+
+
+module.exports = { index: index, container: container, count: count, count2: count2, count3: count3, turnText: turnText, sportTurn: sportTurn, timeTurn: timeTurn};

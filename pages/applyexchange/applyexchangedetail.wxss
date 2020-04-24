@@ -1,0 +1,166 @@
+.orderheader{
+  overflow: hidden;
+  width: 750rpx;
+  height: 145.8rpx;
+  /* line-height: 145.8rpx; */
+  background:linear-gradient(to right, #4EB2FF , #0090FF); 
+}
+.orderheaderleft{
+  float: left;
+  margin-top: 36.1rpx;
+  margin-left: 54.1rpx;
+  color: #FFF;
+  font-size: 29.1rpx;
+}
+.addressbox{
+  font-size: 19.4rpx;
+}
+
+.orderheaderright{
+  margin-top: 33.3rpx;
+  width: 68rpx;
+  height: 79.1rpx;
+  float: right;
+  margin-right: 52.7rpx;
+}
+
+/* 主要内容部分 */
+.ordercontent{
+  width: 694.4rpx;
+  margin: 0 auto;
+}
+.gymcardcontent{
+  width: 641.8rpx;
+  /* height: 312.6rpx; */
+  background: #FFF;
+  padding: 29.1rpx 26.3rpx;
+  border-radius: 16.6rpx;
+}
+
+.gymname{
+  font-size: 27.7rpx
+}
+.gymimgbox{
+  overflow: hidden;
+  margin-top: 30.5rpx;
+}
+
+.gymimg{
+  float: left;
+  width: 125rpx;
+  height: 125rpx;
+  background: #9FA0A0;
+  border-radius: 6.9rpx;
+  line-height: 125rpx;
+}
+.gymprice{
+  float: left;
+  margin-left: 26.3rpx;
+}
+.cardname{
+  font-size: 25rpx;
+  margin-top: 15.2rpx;
+}
+.cardprice{
+  margin-top: 34.7rpx;
+  font-size: 22.2rpx;
+  color: #9D9E9E;
+}
+.gymnum{
+  float: right;
+}
+.gymengry{
+  color: #008EFF;
+  font-size: 22.2rpx;
+}
+.gymengry>title{
+  font-size: 36.1rpx;
+}
+.gymnums{
+  text-align: right;
+  font-size: 25rpx;
+  margin-top: 14rpx;
+}
+.sqtime{
+  font-size: 22.2rpx;
+  margin-top: 34.7rpx;
+}
+.kfphone{
+  margin-top: 20.8rpx;
+  font-size: 22.2rpx;
+}
+.buyuserbox{
+  width: 694.4rpx;
+  height: 237.5rpx;
+  background: #FFF;
+  margin-top: 87.5rpx;
+  border-radius: 16.6rpx;
+  position: relative;
+}
+.buyusertitle{
+  position: absolute;
+  width: 288.8rpx;
+  height: 66.6rpx;
+  text-align: center;
+  line-height: 66.6rpx;
+  top: -33.3rpx;
+  left: 202.7rpx;
+  color: #FFF;
+  font-size: 29.1rpx;
+  border-radius: 13.8rpx;
+  background: #0090FF;
+}
+.usernamebox{
+  overflow: hidden;
+}
+.boxpadding{
+  padding-top: 66.6rpx;
+}
+.boxmaring{
+  margin-top: 18rpx;
+}
+.usernamebox>input{
+  float: left;
+  display: inline-block;
+  background: #F7F8F8;
+  border-radius: 8.3rpx;
+  color: #9FA0A0;
+  width: 486.1rpx;
+  height: 55.5rpx;
+  line-height: 55.5rpx;
+  padding-left: 23.6rpx;
+  font-size: 22.2rpx;
+}
+.usernamebox>title{
+  float: left;
+  width: 111.1rpx;
+  font-size: 27.7rpx;
+  line-height: 55.5rpx;
+  margin-left: 44.4rpx;
+}
+.buyuserbox2{
+  width: 694.4rpx;
+  height: 140.2rpx;
+  background: #FFF;
+  margin-top: 87.5rpx;
+  border-radius: 16.6rpx;
+  position: relative;
+}
+.getcardnum{
+  padding-top: 69.4rpx;
+  text-align: center;
+  font-size: 36.1rpx;
+}
+.callkfphone{
+  width: 494.4rpx;
+  height: 66.6rpx;
+  background: #0090FF;
+  color: #FFF;
+  text-align: center;
+  line-height: 66.6rpx;
+  border-radius: 16.6rpx;
+  margin:0 auto;
+  margin-top: 104.1rpx;
+  margin-bottom: 58.3rpx;
+  font-size: 27.7rpx;
+}

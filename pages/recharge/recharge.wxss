@@ -1,0 +1,237 @@
+page {
+  background-color: #F7F8F8;
+} 
+.all-box{
+  width: 750rpx;
+  margin: 0 auto;
+  position: relative;
+}
+.home-nav-bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 373rpx;
+  z-index: -1;
+}
+.recharge_container{
+  width: 694rpx;
+  background: #FFF;
+  margin:33rpx 22rpx 0 22rpx;
+  border-radius: 17rpx;
+  display: inline-block;
+  padding-bottom: 7rpx;
+}
+.title_container{
+  height: 46rpx;
+  margin-left: 53rpx;
+  margin-top: 51rpx;
+  margin-bottom: 55rpx;
+}
+.title{
+  font-size: 32rpx;
+  color: #333;
+}
+.content{
+  font-size: 28rpx;
+  color: #9FA0A0;
+}
+.input_container{
+  width: 100%;
+  height: 90rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 90rpx;
+}
+.input_container .symbol{
+  position: absolute;
+  left: 56rpx;
+  font-size: 40rpx;
+  color: #000;
+}
+.input_container>input{
+  width: 450rpx;
+  height: 90rpx;
+  background: #FFF;
+  font-size: 56rpx;
+  color: #000;
+  position: absolute;
+  left: 115rpx;
+}
+.input_container>image{
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  right: 56rpx;
+}
+.choose_type_container_unsel{
+  width: 625rpx;
+  min-height: 97rpx;
+  border-radius: 17rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 35rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #9FA0A0;
+  margin-bottom: 46rpx;
+}
+.choose_type_container_sel{
+  width: 625rpx;
+  min-height: 97rpx;
+  border-radius: 17rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 35rpx;
+  box-sizing: border-box;
+  background: #0090FF;
+  margin-bottom: 46rpx;
+}
+.choose_type_container_unsel>text{
+  font-size: 42rpx;
+  color: #000;
+  height: 56rpx;
+  line-height: 56rpx;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowarp;
+}
+.choose_type_container_sel>text{
+  font-size: 42rpx;
+  color: #FFF;
+  width: 100%;
+  height: 56rpx;
+  line-height: 56rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowarp;
+}
+.choose_type_container_sel .text3{
+  font-size:17rpx;
+  color:#FFF;
+}
+.choose_type_container_unsel .text3{
+  font-size:17rpx;
+  color:#0090FF;
+}
+.payment_btn{
+  width: 625rpx;
+  margin: 36rpx 62rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0090FF;
+  font-size: 40rpx;
+  color: #FFF;
+  border-radius: 17rpx;
+  min-height: 97rpx;
+}
+/* 支付 */
+.payment{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.payment_k{
+  width: 100%;
+  height: 700rpx;
+  background: #FFFFFF;
+  position: absolute;
+  bottom: 0
+}
+.payment_none{
+  position: relative;
+  top: 30rpx;
+  left: 30rpx;
+  width: 100%;
+}
+.payment_none image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.payment_none text{
+  font-size: 36rpx;
+  text-align: center;
+  margin-left: 32%;
+}
+.payment_price{
+  text-align: center;
+  position: relative;
+  top: 100rpx;
+  font-size: 80rpx;
+}
+.pri_method{
+  width: 80%;
+  margin: auto;
+  margin-top: 140rpx;
+}
+.primethod1{
+  color: #9FA0A0;
+  font-size: 34rpx;
+}
+.we_pei{
+  width: 100%;
+  height: 80rpx;
+}
+.we_pei_img{
+  width: 50rpx;
+  height: 50rpx;
+  transform: translate(0,20%)
+}
+.we_pei text{
+  font-size: 32rpx;
+  color: #333333;
+  margin-left: 20rpx;
+}
+.patconlist_chack_img{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  transform: translate(0,50%)
+}
+.li_pri{
+  text-align: center;
+  margin-top: 80rpx;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  background: #0090FF;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.nengpri{
+  text-align: center;
+  margin-top: 140rpx;
+}
+.nengpri1{
+  font-size: 80rpx;
+}
+.nengpri2{
+  font-size: 50rpx;
+}
+.current_pri{
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  background: #0090FF;
+  color: #FFFFFF;
+  font-size: 36rpx;
+  margin-top: 80rpx;
+}
+.current_pri2{
+  font-size: 44rpx;
+}
+
+.top_container{
+  display: inline-block;
+}

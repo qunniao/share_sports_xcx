@@ -1,0 +1,179 @@
+<!--pages/contact/contact.wxml-->
+
+<view>
+  <view wx:if='{{calltypeid==2}}' class='launchshow' bindtap='launchshowbtn'>搭伙发起</view>
+  <view wx:if='{{calltypeid==1}}' class='yueorno'>
+    <view class='yuebox' bindtap='launchshowbtn'>约<title>(即成为好友)</title></view>
+    <view bindtap='toBackClick' class='buyuebox'>不约<title>(结束对话)</title></view>
+  </view>
+  <scroll-view scroll-y scroll-into-view='{{toView}}' style='height: {{scrollHeight}};margin-top:100rpx'>
+    <!-- <view class='scrollMsg'> -->
+    <block wx:key='*this' wx:for='{{msgList}}' wx:for-index="index">
+
+      <!-- 单个消息1 客服发出（左） -->
+      <view wx:if='{{item.speaker=="server"}}' id='msg-{{index}}' style='display: flex; padding: 2vw 11vw 2vw 2vw;'>
+        <view style='width: 11vw; height: 11vw;'>
+          <image style='width: 11vw; height: 11vw; border-radius: 10rpx;' bindtap='gofirenddata' src='{{friendimg}}'  ></image>
+        </view>
+        <view style='position:relative;width: 4vw; height: 11vw; margin-left: 0.5vw; display: flex; align-items: center; z-index: 1;'>
+        <image style='width: 4vw;opacity:0' src='../../image/location.png' mode='widthFix'></image>
+        <text class='left_msg' wx:if="{{item.contentType=='text'}}"></text>
+        </view>
+        <view class='leftMsg' wx:if="{{item.contentType=='text'}}">
+        <view class='yybox' wx:if='{{item.showid==1}}'>
+          <view class='yyheader'>请求约你搭伙</view>
+          <view class='board-plan-region-box2'>
+          <text class='title'>相约时间：</text>
+            <view class='btnboxs'>  
+              <view class='board-plan-region-box'>
+                <view class='btn'>
+                  <text>{{item.datacontents.startdate}}</text>
+                  </view>
+                  <view class='timebtns'>
+                  <text>{{item.datacontents.starttimes}}</text>
+                  </view>
+                </view>
+            </view>
+          </view>
+          <view class='board-plan-region-box2'>
+            <text class='title'>区域：</text>
+              <view class='btn' style='margin-left:112rpx'>
+                <text>{{item.datacontents.cityname1}}</text>
+              </view>
+              <view class='btn'>  
+                <text>{{item.datacontents.cityname2}}</text>
+              </view>
+              <view class='btn'>  
+                <text>{{item.datacontents.cityname3}}</text>
+              </view>
+          </view>
+          <view class='board-plan-region-box2'>
+          <text class='title'>服务店：</text>
+            <view class='longbtn' style='margin-left:112rpx'>
+              {{item.datacontents.gymname}}
+            </view>
+          </view>
+          <view class='detailbox' data-id='{{item.datacontents.jlid}}' bindtap='godetails'>查看详情</view>
+        </view>
+        <view class='yysb' wx:elif='{{item.showid==2}}'>
+          <image src='../../image/service.png' />
+          <view>搭伙邀约成功!</view>
+          <view class='yyts'>可在搭伙记录查看!</view>
+        </view>
+        <view  class='yysb' wx:elif='{{item.showid==3}}'>
+          <image src='../../image/choosenone.png' />
+          <view class='yyjg'>搭伙邀约失败!</view>
+          <view class='yyts'>可在搭伙记录查看!</view>
+        </view>
+        <view wx:else>{{item.content}}</view>
+        </view>
+        <view class='leftMsg2' wx:else><image src="{{item.content}}"/></view>
+      </view>
+
+      <!-- 单个消息2 用户发出（右） -->
+      <view wx:else id='msg-{{index}}' style='display: flex; justify-content: flex-end; padding: 2vw 2vw 2vw 11vw;'>
+      <view>
+      </view>
+        <view class='rightMsg' wx:if="{{item.contentType=='text'}}">
+          <view class='yysb' wx:if='{{item.showid==2}}'>
+            <image src='../../image/service.png' />
+            <view>搭伙邀约成功!</view>
+            <view class='yyts'>可在搭伙记录查看!</view>
+          </view>
+          <view  class='yysb' wx:elif='{{item.showid==3}}'>
+            <image src='../../image/choosenone.png' />
+            <view class='yyjg'>搭伙邀约失败!</view>
+            <view class='yyts'>可在搭伙记录查看!</view>
+          </view>
+          <view wx:else>{{item.content}}</view>
+        </view>
+        <view class='rightMsg2' wx:else><image  src="{{item.content}}"/></view>
+        <view style='position:relative;width: 4vw; height: 11vw; margin-right: 0.5vw; display: flex; align-items: center; z-index: 1;'>
+        <image style='width: 4vw;opacity:0' src='../../image/location.png' mode='widthFix'></image>
+        <text class='right_msg' wx:if="{{item.contentType=='text'}}"></text>
+        </view>
+        <view style='width: 11vw; height: 11vw;'>
+          <image bindtap='gotoour' style='width: 11vw; height: 11vw; border-radius: 10rpx;' src='{{cusHeadIcon}}'></image>
+        </view>
+      </view>
+
+    </block>
+    <!-- </view> -->
+
+    <!-- 占位 -->
+    <view style='width: 100%; height: 18vw;'></view>
+  </scroll-view>
+
+  <view class='inputRoom' style='bottom: {{inputBottom}}'>
+    <!-- <image style='width: 7vw; margin-left: 3.2vw;' src='../../images/pic_icon.png' mode='widthFix'></image> -->
+    <input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur' ></input>
+    <image src='../../image/icon_add_emjoy.jpeg' class='add_contant' bindtap="sendImages" data-url="qrcode"></image>
+    <image src='../../image/icon_add_chat.jpeg' class='add_contant' bindtap="sendImages"></image>
+  </view>
+  <view wx:if='{{faqishow}}' class='dahuoboxshow'>
+    <view class='dahuotitle'>搭伙发起</view>
+    <view class='board-plan-region-box'>
+     <text class='title'>相约时间：</text>
+      <view class='btnbox'>  
+        <picker class='time-picker changelable' mode="multiSelector" bindchange="bindStartMultiPickerChange" bindtap='pickerTap'  value="{{multiIndex}}" range="{{multiArray}}">
+        <view class='board-plan-region-box'>
+          <view class='btn'>
+            <text>{{launchday}}</text>
+            <image src='../../res/imgs/icon_white_arrow.png' class='arrow' />
+            </view>
+            <view class='timebtn'>
+            <text>{{launchtime}}</text>
+            <image src='../../res/imgs/icon_white_arrow.png' class='arrow' />
+            </view>
+          </view>
+        </picker>
+        <!-- <image src='../../res/imgs/icon_white_arrow.png' class='arrow' /> -->
+      </view>
+    </view>
+    <view class='board-plan-region-box' bindtap='chooseRegion'>
+      <text class='title'>区域：</text>
+        <view class='btn' style='margin-left:160rpx'>
+          <text wx:if="{{regionValue[0].name}}">{{regionValue[0].name}}</text>
+          <text wx:else>省份</text>
+          <image src='../../res/imgs/icon_white_arrow.png' class='arrow' />
+        </view>
+        <view class='btn'>  
+          <text wx:if="{{regionValue[1].name}}">{{regionValue[1].name}}</text>
+          <text wx:else>城市</text>
+          <image src='../../res/imgs/icon_white_arrow.png' class='arrow' />
+        </view>
+        <view class='btn'>  
+          <text wx:if="{{regionValue[2].name}}">{{regionValue[2].name}}</text>
+          <text wx:else>区域</text>
+          <image src='../../res/imgs/icon_white_arrow.png' class='arrow' />
+        </view>
+    </view>
+    <view class='board-plan-region-box'>
+     <text class='title'>服务店：</text>
+      <view class='longbtn' style='margin-left:160rpx'>
+        <picker class='time-picker changelable' mode="selector" bindchange="bindGymshop"  range-key='gymName' value="{{multiIndex}}" range="{{gymshoplist}}">{{servicepoint}}</picker>
+        <image src='../../res/imgs/icon_white_arrow.png' class='arrow' />
+      </view>
+    </view>
+    <view class='board-plan-region-box'>
+     <text class='title'>抵押方式：</text>
+      <view class='longbtn' style='margin-left:160rpx'>
+        <picker class='time-picker changelable' mode="selector" bindchange="bindTypeChange" range-key='name' value="{{multiIndex}}" range="{{paylist}}">{{paytype}}</picker>
+        <image src='../../res/imgs/icon_white_arrow.png' class='arrow' />
+      </view>
+    </view>
+    <view>
+      <view class='rulebox'>遵守到场，押金返还;若未到场，押金补偿至遵守方。</view>
+      <view class='rulebox' wx:if='{{paytypevalue!=""}}'>搭伙成功后,{{paytypevalue=='AA'?'您将支付25能量值作为搭伙佣金':paytypevalue=='A'?'您将支付50能量值作为搭伙佣金':'您无需支付能量值作为搭伙佣金'}}。</view>
+      <view class='rulebox' wx:else>凌晨12点，将进行当日搭伙能量值结算。</view>
+    </view>
+    <view class='faqibtn' bindtap='launchdahuo'>发起搭伙</view>
+  </view>
+  <view class='tcview'>
+    <region-picker
+        region-value="{{regionValue}}"
+        show-region="{{showRegion}}"
+        bind:myevent="emitHideRegion">
+    </region-picker>
+  </view>
+</view>

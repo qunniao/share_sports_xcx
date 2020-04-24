@@ -1,0 +1,32 @@
+<view class="all">
+    <view class="bottom_container">
+      <view class="step_container2">
+        <view class='titlecontainer'>
+            <text class='number'>1</text>
+            <text class='title'>代理资格</text>
+            
+        </view>
+        <view class="flex" style="width:600rpx;margin:0 47rpx">
+         <text class='content'>前期无要求。......</text>
+        </view>
+      </view>
+
+       <view class="step_container2 border_bottom_no">
+        <view class='titlecontainer'>
+            <text class='number'>2</text>
+            <text class='title'>操作流程</text>
+        </view>
+        <view class="flex" style="width:600rpx;margin:0 47rpx">
+         <text class='content'>需要发送二级渠道推广二维码 ，要求潜在二级渠道人员通过该二维码进入公众号进行绑定，并联系客服发送该潜在二级渠道的账户信息，经后台审核后即可成功成为二级渠道合伙人。</text>
+        </view>
+       
+      </view>
+
+      <view class='flex'>
+          <view class='send_qrcode_btn' bindtap="navigate" data-url="qrcode">点击发送推广二维码</view>
+      </view>
+    </view>
+
+
+</view>
+

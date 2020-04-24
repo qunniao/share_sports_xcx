@@ -1,0 +1,72 @@
+<view class="all">
+  <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+
+
+  <view class='info_container'>
+      <image src="../../res/imgs/default.jpg" class='default'/>
+      <text class='name'>豆沙包</text>
+      <text class='signature'>个性签名：聚是一团火 散是满天星</text>
+      <image src="{{follow?'../../res/imgs/icon_square_follow.png':'../../res/imgs/icon_square_cancel_follow.png'}}" class="{{item.follow?'follow':'cancel_follow'}}"/>
+  </view>
+
+  <view class='fitness_plan_container'>
+    <view class='top_container'>
+    <image src='../../image/icon_plan_28.png' />
+      <text>健身计划</text>
+    </view>
+
+     <view class='bottom_container bottom_border'>
+        <text class='title'>健身时间：</text>
+        <view  class="select">
+          <text>上午\n6：00-11:00</text>
+          <view class='choose_status2'>时间段一</view>
+        </view>
+        <text class='title'>2019年4月21日</text>
+    </view>
+
+     <view class='bottom_container bottom_border'>
+        <text class='title'>健身区域：</text>
+        <view class='content_container'>
+          <view class='content'>浙江省</view>
+          <view class='content'>杭州市</view>
+          <view class='content'>下城区</view>
+        </view> 
+    </view>
+    
+    <view class='bottom_container bottom_border'>
+        <text class='title'>健身目的：</text>
+        <view class='content_container'>
+          <view class='content'>减脂</view>
+          <view class='content'>减脂</view>
+          <view class='content'>减脂</view>
+          <view class='content'>减脂</view>
+        </view> 
+    </view>
+  </view>
+
+  <view class='dynamic_list_container'>
+      <view class='line'></view>
+      <view class='dynamic_list' wx:for="{{dataList}}">
+        <text class='create_time'>04/16\n<text style='font-size:17rpx'>2019</text></text>
+        <view class='dynamic_content'>
+          <view class='content'>每一层妄言落下的灰，每一个辩解拖着的疲惫，你好，世界，幸会，凶悍，弱小，相对，每一份的勤劳收获的累，每一双清澈见识的最，得到，失去，分享...</view>
+          <view class='imgs_container' wx:if="{{item.name==1}}">
+                <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557765017916&di=52eeeba2ae94f87dfe2dddedd3010e56&imgtype=0&src=http%3A%2F%2Fimage.soxsok.com%2Fimage%2F20170901%2F20170901144634_7187.jpg' />
+                <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557765017916&di=52eeeba2ae94f87dfe2dddedd3010e56&imgtype=0&src=http%3A%2F%2Fimage.soxsok.com%2Fimage%2F20170901%2F20170901144634_7187.jpg' />
+                <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557765017916&di=52eeeba2ae94f87dfe2dddedd3010e56&imgtype=0&src=http%3A%2F%2Fimage.soxsok.com%2Fimage%2F20170901%2F20170901144634_7187.jpg' />
+          </view>
+          <view class='operator_container'>
+            <view class='chat_container'>
+              <image src="{{item.chat?'../../res/imgs/icon_square_chat_t_28.png':'../../res/imgs/icon_square_chat_f_28.png'}}"/>
+              <text>120</text>
+            </view>
+            <view class='fabulous_container'>
+              <image src="{{item.chat?'../../res/imgs/icon_square_fabulous_t_28.png':'../../res/imgs/icon_square_fabulous_f_28.png'}}"/>
+              <text>166</text>
+            </view>
+          </view>
+        </view>
+      </view>
+  </view>
+
+</view>

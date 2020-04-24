@@ -1,0 +1,313 @@
+<view class='all'>
+<view class="all-box">
+  <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+  <view class='title-place-box'>
+    <view class='address-box'>
+      <image src='../../res/imgs/icon_arrow_white.png'/>
+       <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{index}}" range-key='name' range="{{multiArray}}">
+          <text class='address-boxstext'>{{cityname}}</text>
+          <!-- <text class='adresscontent'>{{cityname}}</text> -->
+        </picker>
+      <!-- <text>浙江杭州</text> -->
+    </view>
+  </view>
+  <view class='level-container-box'>
+      <view class="level-container-1 {{type==1?'select':'unselect'}}" bindtap="chooseType" data-type="1"><image src="{{type==1?'../../res/imgs/icon_level_se1.png':'../../res/imgs/icon_level_un1.png'}}"  /><text>体验会员</text></view>
+      <view class="level-container-2 {{type==2?'select':'unselect'}}" bindtap="chooseType" data-type="2"><image src="{{type==2?'../../res/imgs/icon_level_se2.png':'../../res/imgs/icon_level_un2.png'}}"  /><text>大众会员</text></view>
+      <view class="level-container-3 {{type==3?'select':'unselect'}}" bindtap="chooseType" data-type="3"><image src="{{type==3?'../../res/imgs/icon_level_se3.png':'../../res/imgs/icon_level_un3.png'}}"  /><text>精英会员</text></view>
+      <view class="level-container-4 {{type==4?'select':'unselect'}}" bindtap="chooseType" data-type="4"><image src="{{type==4?'../../res/imgs/icon_level_se4.png':'../../res/imgs/icon_level_un4.png'}}"  /><text>皇家会员</text></view>
+  </view>
+  <view class='card-container'>
+  <swiper
+        circular="true"
+        previous-margin="0rpx"
+        next-margin="0rpx"
+        bindchange='swiperchange'
+        current='{{index}}'
+      >
+        <swiper-item class='imagelist' wx:for="{{levelList}}">
+            <image class='card-containerimage' src='{{item.img}}' />
+        </swiper-item>
+      </swiper>
+    <!-- <image src='../../res/imgs/icon_card_1.png' /> -->
+  </view>
+  <view class='membershow'><title>·</title>{{index==0?'体验会员':index==1?'大众会员':index==2?'精英会员':index==3?'皇家会员':''}}<title>·</title></view>
+  <view class='info-title'>人脉拓展 健身之余，精英社交</view>
+  <view class='rights-container'>
+    <view class='title'>会员权益</view>
+    <view class='rights-power-container'>
+      <view class='rights-box'>
+        <image class='icon_power'  src='../../res/imgs/icon_power_1.png'/>
+        <text class='rights-sm-title'>消费特权<text class='rights-sm-content'>线下健身俱乐部消费服务</text></text>
+        <view class='rights-details-box' bindtap="switch" data-type="2">
+          <text>{{power_1?'查看':'点击查看'}}</text>
+          <image src="{{power_1?'../../res/imgs/icon_white_up.png':'../../res/imgs/icon_white_arrow.png'}}" />
+        </view>
+      </view>
+      <view wx:if="{{power_1}}">
+        <view class='power-content-1' >
+        <text>A.全城通用:（解除区域限制）\n </text>
+        <text>B.俱乐部可按次消费:（解除资金限制）\n</text>
+        <text>C.会员永不过期，用完为止:（解除时间限制）\n</text>
+        <text>D.可无损失转化为专属健身俱乐部时卡:（解除风险限制）\n</text>
+      </view>
+        <view class='table'>
+            <view class='tr'>
+              <view class='td td1'>城市</view>
+              <view class='td td2'>会员等级</view>
+              <view class='td td3'>售价</view>
+              <view class='td td4'>能量</view>
+              <view class='td td5'>平均健身房使用</view>
+              <view class='td td6'>可使用人数</view>
+            </view>
+            <view class='tr'>
+              <view class='td td1'></view>
+              <view class='td td2'>{{levedata[0].name}}</view>
+              <view class='td td3'>{{levedata[0].price}}</view>
+              <view class='td td4'>{{levedata[0].energy}}</view>
+              <view class='td td5'>4次</view>
+              <view class='td td6'>单人</view>
+            </view>
+            <view class='tr'>
+              <view class='td td1' style='border-top:0'></view>
+              <view class='td td2'>{{levedata[1].name}}</view>
+              <view class='td td3'>{{levedata[1].price}}</view>
+              <view class='td td4'>{{levedata[1].energy}}</view>
+              <view class='td td5'>80次</view>
+              <view class='td td6'>单人</view>
+            </view>
+            <view class='tr'>
+              <view class='td td1' style='border-top:0'></view>
+              <view class='td td2'>{{levedata[2].name}}</view>
+              <view class='td td3'>{{levedata[2].price}}</view>
+              <view class='td td4'>{{levedata[2].energy}}</view>
+              <view class='td td5'>200次</view>
+              <view class='td td6'>双人</view>
+            </view>
+            <view class='tr' style='border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>
+              <view class='td td1' style='border-top:0'></view>
+              <view class='td td2'>{{levedata[3].name}}</view>
+              <view class='td td3'>{{levedata[3].price}}</view>
+              <view class='td td4'>{{levedata[3].energy}}</view>
+              <view class='td td5'>400次</view>
+              <view class='td td6'>三人</view>
+            </view>
+            <text class='table-city'>浙\n江\n杭\n州</text>
+        </view>
+      </view>
+      
+        
+    </view>
+    <view class='rights-power-container'>
+      <view class='rights-box'>
+        <image class='icon_power'  src='../../res/imgs/icon_power_2.png'/>
+        <text class='rights-sm-title'>社交特权<text class='rights-sm-content'>健身社交服务</text></text>
+        <view class='rights-details-box' bindtap="switch" data-type="2">
+          <text>{{power_1?'查看':'点击查看'}}</text>
+          <image src="{{power_1?'../../res/imgs/icon_white_up.png':'../../res/imgs/icon_white_arrow.png'}}" />
+        </view>
+      </view>
+    <view wx:if="{{power_1}}">
+      <view class='power-content-1'>
+        <text> A.线下健身目的一致的同伴匹配，共勉健身目标达成。\n </text>
+        <text>B.健身放松之余，精英社交，人脉拓展。\n</text>
+      </view>
+      <view class='table2'>
+          <view class='tr'>
+            <view class='td td1'>等级</view>
+            <view class='td td2'>可匹配等级</view>
+            <view class='td td3'>平均健身房使用</view>
+            <view class='td td4'>人数匹配额度</view>
+          </view>
+          <view class='tr'>
+            <view class='td td1'>体验会员</view>
+            <view class='td td2'>大众会员</view>
+            <view class='td td3'>四项基本条件</view>
+            <view class='td td4'>每天5人</view>
+          </view>
+          <view class='tr'>
+            <view class='td td1'>大众会员</view>
+            <view class='td td2'>大众会员</view>
+            <view class='td td3'>四项基本条件</view>
+            <view class='td td4'>每天5人</view>
+          </view>
+          <view class='tr' style='height:80rpx'>
+            <view class='td td1' style='height:80rpx'>精英会员</view>
+            <view class='td td2' style='height:80rpx'>大众、精英会员</view>
+            <view class='td td3' style='height:80rpx'>四项基本条件+五项高级条件</view>
+            <view class='td td4' style='height:80rpx'>不限</view>
+          </view>
+           <view class='tr'  style='height:80rpx'>
+            <view class='td td1' style='height:80rpx;border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>皇家会员</view>
+            <view class='td td2' style='height:80rpx;border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>大众、精英、皇家会员</view>
+            <view class='td td3' style='height:80rpx;border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>四项基本条件+六项高级条件</view>
+            <view class='td td4' style='height:80rpx;border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>不限</view>
+          </view>
+      </view>
+    
+    </view>
+     
+    </view>
+    <view class='rights-power-container'>
+      <view class='rights-box'>
+        <image class='icon_power'  src='../../res/imgs/icon_power_3.png'/>
+        <text class='rights-sm-title'>服务特权<text class='rights-sm-content'>会员私人专属特权服务</text></text>  
+         <view class='rights-details-box' bindtap="switch" data-type="2">
+          <text>{{power_1?'查看':'点击查看'}}</text>
+          <image src="{{power_1?'../../res/imgs/icon_white_up.png':'../../res/imgs/icon_white_arrow.png'}}" />
+        </view>
+      </view>
+      <view wx:if="{{power_1}}">
+        <view class='power-content-1'>
+          <text>A.专属运动险特权服务\n </text>
+          <text>B.专属健身房余额年卡转换服务\n</text>
+          <text>C.健身社交-人群选配特权\n</text>
+          <text>D.一对一私人管家\n</text>
+        </view>
+        <view class='table3'>
+          <view class='tr'>
+            <view class='td td1'>城市</view>
+            <view class='td td2'>会员等级</view>
+            <view class='td td3'>特权项</view>
+          </view>
+          <view class='tr'>
+            <view class='td td1'></view>
+            <view class='td td2'>体验会员</view>
+            <view class='td td3'>4项</view>
+
+          </view>
+          <view class='tr'>
+            <view class='td td1' style='border-top:0'></view>
+            <view class='td td2'>大众会员</view>
+            <view class='td td3'>8项</view>
+          </view>
+          <view class='tr'>
+            <view class='td td1' style='border-top:0'></view>
+            <view class='td td2'>精英会员</view>
+            <view class='td td3'>10项</view>
+          </view>
+          <view class='tr' style='border-bottom:1rpx solid rgba(0, 0, 0, 0.4)'>
+            <view class='td td1' style='border-top:0'></view>
+            <view class='td td2'>皇家会员</view>
+            <view class='td td3'>12项</view>
+          </view>
+          <text class='table-city'>杭州</text>
+      </view>
+
+      
+      </view>
+      
+
+    </view>
+  </view>
+  <view class='info-title2'><view></view><text>了解更多会员办理信息</text><view></view></view>
+  <view class='member-handling-container'>
+    <view class='handling-title' style="{{handlingBtn?'padding:12rpx 0 12rpx 24rpx':'padding-left: 24rpx'}}">
+      <text>会员办理</text>
+      <view class='rights-details-box' bindtap="switch" data-type="1">
+        <text>{{handlingBtn?'填写':'未选'}}</text>
+        <image src="{{handlingBtn?'../../res/imgs/icon_white_up.png':'../../res/imgs/icon_white_arrow.png'}}" />
+      </view>
+    </view>
+    <view class='rights-details-info-box' wx:if="{{handlingBtn}}">
+        <view class='buycardbox'>
+          <view wx:for='{{handlelist}}' bindtap='changebuyfun' class="buyuserbox{{item.id==handleid?'active':''}}" wx:if='{{type!=item.level}}' data-id='{{item.id}}'>
+            {{item.name}}
+          </view>
+          <view class="borderboxs"> 
+            <text wx:for='{{handlelist}}' wx:if='{{type!=item.level}}' bindtap='changebuyfun' data-id='{{item.id}}' class="buyuserborderbox">
+            <text class="buyuserborder{{item.id==handleid?'active':''}}"></text>
+          </text>
+          </view>
+        </view>
+        <view class='input-box input-boxone'>
+          <image src='../../res/imgs/icon_user.png' />
+          <input bindblur='changbuyname' placeholder='填写购买人姓名'  placeholder-style="#C9CACA"/>
+        </view>
+         <view class='input-box'>
+          <image src='../../res/imgs/icon_input_phone.png' />
+          <input bindblur='changbuyphone' placeholder='填写购买人手机号'  placeholder-style="#C9CACA"/>
+        </view>
+         <view class='input-box'>
+          <image src='../../res/imgs/icon_reqcode.png' />
+          <input bindblur='changbuycode' placeholder='填写手机验证码'  placeholder-style="#C9CACA"/>
+          <view bindtap="{{btntext=='获取验证码'?'getusercode':''}}" data-id='1' class='get-reqcode'>{{btntext}}</view>
+        </view>
+        <view wx:if='{{handleid==2}}'>
+          <view class='info-title3'><view></view><text>您将收到购买的待激活卡</text><view></view></view>
+          <view class='input-box'>
+            <image src='../../res/imgs/membericon4.png' />
+            <picker mode='selector' bindchange="changbuynum" value="{{multiIndex}}"  range="{{numlist}}">
+              <text class="buytext" >{{buynum?buynum:'请填写购买数量'}}</text>
+            </picker>
+             
+            <!-- <input bindblur='changbuynum'   placeholder='填写购买数量'  placeholder-style="#C9CACA"/> -->
+          </view>
+          <view class='input-box' bindtap="gochangeadress">
+            <image src='../../res/imgs/membericon1.png' />
+            <text >{{buyadress?buyadress:'请填写收货地址'}}</text>
+          </view> 
+        </view>   
+         <view class='flex' style='margin-top:17rpx'>
+            <view class='common_container'>
+              <view class='title_container bottom_border'>
+                <text>支付方式</text>
+              </view>
+              <view class='pay_conatiner' style='height:134rpx'>
+                  <view class='wechat'>
+                    <view class="{{types==1?'select':'unselect'}}" bindtap='choosePay' data-type='1'>
+                      <image src='../../res/imgs/icon_wechat.png'/>
+                      <text>微信</text>
+                    </view>
+                  </view>
+              </view>
+            </view>
+        </view>
+      </view>
+  </view>
+  <!-- 激活会员卡 -->
+  <view class='member-handling-container'>
+    <view class='handling-title' style="{{handlingBtn2?'padding:12rpx 0 12rpx 24rpx':'padding-left: 24rpx'}}">
+      <text>会员激活</text>
+      <view class='rights-details-box' bindtap="switch" data-type="5">
+        <text>{{handlingBtn2?'填写':'未选'}}</text>
+        <image src="{{handlingBtn?'../../res/imgs/icon_white_up.png':'../../res/imgs/icon_white_arrow.png'}}" />
+      </view>
+    </view>
+    <view class='rights-details-info-box' wx:if="{{handlingBtn2}}">
+        <view class='input-box'>
+          <image src='../../res/imgs/icon_user.png' />
+          <input bindblur='changmembername' placeholder='填写会员姓名'  placeholder-style="#C9CACA"/>
+        </view>
+         <view class='input-box'>
+          <image src='../../res/imgs/icon_input_phone.png' />
+          <input bindblur='changmemberphone' placeholder='填写会员手机号'  placeholder-style="#C9CACA"/>
+        </view>
+        <view class='input-box'>
+          <image src='../../res/imgs/icon_reqcode.png' />
+          <input bindblur='changmembercode' placeholder='填写手机验证码'  placeholder-style="#C9CACA"/>
+          <view bindtap="{{btntext2=='获取验证码'?'getusercode':''}}" data-id='2' class='get-reqcode'>{{btntext2}}</view>
+        </view>
+        <view class='input-box'>
+          <image src='../../res/imgs/membericon2.png' />
+          <input bindblur='changmemberact' placeholder='填写待激活卡账号'  placeholder-style="#C9CACA"/>
+        </view>
+        <view class='input-box'>
+          <image src='../../res/imgs/membericon3.png' />
+          <input bindblur='changememberpwd' placeholder='填写待激活卡密码'  placeholder-style="#C9CACA"/>
+          <view bindtap="checkpwd" class='get-reqcode'>验证是否正确</view>
+        </view>
+        <view class='memberactivbtn' bindtap='memberactivation'>会员激活</view>               
+      </view>
+  </view>
+  <view class='equity'>我已仔细阅读并同意相关<text style='color:#0090FF'>《服务条款》 《会员政策》</text>所有内容</view>
+</view>
+<view class='submit-box'>
+  <view class='submit-info'>
+    <view class='submit-info-1'>{{index==0?'体验会员':index==1?'大众会员':index==2?'精英会员':index==3?'皇家会员':''}}·杭州<text style='font-size:22rpx'>（可获得{{index==0?levedata[0].energy:index==1?levedata[1].energy:index==2?levedata[2].energy:index==3?levedata[3].energy:'0'}}能量）</text></view>
+    <view class='submit-info-2'>总计：<text style='color:#E50012'>¥{{allbuymoney?allbuymoney:'0'}}元</text></view>
+  </view>
+  <view bindtap='buylevel' class='submit-btn'>购买提交</view>
+</view>
+</view>
+

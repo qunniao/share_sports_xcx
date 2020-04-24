@@ -1,0 +1,15 @@
+<view class="all">
+  <view class='flex'>
+    <view class='info_message_box'>
+      <text class='title'>金额</text>
+      <input class='content' type='digit' placeholder='0.1-999' bindblur='changekfmoney'  value='{{money}}'/><text class='unittext'>元</text>
+    </view>
+  </view>
+  <view class='flex'>
+    <view class='info_container'>
+        <textarea bindblur='changelength' placeholder='服务态度极佳!' maxlength='40' class='textareabox'></textarea>
+    </view>
+  </view>
+  <view  class='usergivemoney'>¥{{money?money:'0'}}</view>
+  <view class='pjbtn' bindtap='givekfmoney'>打赏客服</view>
+</view>

@@ -1,0 +1,148 @@
+page {
+  background-color: #F6F7F7;
+}
+.all{
+  width: 750rpx;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 70rpx;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-nav-container{
+  width: 100%;
+  position: relative;
+}
+
+.userinfo-avatar{
+  width: 162rpx;
+  height: 162rpx;
+  /* border-radius: 50%; */
+  position: absolute;
+  top: 38rpx;
+}
+.info_container{
+  border-radius: 17rpx;
+  background: #FFF;
+  margin-top: 51.8rpx;
+  width: 694rpx;
+}
+
+.kfname{
+  display: block;
+  width: 100%;
+  font-size: 23.6rpx;
+  font-weight: bold;
+  margin-top: 60rpx;
+  text-align: center;
+}
+.kfid{
+  display: block;
+  width: 100%;
+  margin-top: 10rpx;
+  text-align: center;
+  font-size: 25rpx;
+}
+.kfds{
+  font-size: 25rpx;
+  text-align: center;
+  color: #9FA0A0;
+  margin-top: 31.1rpx;
+  margin-bottom: 31.9rpx;
+}
+.kfds>text{
+  font-size: 30rpx;
+  color: #008FFF;
+  margin-left: 37.5rpx;
+}
+/* 星星评价 */
+.comment1-description{
+  padding:30rpx 38.8rpx;
+  display:flex;
+  border-bottom: 1rpx solid #9FA0A0;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction:row;
+  margin-bottom: 20rpx;
+}
+.comment1-description>text{
+  font-size: 36rpx;
+  color: #9FA0A0;
+}
+.star-pos{
+  display:flex;
+  flex-direction:row;
+}
+.stars{
+    /* background:url("http://外链图片地址/Xing.png（灰色）"); */
+    background: #000;
+    width: 36rpx;
+    height: 36rpx;
+    background-size: 25rpx 25rpx;
+    margin-left: 10rpx;
+    transition: 200ms;
+}
+.on{
+    /* background:url("http://外链图片地址/Xin.png（正常）"); */
+     background: red;
+    width: 36rpx;
+    height: 36rpx;
+    background-size: 25rpx 25rpx;
+    transition: 1s;
+    transform: scale(1,1)
+}
+/* 客服评价 */
+
+/* 评价按钮 */
+.bootombtn{
+  position: fixed;
+  display: flex;
+  align-items:center;
+  bottom: 0;
+  width: 750rpx;
+  height: 118rpx;
+  background: #FFF
+}
+.bootombtn>view{
+  width: 319.4rpx;
+  height: 79.1rpx;
+  text-align: center;
+  border-radius: 13.8rpx;
+  color: #FFF;
+  margin-left: 20rpx;
+  line-height: 79.1rpx;
+  background: #4EB2FF;
+}
+.dsbtn{
+  margin-left: 56.9rpx;
+  background: #008FFF;
+}
+.textareabox{
+  width: 616.6rpx;
+  margin: 0 auto;
+  font-size: 36rpx;
+}
+.textmaxlength{
+  text-align: right;
+  color: #008FFF;
+  width: 616.6rpx;
+  margin: 0 auto;
+  font-size: 30rpx;
+  display: block;
+  margin-bottom: 23.6rpx;
+}
+.pjbtn{
+  width: 683.3rpx;
+  height: 76.3rpx;
+  line-height: 76.3rpx;
+  margin: 83.3rpx auto;
+  text-align: center;
+  border-radius: 9.7rpx;
+  background: #008FFF;
+  color: #FFF;
+  font-size: 33.3rpx;
+}

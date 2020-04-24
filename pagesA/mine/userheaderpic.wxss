@@ -1,0 +1,53 @@
+/* pagesA/mine/userheaderpic.wxss */
+page{
+}
+.home-nav-container{
+  width: 100%;
+  position: relative;
+}
+.home-nav-bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 373rpx;
+  z-index: -1;
+}
+.picbox{
+  overflow: hidden;
+  padding-left: 40rpx;
+}
+
+.picbox>image{
+  width:143rpx;
+  height:138.8rpx;
+  margin-right:34rpx;
+  float:left;
+  margin-top:30rpx;
+}
+.userpicbox{
+  line-height: 400rpx;
+  text-align: center
+}
+.userheaderpic{
+  vertical-align:middle;
+  height: 222.2rpx;
+  width: 222.2rpx;
+}
+.headertext{
+  margin-left: 40rpx;
+  font-size: 30rpx;
+}
+.headerbox{
+  padding-bottom: 90rpx;
+}
+.nowchange{
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  height: 83.3rpx;
+  line-height: 83.3rpx;
+  background: #0090FF;
+  width: 750rpx;
+  color: #fff;
+}

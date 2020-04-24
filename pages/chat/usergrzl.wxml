@@ -1,0 +1,94 @@
+<view class="all">
+  <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+  <view class='flex'>
+    <image class="userinfo-avatar" bindtap="navigate" data-url="userheaderpic" mode="cover" src="{{avatarUrl?avatarUrl:'../../res/imgs/default.jpg'}}" ></image>
+  </view>
+  <view class='flex'>
+    <view class='info_container'>
+      <view class='infoname'>{{userinfodata.userPO.userNike}}</view>
+      <view class='userlvel'>{{userdata.level==0?'初始':userdata.level==1?'体验':userdata.level==2?'大众':userdata.level==3?'精英':userdata.level==4?'皇家':'暂未开通'}}会员 <title class='useradress'>浙江 | 杭州</title></view>
+      <view class='flex'>
+        <view class='autograph'>
+            <text>个性签名：{{userinfodata.signature}}</text>
+        </view>
+      </view>
+      <view class='flex'>
+        <view class='autograph'>
+            <text>他的介绍：</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if='{{dhshow}}' class='flex'>
+    <view class='info_container2'>
+      <view class='flex'><view class='title_container'>搭伙计划
+      </view></view>
+        <view wx:if="{{tixingname!=''}}"  class='info_message_box2'>
+          <text class='title'>搭伙时间</text>
+          <view class='qybtn2' wx:for='{{starttimelist}}'><view>{{item.time}}</view><view>{{item.value}}</view></view>       
+      </view>
+      <view class='info_message_box'>
+          <text class='title'>搭伙区域</text>
+          <view class='qybtn' style='margin-left:160rpx;'>{{regionValue[0]?regionValue[0]:''}}</view>   <view class='qybtn'>{{regionValue[1]?regionValue[1]:''}}</view><view class='qybtn'>{{regionValue[2]?regionValue[2]:''}}</view>      
+      </view>
+      <view class='info_message_box'>
+        <text class='title'>搭伙目的</text>
+          <view class='qybtn' style='margin-left:160rpx;'>{{mudi}}</view>     
+      </view>
+    </view>
+  </view>
+  <view class='flex'>
+    <view class='info_container2'>
+      <view class='flex'><view class='title_container'>个人信息
+      </view></view>
+        <view wx:if="{{tixingname!=''}}" class='info_message_box'>
+          <text class='title'>体型</text>
+          <view class='content' >{{tixingname}}型</view>         
+        </view>
+        <view wx:if="{{userinfodata.sex!=null}}" class='info_message_box'>
+          <text class='title'>性别</text>
+          <view class='content' >{{userinfodata.sex==1?'男':userinfodata.sex==2?'女':''}}</view>         
+        </view>
+        <view wx:if="{{tixingname!=''}}" class='info_message_box'>
+          <text class='title'>身材</text>
+           <view class='content'>{{tixingname}}</view>
+        </view>
+        <!-- <view  class='info_message_box'>
+          <text class='title'>年龄</text>
+            <view class='content'>29</view>
+        </view> -->
+        <view wx:if="{{zhiyename!=''}}" class='info_message_box'>
+          <text class='title'>职业</text>
+          <view class='content'>{{zhiyename}}</view>
+        </view>
+        <view wx:if="{{shouru!=''}}" class='info_message_box'>
+          <text class='title'>年收入</text>
+          <view class='content'>{{shouru}}</view>
+        </view>
+      </view>
+  </view>
+  <view class='dynamic_list_container'>
+      <view class='hedt'>他的动态</view>
+      <view class='line'></view>
+      <view class='dynamic_list' wx:for="{{dataList}}">
+        <text class='create_time'>{{item.createlist[1]}}/{{item.createlist[2]}}\n<text style='font-size:17rpx'>{{item.createlist[0]}}</text></text>
+        <view class='dynamic_content'>
+          <view class='content'>{{item.content}}</view>
+          <view class='imgs_container' wx:if="{{item.name==1}}">
+          </view>
+          <view class='operator_container'>
+            <view class='chat_container'>
+              <image src="{{item.chat?'../../res/imgs/icon_square_chat_t_28.png':'../../res/imgs/icon_square_chat_f_28.png'}}"/>
+              <text>{{item.groupCommentPOList.length}}</text>
+            </view>
+            <view class='fabulous_container'>
+              <image src="{{item.chat?'../../res/imgs/icon_square_fabulous_t_28.png':'../../res/imgs/icon_square_fabulous_f_28.png'}}"/>
+              <text>{{item.groupPraisePOList.length}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+  </view>
+
+</view>

@@ -1,0 +1,45 @@
+<view class="all">
+    <view class='filter_container2'>
+      <view class="{{type1==1?'select':'unselect'}}" bindtap="chooseType1" data-type="1">未使用</view>
+      <view class="{{type1==2?'select':'unselect'}}" bindtap="chooseType1" data-type="2">已使用</view>
+      <view class="{{type1==3?'select':'unselect'}}" bindtap="chooseType1" data-type="3">已过期</view>
+    </view>
+    <view wx:for='{{coupondata}}' class='coupon_list_container'>
+      <text class='name'>{{item.couponPO.title}}</text>
+      <image src='{{item.couponPO.cover}}'></image>
+      <text class='price'>
+        <text style='font-size:28rpx;font-weight: normal'>¥</text>
+        <text>{{item.couponPO.price}}</text>
+        <text style='font-size:28rpx;font-weight: normal'>元</text>
+      </text>
+      <text class='use_text'>{{item.couponPO.type==1?'特权券':item.couponPO.type==2?'礼包券':item.couponPO.type==3?'商城券':''}}  {{item.couponPO.useWay==1?'直接核销':item.couponPO.useWay==2?'商品减部分能量值':item.couponPO.useWay==3?'商品减部分金额':''}}</text>
+      <text class='time'>{{item.starttimes}}至{{item.endtimes}}</text>
+      <view wx:if='{{type1==1}}' class='btn_container'>
+        <view class='first-of-type'>去使用</view>
+        <view class='last-of-type'>未使用</view>
+      </view>
+      <view wx:elif='{{type1==2}}' class='btn_container'>
+        <view class='last-of-type'>已使用</view>
+      </view>
+      <view  wx:elif='{{type1==3}}' class='btn_container'>
+        <view class='last-of-type'>已过期</view>
+      </view>
+    </view>
+
+    <!-- <view class='coupon_list_container'>
+      <text class='name'>健身房名称</text>
+      <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556195046284&di=17092b2ae482199997e02c1521dd8ca2&imgtype=0&src=http%3A%2F%2Fpic48.nipic.com%2Ffile%2F20140910%2F2531170_165600643000_2.jpg'></image>
+      <text class='price'>
+        <text style='font-size:28rpx;font-weight: normal'>¥</text>
+        <text>150</text>
+        <text style='font-size:28rpx;font-weight: normal'>元</text>
+      </text>
+      <text class='use_text'>礼包券  礼品抵用</text>
+      <text class='time'>2019-4-21至2019-8-31</text>
+      <view class='btn_container'>
+        <view>未使用</view>
+        <view>去使用</view>
+      </view>
+    </view> -->
+ 
+</view>

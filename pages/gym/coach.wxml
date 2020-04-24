@@ -1,0 +1,32 @@
+<view class="all">
+  <view class='flex all_container'>
+    <image src='{{usercontent.url}}' class='coach_img' />
+    <view class='info_container'>
+      <text class='name'>{{usercontent.name}}</text>
+      <text class='resume'>{{usercontent.title}} <text style='color:#9FA0A0'>|</text> {{usercontent.jobYear}}</text>
+      <view class='expertise'>
+        <text>擅长：</text>
+        <view wx:key='*this' wx:for='{{begoodlable}}'>{{item}}</view>
+      </view>
+       <image src='' class='star' bindtap='collectBtn' src="{{collect?'../../res/imgs/icon_coach_star_select.png':'../../res/imgs/icon_coach_star_unselect.png'}}" class='star'/>
+    </view>
+
+      <view class='curriculum_container'>
+        <view class='title_container'><text>教练履历</text></view>
+        <view class='desc_container' wx:key='*this' wx:for='{{curriculumVitae}}'>
+          <text class='number'>{{index+1}}</text>
+          <text class='desc'>{{item}}</text>
+        </view>
+      </view>
+
+        <view class='curriculum_container'>
+        <view class='title_container'><text>我的专长</text></view>
+        <view class='desc_container' wx:key='*this' wx:for='{{expertise}}'>
+          <text class='number'>{{index+1}}</text>
+          <text class='desc'>{{item}}</text>
+        </view>
+      </view>
+  </view>
+  
+
+</view>

@@ -1,0 +1,71 @@
+<view class="all">
+  <view class="home-nav-container">
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+
+
+      <swiper
+        circular="true"
+        current='{{index}}'
+        previous-margin="46rpx"
+        next-margin="28rpx"
+        bindchange='swiperchange'
+      >
+      
+          <swiper-item wx:for="{{levelList}}">
+              <view class='card_container'>
+                <image src='{{item.img}}' class='cardImage' />
+                <view class='level_box'>
+                  <image src='../../res/imgs/icon_power_member_1.png' />
+                  <text>{{item.name}}</text>
+                  <view>{{item.type==userlevel?'已拥有':'未拥有'}}</view>
+                </view>
+                <view class='card_bottom_container'>
+                  <text class='line'></text>
+                  <text class='name'>开通更高等级的会员享受更多特权</text>
+                  <text class='line'></text>
+                </view>
+                <text class='card_desc' wx:if="{{item.type!=userlevel}}">您还未获得该会员</text>
+                <view class='apply_btn' bindtap="gopurchase" wx:if="{{item.type!=userlevel}}">申请加入</view>
+                <text class='card_desc' wx:if="{{item.type==userlevel}}">限{{item.type==3?'双':item.type==4?'三':'单'}}人使用</text>
+                <text class='card_desc2' wx:if="{{item.type==userlevel}}">区    域：浙江省 杭州市</text>
+              </view>
+          </swiper-item>
+      </swiper>
+
+
+
+
+  <view class='desc_title'>相关文字性描述</view>
+
+  <view class='power_container'>
+    <text class='title'>人气特权</text>
+    <view class='popularity_container'>
+      <view wx:for="{{powerList}}" data-id="{{item.id}}" bindtap="gotodetail">
+        <view class='flex'>
+          <image  src='{{item.icon}}' />
+        </view>
+        <view class='name'>{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+
+
+ <view class='data_container'>
+    <view class='power_title'>
+      <text>全部特权</text>
+    </view>
+    <view class="data_list_container" wx:for="{{powerdata}}" data-id="{{item.id}}" bindtap="gotodetail">
+        <text class='dian'></text>
+        <text class='title'>{{item.content?item.content:'暂无'}}</text>
+        <image  src='../../res/imgs/icon_next_32.png' />
+    </view>
+  </view>
+
+    
+  </view>
+
+
+
+
+
+</view>

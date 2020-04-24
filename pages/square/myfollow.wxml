@@ -1,0 +1,10 @@
+<view class='control'>
+        <view class="firendlist-box">
+        <view class='firendlist' wx:key='*this' wx:for="{{firendList}}">
+          <image src='{{item.userPO.avatarUrl}}' />
+          <view bindtap='goliaotian' class='firend-info-box'>
+            <text class='name'>{{item.userPO.userNike}}</text>
+          </view>
+        </view>
+    </view>
+</view>

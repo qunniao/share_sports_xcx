@@ -1,0 +1,107 @@
+<view style='background:#F7F8F8'>
+  <view class='orderheader'>
+    <view class='orderheaderleft'>{{orderdata.orderState==0?'已取消':orderdata.orderState==1?'等待买家付款':orderdata.orderState==2?'卖家已付款,待发货':orderdata.orderState==3?'卖家已发货,待收货':orderdata.orderState==4?'交易完成':''}}</view>
+    <image class='orderheaderright' src="{{orderdata.orderState==0?'../../image/orderdetail6.png':orderdata.orderState==1?'../../image/orderdetail1.png':orderdata.orderState==2?'../../image/orderdetail2.png':orderdata.orderState==3?'../../image/orderdetail3.png':orderdata.orderState==4?'../../image/orderdetail4.png':''}}"></image>
+  </view>
+  <!-- 主体内容 -->
+  <view class='ordercontent'>
+    <view class='orderuserbox2' wx:if='{{orderdata.orderState>=3}}'>
+      <image class='userimg' src="../../image/orderdetail5.png"></image>
+      <view class='useradress'>
+        <view style='color:#0090FF'>【杭州市】包裹已签收,签收人:奶黄包</view>
+        <view><title class='gayphone'>2019-04-18 15:46</title></view>
+      </view>
+    </view>
+    <view class='orderuserbox'>
+      <image class='userimg' src='../../image/jiesuan.png' />
+      <view class='useradress'>
+        <view>{{orderdata.contactName}} <title class='gayphone'>{{orderdata.phone}}</title></view>
+        <view style='margin-top:20rpx'>{{orderdata.address}}</view>
+      </view>
+    </view>
+    <view class='sp-list'>
+        <view wx:for='{{orderdata.orderProductPO}}' class='spbox'>
+          <image src='{{item.productPO.image}}'></image>
+          <view class='xp-right'>
+            <view class='xp-title'>{{item.productPO.name}}</view>
+            <view class='gg-xh'>{{item.productPO.param?item.productPO.param:'暂无'}}</view>
+            <view class='price-num'>
+              <text class='price'>{{orderdata.settlementType==1?'￥'+item.productPO.realPrice:item.productPO.realPrice+'能量值'}}</text>
+              <text id='num'>x{{item.number}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='pstext'>
+          <view class='pstextlabel'>配送运费<title class='pspritext'>配送费:¥{{orderdata.freight?orderdata.freight:'0'}}</title></view>
+           <view class='pstextlabel'>商品总价
+              <view class='psnumcon'><title class='sp-text1'>共{{orderdata.orderProductPO.length}}件商品</title><title class='sp-text2'>{{orderdata.settlementType==1?'￥'+orderdata.totalPrice:orderdata.totalPrice+'能量值'}}</title></view>
+           </view>
+        </view>
+        <view class='lineshow'></view>
+        <view class='pstext'>
+          <view class='pstextlabel'>优惠金额<title class='pspritext'>{{orderdata.couponPO.title?orderdata.couponPO.title:''}}</title></view>
+           <view class='pstextlabel'>需付款
+              <view class='psnumcon'><title class='sp-text2'>{{orderdata.settlementType==1?'￥'+orderdata.payPrice:orderdata.payPrice+'能量值'}}</title></view>
+           </view>
+        </view>
+      </view>
+      <!-- 订单信息 -->
+      <view class='ddbox'>
+        <view class='ddboxleft'>
+          <view class='pstextlabel'>订单备注<title class='pspritext'>{{orderdata.remark?orderdata.remark:''}}</title></view>
+          <view class='pstextlabel'>订单编号:<title class='pspritext'>{{orderdata.orderNumber?orderdata.orderNumber:''}}</title></view>
+          <view class='pstextlabel'>下单时间:<title class='pspritext'>{{orderdata.createTime?orderdata.createTime:orderdata.createTime}}</title></view>
+          <view class='pstextlabel' wx:if='{{orderdata.orderState>=2}}'>付款时间:<title class='pspritext'>{{orderdata.payTime?orderdata.payTime:''}}</title></view> 
+          <view class='pstextlabel' wx:if='{{orderdata.orderState>=2}}'>付款方式:<title class='pspritext'>{{orderdata.payWay==1?'钱包能量值':orderdata.payWay==2?'微信':orderdata.payWay==3?'支付宝':''}}</title></view> 
+          <view class='pstextlabel' wx:if='{{orderdata.orderState>=3}}' >发货时间:<title class='pspritext'>{{orderdata.deliveryTime?orderdata.deliveryTime:''}}</title></view> 
+          <view class='pstextlabel' wx:if='{{orderdata.orderState>=3}}'>配送方式:<title class='pspritext'>{{orderdata.deliveryWay?orderdata.deliveryWay:''}}</title></view> 
+          <view class='pstextlabel' wx:if='{{orderdata.orderState>=4}}'>成交时间:<title class='pspritext'>{{orderdata.receivingTime?orderdata.receivingTime:''}}</title></view>       
+        </view>
+        <view bindtap="copydata" class='ddboxright'>
+          复制
+        </view>
+      </view>
+  </view>
+  <view class='footerbtnlist'>
+    <view wx:if='{{orderdata.orderState==1}}' bindtap='payshow' class='footerbtn'>去付款</view>
+    <view wx:if='{{orderdata.orderState==1}}' bindtap='delorder' class='footerbtn'>取消订单</view>
+    <view class='footerbtn' bindtap='wanttokf'>联系客服</view>
+  </view>
+      <view class='payment' hidden='{{payment}}'>
+      <view class='payment_k'>
+        <view class='payment_none'>
+          <image src='../image/jiesuannone.png' bindtap='paymentnone'></image>
+          <text>确认付款</text>
+        </view>
+        <view class='payment_price'>￥{{orderdata.totalPrice}}</view>
+        <view class='pri_method'>
+          <view class='primethod1'>请选择支付方式</view>
+          <view bindtap='patconlist' class='we_pei'>
+            <image class='we_pei_img' src='../image/weixin.png'></image>
+            <text>微信支付</text>
+            <image class='patconlist_chack_img'  src="{{patconlist_chack_img ? '../image/quan.png' : '../image/quannone.png'}}"></image>
+          </view>
+          <view class='li_pri' bindtap='paynow'>立即付款</view>
+        </view>
+      </view>
+    </view>
+    <!-- 能量支付 -->
+    <view class='payment' hidden='{{payments}}'>
+      <view class='payment_k'>
+        <view class='payment_none'>
+          <image src='../image/jiesuannone.png' bindtap='paymentnones'></image>
+          <text>确认付款</text>
+        </view>
+        <view class='nengpri'>
+          <text class='nengpri1'>{{orderdata.totalPrice}}</text>
+          <text class='nengpri2'>能量值</text>
+        </view>
+        <view class='current_pri'>
+          <text class='current_pri1'>您当前的能量值：</text>
+          <text class='current_pri2'>{{userengry?userengry:'0'}}</text>
+        </view>
+        <view wx:if='{{orderdata.totalPrice>userengry}}' class='current_pri' bindtap="orderpaymoney">能量值不足</view>
+        <view wx:else class='current_pri' bindtap="orderpaymoney">立即兑换</view>
+      </view>
+    </view>
+</view>

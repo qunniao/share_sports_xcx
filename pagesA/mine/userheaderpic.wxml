@@ -1,0 +1,24 @@
+<view class="all">
+  <view class="home-nav-container">
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+  </view>
+  <view class='userpicbox'>
+    <image class='userheaderpic' src='{{imageshow}}' />
+  </view>
+  <view class='headertext'>经典头像专区(61)</view>
+  <view class='headerbox'>
+    <view class='picbox'>
+      <image wx:for='{{userheaderpicone}}' data-url='{{item.url}}' bindtap='changuserheader' src='{{item.url}}' />
+    </view>
+    <view class='picbox'>
+      <image wx:for='{{userheaderpictwo}}' data-url='{{item.url}}' bindtap='changuserheader' src='{{item.url}}' />
+    </view>
+    <view class='picbox'>
+      <image wx:for='{{userheaderpicthree}}' data-url='{{item.url}}' bindtap='changuserheader' src='{{item.url}}' />
+    </view>
+    <view class='picbox'>
+      <image wx:for='{{userheaderpicfour}}' data-url='{{item.url}}' bindtap='changuserheader' src='{{item.url}}' />
+    </view>
+  </view>
+  <view bindtap='picupdate' class='nowchange'>立即使用</view>
+</view>

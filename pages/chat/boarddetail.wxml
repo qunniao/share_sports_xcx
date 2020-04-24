@@ -1,0 +1,56 @@
+<!--pages/contact/contact.wxml-->
+<view>
+   <view class='dahuotitle'>对方请求约您搭伙</view>
+    <view class='board-plan-region-box'>
+     <text class='title'>相约时间：</text>
+      <view class='btnbox'>  
+        <view class='board-plan-region-box'>
+          <view class='btn'>
+            <text>{{dates}}</text>
+            </view>
+            <view class='timebtn'>
+            <text>{{times}}</text>
+            </view>
+          </view>
+      </view>
+    </view>
+    <view class='board-plan-region-box' bindtap='chooseRegion'>
+      <text class='title'>区域：</text>
+        <view class='btn' style='margin-left:196rpx'>
+          <text>{{qyadress[0]}}</text>
+        </view>
+        <view class='btn'>  
+          <text>{{qyadress[1]}}</text>
+        </view>
+        <view class='btn'>  
+          <text>{{qyadress[2]}}</text>
+        </view>
+    </view>
+    <view class='board-plan-region-box'>
+     <text class='title'>服务店：</text>
+      <view class='longbtn' style='margin-left:196rpx'>
+        <text>{{boarddata.gymShopPO.gymName}}</text>
+      </view>
+    </view>
+    <view class='board-plan-region-box'>
+     <text class='title'>抵押方式：</text>
+      <view class='longbtn' style='margin-left:196rpx'>
+        <text>{{boarddata.payType=='AA'?'公平公正,双方押金各自付':boarddata.payType=='A'?'公平公正,双方押金各自付':boarddata.payType=='B'?'尝试受邀,双方押金他全担':''}}</text>
+      </view>
+    </view>
+    <view>
+      <view class='rulebox'>遵守到场，押金返还;若未到场，押金补偿至遵守方。</view>
+      <view class='rulebox' wx:if='{{paytypevalue!=""}}'>搭伙成功后,{{paytypevalue=='AA'?'您将支付25能量值作为搭伙佣金':paytypevalue=='A'?'您将支付50能量值作为搭伙佣金':'您无需支付能量值作为搭伙佣金'}}。</view>
+      <view class='rulebox' wx:else>凌晨12点，将进行当日搭伙能量值结算。</view>
+    </view>
+    <view wx:if='{{boarddata.type==1}}' class='checkbox'>
+      <view class='checkbtn' bindtap='launchok' style='margin-right:58rpx'>同意</view>
+      <view bindtap='launchno' class='checkbtn'>拒绝</view>
+    </view>
+    <view wx:if='{{boarddata.type==2}}' class='checkokno'>
+      该搭伙请求已被同意
+    </view>
+    <view wx:if='{{boarddata.type==3}}' class='checkokno'>
+      该搭伙请求已被拒绝
+    </view>
+</view>

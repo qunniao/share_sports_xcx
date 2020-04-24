@@ -1,0 +1,44 @@
+<view class="all">
+
+
+
+  <view class='team_container'>
+
+      <view class='nav_container'>
+        <view class='unselect'>客户团队</view>
+      </view>
+
+      <view class='info_container'>
+          <view class='info_child_container1'>
+            <view>{{allcustomer}}</view>
+            <view>累计用户数</view>
+          </view>
+          <text class='line'></text>
+          <view class='info_child_container2'>
+            <view>{{khcommission==null?'0':khcommission}}</view>
+            <view>累计佣金（元）</view>
+          </view>
+          <text class='line'></text>
+          <view class='info_child_container3'>
+            <view>{{sales==null?'0':sales}}</view>
+            <view>累计销售额（万元）</view>
+          </view>
+      </view>
+  </view>
+
+  <view class='data_container' wx:key='*this'  wx:for="{{dataList}}" wx:if="{{type==1}}">
+    <image src='{{item.avatarUrl}}' />
+    <text class='name'>{{item.userNike}}</text>
+    <text class='time'>注册时间： {{item.createTime}}</text>
+    <text class='line'></text>
+    <text class='order_number'>订单数：99</text>
+    <text class='order_amount'>销售额：9999.00元</text>
+    <text class='comm_amount'>贡献佣金：999.00元</text>
+  </view>
+
+  
+  
+
+
+</view>
+

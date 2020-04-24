@@ -1,0 +1,80 @@
+.jlbox{
+  width: 637.6rpx;
+  height: 256.9rpx;
+  padding:16rpx 26.3rpx;
+  margin: 0 auto;
+  margin-top: 19.4rpx;
+  background: #fff;
+  border-radius: 16.6rpx;
+}
+.jlheader{
+  overflow: hidden;
+  margin-top: 30.5rpx;
+  margin-bottom: 29.1rpx;
+  font-size: 27.7rpx;
+}
+.jlheaderleft{
+  float: left;
+}
+.jlheaderright{
+  float: right
+}
+
+.jlbottom{
+  overflow: hidden
+}
+.jlbottom>image{
+  width: 125rpx;
+  height: 125rpx;
+  background: #9FA0A0;
+  float: left;
+  border-radius: 6.9rpx;
+}
+.bottomone{
+  float: left;
+  font-size: 27.7rpx;
+  overflow: hidden
+}
+.usernamebox{
+  float: left;
+  margin-left: 27.7rpx;
+  width: 200rpx;
+}
+.bottomoneright{
+  margin-left:320rpx;
+  overflow: hidden
+}
+.bottomoneright>image{
+  float: left;
+  width:47rpx;
+  height:47rpx; 
+}
+.bottomoneright>text{
+  margin-left: 10rpx;
+  float: left;
+  width: 115.2rpx;
+  display: inline-block;
+  line-height: 41.6rpx;
+  height: 41.6rpx;
+  background: #0090FF;
+  color: #fff;
+  font-size: 25rpx;
+  text-align: center;
+  border-radius: 13.8rpx;
+}
+
+.bottomtwo{
+  float: left;
+  width: 460rpx;
+  margin-top: 50rpx;
+  margin-left: 27.7rpx;
+  font-size: 22.2rpx;
+  overflow: hidden;
+}
+.twoleft{
+  float: left
+}
+.tworight{
+  margin-left: 10rpx;
+  float: right;
+}

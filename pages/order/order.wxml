@@ -1,0 +1,86 @@
+
+<!--导航条-->
+<view class="navbars">
+  <text wx:for="{{navbarlist}}" data-typeid='{{item.type}}' class="items {{ordertype==item.type ? 'active' : ''}}" wx:key="unique" bindtap="changeordertype">{{item.name}}</text>
+</view>
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+ 
+<!--全部-->
+<view>
+  <!-- 下拉框 -->
+  <view class='select_box' >
+    <view class='select' catchtap='selectTap'>
+        <text class='select_text'>{{selectData[index].name}}</text>
+        <image class='select_img {{show&&"select_img_rotate"}}' src='/image/arrow.png'></image>    
+    </view>
+    <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.name}}</text>
+    </view>
+
+    <view class='select'  catchtap='selectTaq'>
+        <text class='select_text'>{{selectDate[indexa].name}}</text>
+        <image class='select_img {{show&&"select_img_rotate"}}' src='/image/arrow.png'></image>    
+    </view>
+    <view class='option_boxa' style='height:{{showa?(selectDate.length>5?300:selectDate.length*60):0}}rpx;'>
+        <text class='option' style='{{index==selectDate.length-1&&"border:0;"}}' wx:for='{{selectDate}}' wx:key='this' data-index='{{index}}' catchtap='optionTaq'>{{item.name}}</text>
+    </view>
+</view>
+  <!-- 商品列表 -->
+    <view  class='list' wx:for="{{items}}">
+      <!-- 商城订单 -->
+      <view wx:if='{{ordertype==1}}'>
+        <view class='sp-list' wx:for='{{item.orderProductPO}}' wx:for-item="cell" bindtap='goorderdetail' data-orderid='{{item.id}}'> 
+          <image src='{{cell.productPO.image}}'></image>
+          <view class='xp-right'>
+            <text class='xp-title'>{{cell.productPO.name}}</text>
+            <text class='gg-xh'>{{cell.productPO.param?cell.productPO.param:'暂无'}}</text>
+            <view class='price-num'>
+              <text class='price'>{{cell.productPO.settlementType==1?'￥'+cell.productPO.realPrice:cell.productPO.realPrice+'能量值'}}</text>
+              <text id='num'>x{{cell.number}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='time-price'>
+          <text decode="{{true}}">下单时间：{{item.createTime}}</text>
+          <text wx:if='{{ordertype==1}}' decode="{{true}}">订单金额：&nbsp;{{item.settlementType==1?'￥'+item.totalPrice:item.totalPrice+'能量值'}}</text>
+          <text wx:if='{{ordertype==2}}' decode="{{true}}">订单金额：&nbsp;￥{{item.price}}</text>
+        </view>
+        <view class='checkbtn'>
+          <text bindtap='changedd' data-id='{{item.id}}' data-state='{{item.orderState}}' class='payment'>{{item.orderState==1?'待付款':item.orderState==2?'待发货':item.orderState==3?'确认收货':item.orderState==4?'已完成':item.orderState==0?'已取消':''}}</text>
+          <text class='payment' data-id='{{item.id}}' bindtap='delorder' wx:if='{{item.orderState==1}}'>取消订单</text>
+          <text class='payment' wx:if='{{item.orderState==3}}'>查看物流</text>
+          <!-- <text class='payment' wx:if='{{item.orderState==4}}'>申请退款</text> -->
+          <text class='payment' bindtap='wanttokf'>联系客服</text>
+        </view>
+      </view>
+      <!-- 会员卡订单 -->
+        <view wx:if='{{ordertype==2}}' bindtap='goorderdetail' data-typeid='{{item.type}}' data-orderid='{{item.id}}'>
+          <view class='sp-list'  data-orderid='{{item.id}}'> 
+          <view class='xp-left'>
+            <text>{{item.level==1?'体验会员':item.level==2?'大众会员':item.level==3?'精英会员':item.level==4?'皇家会员':''}}卡</text>
+            <image src="{{item.level==1?'../../image/levelone.png':item.level==2?'../../image/leveltwo.png':item.level==3?'../../image/levelthree.png':item.level==4?'../../image/levelfour.png':''}}"></image>
+          </view>
+          <view class='xp-right'>
+            <text class='xp-title'>{{item.level==1?'体验会员':item.level==2?'大众会员':item.level==3?'精英会员':item.level==4?'皇家会员':''}}卡</text>
+            <!-- <text class='gg-xh'></text> -->
+            <view class='price-num'>
+              <text class='price'>￥{{item.memberPrice}}</text>
+              <text id='num'>x{{item.number?item.number:'1'}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='time-price'>
+            <text decode="{{true}}">订单总额：￥{{item.price}}</text>
+            <text decode="{{true}}">可获能量：{{item.level==1?'20':item.level==2?'400':item.level==3?'1000':item.level==4?'2000':''}}能力值/张</text>
+            <text decode="{{true}}">订单编号：{{item.orderNumber}}</text>
+            <text decode="{{true}}">购买时间：{{item.createTime}}</text>
+        </view>
+        <view class='time-price2' wx:if='{{item.type==3}}'>
+            <text decode="{{true}}">联系方式：{{item.phone}}</text>
+            <text decode="{{true}}">联系地址：{{item.address?item.address:''}}</text>
+        </view>
+      </view>
+    </view>
+</view>

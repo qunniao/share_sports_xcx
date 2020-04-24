@@ -1,0 +1,182 @@
+.all{
+  background: #F7F8F8;
+  padding-top: 52.7rpx;
+}
+.cardallbox{
+  width: 695rpx;
+  margin: 0 auto;
+}
+.cardimg{
+  width: 694.4rpx;
+  height: 375rpx;
+  text-align: center;
+  background: #FFF;
+  border-radius: 16.6rpx;
+}
+.cardimg>image{
+  width: 694.4rpx;
+  height: 375rpx;
+  border-radius: 16.6rpx;
+}
+.cardnames{
+  margin-top: 18rpx;
+  font-size: 30.5rpx;
+  text-align: center;
+}
+.carddetails{
+  margin-top: 43rpx;
+  background: #FFF;
+  width: 694.4rpx;
+  height: 111.1rpx;
+  line-height: 111.1rpx;
+  text-align: center;
+  font-size: 27.7rpx;
+  color: #9FA0A0;
+  border-radius: 16.6rpx;
+}
+.buyuserbox{
+  width: 694.4rpx;
+  height: 237.5rpx;
+  background: #FFF;
+  margin-top: 87.5rpx;
+  border-radius: 16.6rpx;
+  position: relative;
+}
+.buyusertitle{
+  position: absolute;
+  width: 288.8rpx;
+  height: 66.6rpx;
+  text-align: center;
+  line-height: 66.6rpx;
+  top: -33.3rpx;
+  left: 202.7rpx;
+  color: #FFF;
+  font-size: 29.1rpx;
+  border-radius: 13.8rpx;
+  background: #0090FF;
+}
+.usernamebox{
+  overflow: hidden;
+}
+.boxpadding{
+  padding-top: 66.6rpx;
+}
+.boxmaring{
+  margin-top: 18rpx;
+}
+.usernamebox>input{
+  float: left;
+  display: inline-block;
+  background: #F7F8F8;
+  border-radius: 8.3rpx;
+  width: 486.1rpx;
+  height: 55.5rpx;
+  line-height: 55.5rpx;
+  padding-left: 23.6rpx;
+  font-size: 22.2rpx;
+}
+.usernamebox>title{
+  float: left;
+  width: 111.1rpx;
+  font-size: 27.7rpx;
+  line-height: 55.5rpx;
+  margin-left: 44.4rpx;
+}
+.nowengry{
+  margin-top: 51.3rpx;
+  border-radius: 16.6rpx;
+  width: 694.4rpx;
+  height: 83.3rpx;
+  line-height: 83.3rpx;
+  text-align: center;
+  font-size: 27.7rpx;
+  background: #0090FF;
+  color: #FFF;
+}
+.nowengry>title{
+  font-size: 41.6rpx;
+}
+.nowengry2{
+  margin-top: 29.1rpx;
+  border-radius: 16.6rpx;
+  width: 694.4rpx;
+  height: 83.3rpx;
+  line-height: 83.3rpx;
+  text-align: center;
+  font-size: 27.7rpx;
+  background: #0090FF;
+  color: #FFF;
+}
+.nowengry2>title{
+  font-size: 41.6rpx;
+}
+.okcardbtn{
+  margin: 0 auto;
+  margin-top: 86.1rpx;
+  margin-bottom: 86.1rpx;
+  width: 291.6rpx;
+  height: 83.3rpx;
+  border-radius: 18rpx;
+  line-height: 83.3rpx;
+  text-align: center;
+  color: #FFF;
+  background: #0090FF;
+  font-size: 30.5rpx;
+}
+.tcheader{
+  text-align: center
+}
+.tsbox{
+  position: fixed;
+  width: 750rpx;
+  height: 100%;
+  top: 0;
+  z-index: 22;
+}
+.tsboxbg{
+  position: fixed;
+  z-index: 23;
+  width: 750rpx;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+.usercontentbox{
+  position: fixed;
+  left: 62.5rpx;
+  top: 280.5rpx;
+  border-radius: 13.8rpx;
+  z-index: 24;
+  background: #FFF;
+  padding-top: 29rpx;
+  width: 625rpx;
+  height: 539rpx;
+}
+.tctitle{
+  font-size: 30.5rpx;
+  margin-left: 61.1rpx;
+  margin-top: 65.2rpx;
+}
+.tctitle>title{
+  display: inline-block;
+  width: 111.1rpx;
+  margin-right: 10rpx;
+}
+.tcfooter{
+  margin-left: 61.1rpx;
+  color: #9FA0A0;
+  margin-top: 61.1rpx;
+  font-size: 25rpx;
+  width: 505.5rpx;
+}
+.tcokbtn{
+  width: 250rpx;
+  height: 62.5rpx;
+  margin: 0 auto;
+  margin-top: 38.8rpx;
+  background: #0090FF;
+  color: #FFF;
+  text-align: center;
+  font-size: 30.5rpx;
+  line-height: 62.5rpx;
+  border-radius: 18rpx;
+}

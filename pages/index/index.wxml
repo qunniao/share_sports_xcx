@@ -1,0 +1,600 @@
+<!-- 自定义底部导航栏 -->
+
+<view class="flex fix_nav_wp">
+
+  <view class="nav_link" wx:key='*this' wx:for="{{navData}}">
+
+      <view wx:if="{{item.current != 2}}" bindtap='tabbars' data-current="{{item.current}}">
+        <view  class='center_content'>
+          <image src='{{item.current == current?item.selectedIconPath:item.iconPath}}'/>
+        </view>
+        <view class="center_content {{item.current == current?'tabbar_select':'tabbar_unselect'}}">
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+
+      <view class='center_content' wx:if="{{item.current == 2}}" bindtap='scanCode'>
+        <view class='scan_tabbar'>
+          <view><image src='../../res/imgs/icon_scan_common.png'></image>
+        </view>
+          <wxs src="./../filter.wxs" module="filter" />
+          <view class='content_status'>{{SportsStatu?'您已健身':'扫一扫'}}</view>
+          <view class="{{SportsStatu?'content_time':'content_time2'}}">{{SportsStatu?filter.count3(second):'开始健身'}}</view>
+        </view>
+      </view>
+
+  </view>
+</view>   
+
+<!-- 筛选弹窗-->
+<view class="drawer_screen" bindtap="filterGymBtn" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+  <view class="drawer_attr_content">
+    <view class="home-property-box">
+      <view class='property-title'>场地设施</view>
+      <view wx:for="{{BuildingAll}}" wx:key='*this' data-bid="{{item.bid}}" data-type="1"   class="property-content {{item.checked==true?'select':'unselect'}}" bindtap="filterGym">
+        {{item.name}}
+      </view>
+    </view>
+    <view class="home-property-box">
+      <view class='property-title'>课程</view>
+      <view wx:for="{{SubjectAll}}" wx:key='*this' data-sid="{{item.sid}}" data-type="2"  class="property-content {{item.checked==true?'select':'unselect'}}" bindtap="filterGym">
+        {{item.name}}
+      </view>
+    </view>
+    <view class="home-property-box">
+      <view class='property-title'>区域</view>
+        <picker mode='selector' bindchange="bindqy" value="{{multiIndex}}" range-key='name' range="{{gymcitylist}}">
+            <view class='qycontent'>{{cityquname.cityname}}</view>
+        </picker>
+    </view>
+    <view class='btn-box'>
+      <button plain="true" bindtap="filterGymBtn">确认</button>
+      <button plain="true" bindtap="filterGym" data-type="3">清空选择</button>
+    </view>
+  </view>
+</view>
+<view wx:if='{{phoneshow==true}}' >
+  <view class='callbcakbox'  bindtap='callshowhidden'></view>
+  <view class='callphonebox'>
+    <view class='callphonenum'><image src='../../res/imgs/callphone.png'/></view>
+    <view class='phonebox'>{{callphoneNumber}}</view>
+    <view class='callbtn' bindtap='callPhoneok'>立即拨打</view>
+  </view>
+</view>
+
+
+
+
+
+<!-- 获取用户信息弹窗-->
+<view class='user_screen_box' wx:if="{{!hasUserInfo && canIUse}}">
+  <image  src='../../res/imgs/authorization_image.png'/>
+  <button class="checkbtntwo" plain="true" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+  <button class="checkbtnone"  bindtap="closeInfoshow">取消</button>
+</view>
+
+
+<!-- 健身 -->
+<view class='common_tabbar' hidden="{{current!=0}}">
+  <view class="all-box">
+    <view class="search-place-box">
+      <view class='address-box' >
+        <image src='../../res/imgs/icon_place.png' />
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{index}}" range-key='name' range="{{multiArray}}">
+          <text class='adresscontent'>{{cityname}}</text>
+        </picker>
+        <!-- <text>{{cityname}}</text> -->
+      </view>
+      <view class='search-box'>
+        <image src='../../res/imgs/icon_search.png' />
+        <input placeholder='点击输入您想要的内容'  bindtap='navigate' data-url="search" disabled="true" confirm-type="search" placeholder-style="color:rgba(0,0,0,0.4)"/>
+      </view>
+      <view class='user-box'>
+        <image src='../../res/imgs/icon_member.png' bindtap="navigate" data-url="../map/map" />
+      </view>
+    </view>
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+    <view class="swiper-box">
+      <swiper
+        indicator-dots=true
+        autoplay=true
+        interval="{{interval}}"
+        duration="{{duration}}"
+        indicator-color="#9A9E9F"
+        indicator-active-color="#FFF"
+      >
+        <block wx:for="{{imgUrls}}" wx:key='*this' wx:if="{{item.type==1}}">
+          <swiper-item>
+            <image src="{{item.url}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <view class="gym-box">
+
+    <view class='fliter-box'>
+      <view class='fliter-condition'>
+        <text bindtap='pricesort'>价格</text>
+        <text bindtap='placesort'>距离</text>
+      </view>
+      <view class='fliter-btn' bindtap="setModalStatus" data-status="1">
+        <text>筛选</text>
+        <image src='../../res/imgs/icon_arrow_hui.png' />
+      </view>
+    </view>
+
+    <view class='gym-list' wx:key='*this' wx:for="{{gymList}}">
+      <view class='details_btn'  bindtap='navigate' data-url="../gym/index?id={{item.gymShopId}}&shopjl={{item.distancelength}}"></view>
+
+      <image src='{{item.image}}' class='gym-image'/>
+      <text class='gym-name'>{{item.gymName}}</text>
+      <view class='gym-position-box'>
+        <text class='gym-position'>{{item.address}}</text>
+        <!-- <text class="gym-time">30分钟<text class='gym-km'>1.5km</text></text> -->
+      </view>
+      <wxs src="./../filter.wxs" module="filter" />
+      <view class='features-box'>
+        <view class="features_1">场地{{item.gymBuildingPOList.length}}</view>
+        <view class="features_2">课程{{item.gymSubjectPOList.length}}</view>
+        <text class='power_value'>{{item.gymEnergy}}<text style="color:rgba(0,0,0,0.6);font-size:14rpx">能量值 每人每次</text></text>
+      </view>
+      <text class='distances'>{{item.distancelength}}</text>
+      <image src='../../res/imgs/icon_phone.png' class='phone' bindtap='callPhone' data-number='{{item.gymPhone}}'/>
+      <image src='../../res/imgs/icon_member_blue.png' data-data='{{item}}' class='member-blue' bindtap="navigatetomap" data-url="../map/map?latitude={{item.latitude}}&longitude={{item.longitude}}"/>
+    </view>
+
+  </view>
+
+</view>  
+
+<!-- 社交 -->
+<view class='common_tabbar' hidden="{{current!=1}}">
+  <view class="social-all-box">
+    <image src='../../res/imgs/social_nav_bg.png' class='social-home-nav-bg'></image>
+    <!-- <view class="square-btn" bindtap="navigate" data-url="../square/index">进入广场</view>
+    <view wx:if="{{usernoread!=''}}" class='square-info-number' bindtap="navigate" data-url="../square/index">{{usernoread?usernoread+'+':''}}</view> -->
+    <view class="social-swiper-box">
+      <swiper
+        indicator-dots=true
+        autoplay=true
+        interval="{{interval}}"
+        duration="{{duration}}"
+        indicator-color="#9A9E9F"
+        indicator-active-color="#FFF"
+      >
+       <block wx:for="{{imgUrls}}" wx:key='*this' wx:if="{{item.type==2}}">
+          <swiper-item>
+            <image src="{{item.url}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <view class='container-box'>
+    <view class='social-btn-box'>
+      <view class="social-btn-1 {{type==1?'social-select':'social-unselect'}} {{type==3?'border_right_no':''}} " bindtap="chooseType" data-type="1">搭伙计划</view>
+      <view class="social-btn-2 {{type==2?'social-select':'social-unselect'}}" bindtap="chooseType" data-type="2"><text>临时搭伙</text><view wx:if="{{remanum!=''}}" class='social-btn-2-number'>{{remanum?remanum+'+':''}}</view></view>
+      <view class="social-btn-3 {{type==3?'social-select':'social-unselect'}} {{type==1?'border_left_no':''}} " bindtap="chooseType" data-type="3"><text>好友</text><view wx:if="{{mypeople!=''}}" class='social-btn-3-number'>{{mypeople?mypeople+'+':mypeople}}</view></view>
+    </view>
+  </view>
+  <view wx:if="{{type==1}}">
+    <view class='board-plan-box'>
+      <view class='board-plan-title-box'>
+        <image src='../../res/imgs/plan_logo.png'></image>
+        <text>制定搭伙计划</text>
+      </view>
+      <view class='choose-container'>
+        <view class='board-plan-time-box'>
+          <text class='title'>搭伙时间：</text>
+          <view style='width:160rpx'></view>
+          <view wx:for="{{filter_6_list}}" wx:key='*this' bindtap="filter_tap" data-type="6" data-id='{{item.id}}' class="{{item.checked?'select':'unselect'}}">
+          {{item.name}}
+          </view>
+          <image src="{{switch_1?'../../res/imgs/icon_black_up.png':'../../res/imgs/icon_black_arrow.png'}}" class='arrow' bindtap="switch" data-type="1"/>
+        </view>
+        <!-- 日历 -->
+        <view class='calendar-box' wx:if="{{switch_1}}">
+          <view class="selected_date">
+            <view bindtap="preMonth">
+              <image style='margin-left:20rpx' class="select_icon" src="../../res/imgs/left.png"></image>
+            </view>
+            <view class="text_center">{{curYear+'-'+curMonth}}</view>
+            <view style="text-align:right;" bindtap="nextMonth">
+              <image style='margin-right:20rpx' class="select_icon" src="../../res/imgs/right.png"></image>
+            </view>
+          </view>
+          <view class="calendar_panel">
+            <view class="calendar_box">
+              <view class="weekday_label">日</view>
+              <view class="weekday_label">一</view>
+              <view class="weekday_label">二</view>
+              <view class="weekday_label">三</view>
+              <view class="weekday_label">四</view>
+              <view class="weekday_label">五</view>
+              <view class="weekday_label">六</view>
+            </view>
+            <view class="calendar_box" wx:key='*this' wx:for="{{dateList}}" wx:for-item="week">
+              <view class="weekday_label" wx:key='*this' wx:for="{{week}}">
+                <text  class="{{item.value==selectedDate?'active_date':''}}" bindtap="{{item.ischeck?'selectDates':''}}" data-date="{{item}}">{{item.date}}</text>
+              </view>
+            </view>
+          </view>
+
+
+          <view class="board-plan-time-box2">
+            <view bindtap="changefiltertime" data-type="6" data-id='{{item.id}}'  class="{{item.checked?'select2':'unselect2'}}" wx:key='*this' wx:for="{{filter_6_listtime}}">
+              <text>{{item.content}}</text>
+              <view class='choose_status2' wx:if="{{item.checked}}">{{nowfilterId==1?'时间段一':nowfilterId==2?'时间段二':nowfilterId==3?'时间段三':nowfilterId==4?'时间段四':''}}</view>
+            </view>
+          </view>
+        </view>
+        <view class='board-plan-region-box' bindtap='chooseRegion'>
+          <text class='title'>搭伙区域：</text>
+            <view class='btn' style='margin-left:160rpx'>
+              <text wx:if="{{regionValue[0].name}}">{{regionValue[0].name}}</text>
+              <text wx:else>省份</text>
+            <image src='../../res/imgs/icon_white_arrow.png' class='arrow' /></view>
+            <view class='btn'>  
+              <text wx:if="{{regionValue[1].name}}">{{regionValue[1].name}}</text>
+              <text wx:else>城市</text>
+            <image src='../../res/imgs/icon_white_arrow.png' class='arrow' /></view>
+            <view class='btn'>  
+              <text wx:if="{{regionValue[2].name}}">{{regionValue[2].name}}</text>
+              <text wx:else>区域</text>
+            <image src='../../res/imgs/icon_white_arrow.png' class='arrow' /></view>
+        </view>
+        <view class='board-plan-partner-box'>
+          <text class='title'>同伴筛选：</text>
+        </view>
+        <view class='filter-container'>
+          <view class='filter-box' bindtap="switch" data-type="2">
+          <image src='../../res/imgs/icon_hui_dot.png' class='dot' /><text>基本筛选</text>
+          <image src="{{switch_2?'../../res/imgs/icon_hui_up.png':'../../res/imgs/icon_hui_arrow.png'}}" class='arrow' />
+          </view>
+          <view class='choose_type_container' wx:if="{{switch_2}}">
+            <view class='choose_type_box'>
+              <view class='filter-title'>健身目的</view>
+              <view class='choose_type_filter'>
+                <view wx:key='*this' wx:for="{{filter_0_list}}" bindtap="filter_tap" data-type="0" data-id='{{item.typeid}}'  class="{{item.checked?'filter_select':'filter_unselect'}}">{{item.name}}</view>
+              </view>
+            </view>
+            <view class='choose_type_box'>
+              <view class='filter-title'>体型</view>
+              <view class='choose_type_filter'>
+                <view wx:key='*this' wx:for="{{filter_1_list}}" bindtap="filter_tap" data-type="1" data-id='{{item.typeid}}'  class="{{body==item.typeid?'filter_select':'filter_unselect'}}">{{item.name}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='filter-container'>
+          <view class='filter-box' bindtap="switch" data-type="3">
+          <image src='../../res/imgs/icon_hui_dot.png' class='dot' /><text>精英筛选</text>
+          <image src="{{switch_3?'../../res/imgs/icon_hui_up.png':'../../res/imgs/icon_hui_arrow.png'}}" class='arrow' />
+          <view class='subordinate_logo'><image src='../../res/imgs/elite_logo.png' /><text>精英会员所属</text></view></view>
+          <view class='choose_type_container' wx:if="{{switch_3}}" style='padding-bottom:27rpx'>
+            <view class='choose_type_box'>
+              <view class='filter-title'>性别</view>
+              <view class='choose_type_filter'>
+                <view bindtap="filter_tap" data-type="7" data-gender='0' class="{{gender==0?'filter_select':'filter_unselect'}}">男</view>
+                <view bindtap="filter_tap" data-type="7" data-gender='1' class="{{gender==1?'filter_select':'filter_unselect'}}">女</view>
+              </view>
+            </view>
+            <view class='choose_type_box'>
+              <view class='filter-title'>年龄</view>
+              <view class='slider-box'>
+                <image src='../../res/imgs/icon_slider_start.png' class='start' />
+                <slider min="16" max="65" block-size="12" bindchange="sliderchange" backgroundColor="#9FA0A0" activeColor="#0090FF" block-color="#0090FF" value='{{choose_age}}'/>
+                <image src='../../res/imgs/icon_slider_end.png' class='end' />
+                <view class='slider-value-box'>
+                    <view class='value-start' style="left:{{left}}rpx">{{choose_age}}岁</view>
+                </view>
+              </view>
+            </view>
+            <view class='choose_type_box' style='margin-top:40rpx'>
+              <view class='filter-title'>身材</view>
+              <view class='choose_type_filter2'>
+                <view bindtap="filter_tap" data-type="2" data-id='{{item.typeid}}' wx:key='*this' wx:for="{{filter_2_list}}" class="{{item.checked?'filter2_select':'filter2_unselect'}}"><image src="{{item.checked?item.urly:item.url}}" class='icon_figure'/><view class="{{item.checked?'figure_name':'un_figure_name'}}">{{item.name}}</view></view>
+              </view>
+
+            <view class='choose_type_box'>
+              <view class='filter-title'>人群等级</view>
+                <view class='choose_type_filter3'>
+                  <view bindtap="filter_tap" data-type="5" data-level='2' class="{{level==2?'filter3_select':'filter3_unselect'}}">大众</view>
+                  <view bindtap="filter_tap" data-type="5" data-level='3' class="{{level==3?'filter3_select':'filter3_unselect'}}">精英</view>
+                  <view bindtap="{{userInfo2.level==4?'filter_tap':''}}" data-type="5" data-level='4'  class="{{level==4?'filter3_select':'filter3_unselect'}}">皇家<text style='font-size:22rpx'>(仅限皇家会员)</text></view>
+                </view>
+              </view>
+            </view>
+
+
+          </view>
+        </view>
+
+        <view class='filter-container'>
+          <view class='filter-box' bindtap="switch" data-type="4">
+          <image src='../../res/imgs/icon_hui_dot.png' class='dot' /><text>人脉筛选</text>
+          <image src="{{switch_4?'../../res/imgs/icon_hui_up.png':'../../res/imgs/icon_hui_arrow.png'}}" class='arrow' />
+          <view class='subordinate_logo'><image src='../../res/imgs/royal_logo.png' /><text>皇家会员所属</text></view></view>
+          <view class='choose_type_container' wx:if="{{switch_4}}">
+
+
+          <view class='choose_type_box'>
+            <view class='filter-title'>职业</view>
+            <view class='choose_type_filter'>
+              <view bindtap="filter_tap" data-type="3" data-id='{{item.typeid}}' wx:key='*this' wx:for="{{filter_3_list}}" class="{{item.checked?'filter_select':'filter_unselect'}}">{{item.name}}</view>
+            </view>
+          </view>
+          
+
+           <view class='choose_type_box'>
+            <view class='filter-title'>年收入</view>
+            <view class='choose_type_filter' >
+              <view bindtap="filter_tap" data-type="4" data-id='{{item.typeid}}' wx:key='*this' wx:for="{{filter_4_list}}"  class="{{income==item.typeid?'filter_select':'filter_unselect'}}">{{item.name}}</view>
+            </view>
+          </view>
+
+
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='board-plan-btn-box'>
+      <view class='matching-reg'>
+        <image src='../../res/imgs/icon_btn_plan_logo.png'></image>
+        <text>匹配细则</text>
+      </view> 
+      <view class="board-plan-btn-1" bindtap="board_plan_btn">开始搭伙</view>
+      <!-- <view class='board-plan-btn-2'>停止搭伙</view> -->
+    </view>
+  </view>
+
+
+  <view wx:if="{{type==2}}" class='board-temporary-box'>
+    <view class='temporary-status-box'>
+      <text class='number'>今日剩余名额：<text style="font-size:22rpx;color:#FF0000">{{remanum}}</text>位</text>
+      <text class='status-text'>等待搭伙中...</text>
+      <image bindtap="getBoardTemporaryList" data-type="1" src='../../res/imgs/switch_all.png'></image>
+    </view>
+    <view class='board-temporary-list' wx:key='*this' wx:for="{{boardTemporaryList}}">
+      <image src='{{item.headUrl}}'  class='portrait'/>
+      <text class='name'>{{item.userNike}}</text>
+      <view class='about'>约</view>
+      <view class="unabout">不约</view>
+      <view class="chat_box" bindtap='goliaotian' data-frid='{{item.userId}}' data-ltid='1'><image src='../../res/imgs/chat_logo.png'></image><text>{{filter.sportTurn(filter_0_list,item.purpose)}}</text></view>
+      <text class='temporary-info'><text style='padding-right:42rpx'>
+      {{filter.timeTurn(item.startTime,item.endTime)}}
+      </text>{{item.cityName}}</text>
+    </view>
+    <view class='board-temporary-btn-box'>
+      <view class="board-temporary-btn-1"  bindtap="stopBoard" >停止搭伙</view>
+      <view class='board-temporary-btn-2' bindtap="chooseType" data-type="1">修改搭伙计划</view>
+    </view>
+  </view>
+
+
+  <view wx:if="{{type==3}}" class='board-friend-box'>
+    <view class='board-friend-record' bindtap="navigate" data-url="../dhjl/dhjl">
+        <image src='../../res/imgs/board_friend_query.png'></image>
+        <text>查看搭伙记录</text>
+      </view>
+      <view class="firendlist-box">
+        <view class='firendlist'wx:key='*this' wx:for="{{firendList}}">
+          <image src='{{item.avatarUrl}}' />
+          <view bindtap='goliaotian' data-ltid='2' data-frid='{{item.userId}}' class='firend-info-box'>
+            <text class='name'>{{item.userNike}}</text>
+            <text class='info'>{{item.chatcontent}}</text>
+            <text class='time'>刚刚</text>
+          </view>
+        </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 商城 -->
+<view class='common_tabbar' hidden="{{current!=3}}">
+  <view class='store_all'>
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+    <view class='search_container'>
+      <image src='../../res/imgs/icon_search.png'  bindtap='searchshop' />
+      <input placeholder='点击输入您想要的内容' bindconfirm='searchshop' bindblur='changesearchshop' maxlength='16'  confirm-type="search" placeholder-style="color:rgba(0,0,0,0.4)"/>
+    </view>
+    <view class="store_nav_container">
+      <view class="{{currentNav==item.id?'select':'unselect'}}" wx:key='*this' wx:for="{{storeNavList}}" bindtap="storeNavChoice" data-id="{{item.id}}">
+        <image src="{{currentNav==item.id?item.active:item.unactive}}" />
+        <text class='content'>{{item.name}}</text>
+      </view>
+    </view>
+
+    <view class="store-swiper-box">
+      <swiper
+        indicator-dots=true
+        autoplay=true
+        interval="{{interval}}"
+        duration="{{duration}}"
+        indicator-color="#9A9E9F"
+        indicator-active-color="#FFF"
+      >
+       <block wx:for="{{imgUrls}}" wx:key='*this' wx:if="{{item.type==3}}">
+          <swiper-item>
+            <image src="{{item.url}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class="store_filter_container">
+
+      <!-- <view class='all_filter'>
+        <text>综合</text>
+        <image src='../../image/icon_filter_store_1.png' />
+      </view>
+      <view class='other_filter' bindtap='salerank'>
+        <text>销量</text>
+        <image src='../../image/icon_filter_store_2.png' />
+      </view>
+      <view class='other_filter' bindtap='pricerank'>
+        <text>价格</text>
+        <image src='../../image/icon_filter_store_2.png' />
+      </view> -->
+    </view>
+  </view>
+
+
+  <view class="goods_list_container">
+      <view class="goods_container" wx:key='*this' wx:for="{{goodsList}}" bindtap="navigate" data-url="../../pagesB/store/index?id={{item.id}}">
+        <image src='{{item.image}}' class='graph' />
+        <text class='name'>{{item.name?item.name:''}}</text>
+        <text class='desc'>{{item.intro?item.intro:'暂无产品介绍'}}</text>
+        <view class='shopping_cart_container'>
+          <text wx:if="{{item.settlementType==1}}"><text style='font-size:28rpx'>¥</text>{{item.realPrice?item.realPrice:''}}</text>
+          <text wx:if="{{item.settlementType==2}}">{{item.realPrice?item.realPrice:''}}<text style='font-size:20rpx'>能量值</text></text>
+          <view wx:if="{{item.isCoupon==1}}">优惠券</view>
+          <image src="../../image/shopping_cart_logo.png" />
+        </view>
+        <view class='sale_price_container'>
+          <text>市场价：<text style='text-decoration:line-through;'>{{item.showPrice?item.showPrice:''}}</text></text>
+          <text>已售：{{item.salesVolume?item.salesVolume:'0'}}</text>
+        </view>
+      </view>
+  </view>
+
+  <view class='bottom_container'>
+    <view class='shopping_puchase_container'>
+      <view class='total_container'>
+          <image src='../../image/icon_store_bottom_cart.png' bindtap="navigate" data-url="../../pagesB/cart/cart"/>
+          <view wx:if='{{buyshoplength != 0}}' class='gouwunum'>{{buyshoplength}}</view>
+          <text wx:if="{{currentNav>4}}">{{shoptotalPrice==nul?'0':shoptotalPrice}}<text style='font-size:19rpx'>能量值</text></text>
+          <text wx:else><text style='font-size:30rpx;margin-right:6rpx'>¥</text>{{shoptotalPrice==nul?'0':shoptotalPrice}}</text>
+      </view>
+      <view class='purchase_btn' bindtap="navigate" data-url="../../pagesB/cart/cart">去结算</view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 我的 -->
+<view class='common_tabbar' hidden="{{current!=4}}">
+  <view class="info-box">
+      <image src='../../res/imgs/info_box.png' class='info-box-bg'></image>
+      <block>
+        <image bindtap="navigate" data-url="../../pagesA/mine/person"  class="userinfo-avatar" src="{{avatarUrl?avatarUrl:'../../res/imgs/default.jpg'}}" mode="cover"></image>
+      </block>
+      <view class="nickname-box">
+          <text class="userinfo-nickname">{{userInfo2.userNike?userInfo2.userNike:'OYOC用户'}}</text>
+          <text class="energy-value">{{userInfo2.energy?userInfo2.energy:'0'}}<text class="energy-title">能量</text></text>
+      </view>
+      <view class="member-level-box" wx:if="{{userInfo2.level!=null&&userInfo2.level!=0}}">
+        <image class="member-level" src="../../res/imgs/icon_member_1.png" mode="cover" wx:if="{{userInfo2.level==1}}"></image>
+        <image class="member-level" src="../../res/imgs/icon_member_2.png" mode="cover" wx:if="{{userInfo2.level==2}}"></image>
+        <image class="member-level" src="../../res/imgs/icon_member_3.png" mode="cover" wx:if="{{userInfo2.level==3}}"></image>
+        <image class="member-level" src="../../res/imgs/icon_member_4.png" mode="cover" wx:if="{{userInfo2.level==4}}"></image>
+      </view>
+  </view>
+  <view class="my_container">
+    <view class="my-property-box">
+      <view wx:for="{{navList3}}" wx:key='*this' bindtap="navigate" data-url="{{item.url}}">
+       <image src='{{item.icon}}'/>
+        <text>{{item.name}}</text>
+        <text wx:if="{{item.line}}" class='line'></text>
+      </view>
+    </view>
+  </view>
+  <view class='nav-container'>
+    <view wx:for="{{navList2}}" wx:key='*this' bindtap="navigate" data-url="{{item.url}}">
+        <image src='{{item.icon}}'/>
+        <text>{{item.name}}</text>
+        <text wx:if="{{index!=navList2.length-1}}" class='line'></text>
+        <image src='../../res/imgs/icon_next_32.png' class='next'/>
+    </view>
+  </view>
+  <view class='nav-container2'>
+    <view wx:for="{{navList}}" wx:if='{{item.checked}}' bindtap="navigate" data-url="{{item.url}}">
+        <image src='{{item.icon}}'/>
+        <text>{{item.name}}</text>
+        <text wx:if="{{index!=navList.length-1}}" class='line'></text>
+        <image src='../../res/imgs/icon_next_32.png' class='next'/>
+    </view>
+  </view>
+</view>
+
+
+
+<region-picker
+    region-value="{{regionValue}}"
+    show-region="{{showRegion}}"
+    bind:myevent="emitHideRegion">
+</region-picker>
+
+<!-- <region-picker 
+    region-value="{{regionValue2}}"
+    show-region="{{showRegion2}}"
+    bind:myevent="emitHideRegion2">
+</region-picker> -->
+
+
+<view class='scan_screen_box' wx:if="{{tipsModal}}">
+  <view class='scan_screen' wx:if="{{tips_1}}">
+    <image src='../../image/icon_toast_logo.png' />
+    <view class='desc'>您暂时还不是我们的会员</view>
+    <view class='desc'>请<text style='font-size:32rpx;color:#0090FF'>升级</text>成为我们的会员</view>
+    <view class='desc'>方可使用开始健身功能!</view>
+    <view class='purchase_btn' bindtap="operatorBtn"  url="../purchase/index">立即购买成为会员</view>
+    <view style='display:flex;align-items: center;justify-content: center;' >
+      <image src='../../res/imgs/icon_screen_close.png' class='icon_screen_close' bindtap="closeModal" />
+    </view>
+  </view>
+
+  <view class='scan_screen' wx:if="{{tips_2}}">
+    <image src='../../image/icon_toast_logo.png' />
+    <view class='desc'>您暂时还不是我们的会员</view>
+    <view class='desc'>请<text style='font-size:32rpx;color:#0090FF'>升级</text>成为我们的会员</view>
+    <view class='desc'>方可使用开始搭伙功能!</view>
+    <view class='purchase_btn' bindtap="operatorBtn"  url="../purchase/index">立即购买成为会员</view>
+    <view style='display:flex;align-items: center;justify-content: center;' >
+      <image src='../../res/imgs/icon_screen_close.png' class='icon_screen_close' bindtap="closeModal" />
+    </view>
+  </view>
+
+
+  <view class='scan_screen' wx:if="{{tips_3}}"> 
+    <image src='../../image/icon_toast_logo.png' />
+    <view class='desc'>您暂时还不是我们的精英皇家会员</view>
+    <view class='desc'>请<text style='font-size:32rpx;color:#0090FF'>升级</text>成为我们的精英皇家会员</view>
+    <view class='desc'>方可使用换一批功能!</view>
+    <view class='purchase_btn' bindtap="operatorBtn"  url="../purchase/index">立即升级成为精英皇家会员</view>
+    <view style='display:flex;align-items: center;justify-content: center;' >
+      <image src='../../res/imgs/icon_screen_close.png' class='icon_screen_close' bindtap="closeModal" />
+    </view>
+  </view>
+
+
+    <view class='scan_screen' wx:if="{{tips_4}}">
+    <image src='../../image/icon_toast_logo.png' />
+    <view class='desc'>您暂时还不是精英会员</view>
+    <view class='desc'>请<text style='font-size:32rpx;color:#0090FF'>升级</text>成为我们的精英会员</view>
+    <view class='desc'>方可使用该类目筛选!</view>
+    <view class='purchase_btn' bindtap="operatorBtn"  url="../purchase/index">立即升级成为精英会员</view>
+    <view style='display:flex;align-items: center;justify-content: center;' >
+      <image src='../../res/imgs/icon_screen_close.png' class='icon_screen_close' bindtap="closeModal" />
+    </view>
+  </view>
+
+    <view class='scan_screen' wx:if="{{tips_5}}">
+    <image src='../../image/icon_toast_logo.png' />
+    <view class='desc'>您暂时还不是皇家会员</view>
+    <view class='desc'>请<text style='font-size:32rpx;color:#0090FF'>升级</text>成为我们的皇家会员</view>
+    <view class='desc'>方可使用该类目筛选!</view>
+    <view class='purchase_btn' bindtap="operatorBtn"  url="../purchase/index">立即升级成为皇家会员</view>
+    <view style='display:flex;align-items: center;justify-content: center;' >
+      <image src='../../res/imgs/icon_screen_close.png' class='icon_screen_close' bindtap="closeModal" />
+    </view>
+  </view>
+  
+</view>
+
+
+
+

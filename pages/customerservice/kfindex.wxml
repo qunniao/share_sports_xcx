@@ -1,0 +1,142 @@
+<!--pages/contact/contact.wxml-->
+
+<view>
+  <view class='customuser'><image bindtap='gokfdetaiil' src="{{kfdata.cover?kfdata.cover:'../../image/kfheader.png'}}" /><title bindtap='gokfdetaiil'>{{kfdata.name?kfdata.name:'OYOC专属客服'}}</title><view class='rightbtns2' bindtap='gokfreward'><image src="../../image/rewardicon.png" />打赏</view><view class='rightbtns' bindtap='gokfevaluate'><image src="../../image/commenticon.png" />评价</view></view>
+  <scroll-view scroll-y scroll-into-view='{{toView}}' style='height: {{scrollHeight}};margin-top:20rpx;margin-bottom:{{showheight}}rpx;'>
+    <!-- <view class='scrollMsg'> -->
+    <block wx:key='*this' wx wx:for='{{msgList}}' wx:for-index="index">
+
+      <!-- 单个消息1 客服发出（左） -->
+      <view wx:if='{{item.speaker=="server"}}' id='msg-{{index}}' style='display: flex; padding: 2vw 11vw 2vw 2vw;'>
+        <!-- <view style='width: 11vw; height: 11vw;'>
+          <image style='width: 11vw; height: 11vw; border-radius: 10rpx;' bindtap='gofirenddata' src='{{friendimg}}'  ></image>
+        </view> -->
+        <view style='position:relative;width: 4vw; height: 11vw; margin-left: 0.5vw; display: flex; align-items: center; z-index: 1;'>
+        <image style='width: 4vw;opacity:0' src='../../image/location.png' mode='widthFix'></image>
+        <text class='left_msg' wx:if="{{item.contentType=='text'}}" ></text>
+        </view>
+        <view class='leftMsg' wx:if="{{item.contentType=='text'}}" >
+          <view class='yybox' wx:if='{{item.showid==2}}'>
+              <view class='shopheader'>亲,请你核对订单</view>
+              <view class="ordershoppic" wx:for='{{item.datacontents.orderProductPO}}' wx:for-item="cell">
+                <image src="{{cell.productPO.image}}"/>
+                <view class="ordershopright">
+                  <view class="shopheadertext">{{cell.productPO.name}}</view>
+                  <view>共{{cell.number}}件商品，合计￥{{cell.price}}</view>
+                </view>
+              </view>
+              <view class="shoptext">订单号：{{item.datacontents.orderNumber}}</view>
+              <view class="shoptext">姓名：{{item.datacontents.userPO.userName}}</view>
+              <view class="shoptext">电话：{{item.datacontents.userPO.userPhone}}</view>
+              <view class="shoptext"><title>地址：</title><title class='adresstitle'>{{item.datacontents.address}}</title></view>
+              <view class="shoptext">备注：{{item.datacontents.remark}}</view>
+              <view class="shopbtnbox">
+                <view class='shopokbtn' bindtap="pushshop" data-orderid='{{item.datacontents.orderNumber}}' data-type="2">确认</view>
+                <view class='shopchangebtn' bindtap="pushshop" data-type="3">修改</view>
+              </view>
+          </view>
+          <view class='yybox' wx:elif='{{item.showid==3}}'>
+              <view class='shopheader'>亲,请你核对订单</view>
+              <view class="ordershoppic" wx:for='{{item.datacontents.orderProductPO}}' wx:for-item="cell">
+                <image src="{{cell.productPO.image}}"/>
+                <view class="ordershopright">
+                  <view class="shopheadertext">{{cell.productPO.name}}</view>
+                  <view>共{{cell.number}}件商品，合计￥{{cell.price}}</view>
+                </view>
+              </view>
+              <view class="shoptext">亲～</view>
+              <view class="shoptext" style="text-indent:2em">您的快递已经在派件了！签收之后,请及时检查包裹，如有问题,请及时反馈给客服!祝您购物愉快!</view>
+              <view class="orderdetails" bindtap="gotodetail" data-orderid='{{item.datacontents.id}}'>查看订单</view>
+          </view>
+          <view class='yybox' wx:elif='{{item.showid==6}}'>聊天结束</view>
+          <view wx:else>{{item.content}}</view>
+        </view>
+        <view class='leftMsg2' wx:else><image src="{{item.content}}"/></view>
+      </view>
+
+      <!-- 单个消息2 用户发出（右） -->
+      <view wx:else id='msg-{{index}}' style='display: flex; justify-content: flex-end; padding: 2vw 2vw 2vw 11vw;'>
+      <view>
+      </view>
+        <view class='rightMsg' wx:if="{{item.contentType=='text'}}">
+          <view class='yybox' wx:if='{{item.showid==1}}' >
+            <view class="ordershoppic">
+              <image src="{{item.datacontents.image}}"/>
+              <view class="ordershoprights">
+                <view class="shopheadertext">{{item.datacontents.name}}</view>
+                <view class="shopcolor">{{item.datacontents.realPrice}}{{item.datacontents.unit==1?'元':item.datacontents.unit==2?'能量值':''}}</view>
+              </view>
+            </view>
+          </view>
+          <view wx:else>{{item.content}}</view>
+        </view>
+        <view class='rightMsg2' wx:else><image  src="{{item.content}}"/></view>
+        <view style='position:relative;width: 4vw; height: 11vw; margin-right: 0.5vw; display: flex; align-items: center; z-index: 1;'>
+        <image style='width: 4vw;opacity:0' src='../../image/location.png' mode='widthFix'></image>
+        <text class='right_msg' wx:if="{{item.contentType=='text'}}"></text>
+        </view>
+        <view style='width: 11vw; height: 11vw;'>
+          <image bindtap='gotoour' style='width: 11vw; height: 11vw; border-radius: 10rpx;' src='{{cusHeadIcon}}'></image>
+        </view>
+      </view>
+
+    </block>
+    <!-- </view> -->
+
+    <!-- 占位 -->
+    <view style='width: 100%; height: 18vw;'></view>
+  </scroll-view>
+
+  <view class='inputRoom' style='bottom: {{inputBottom}}'>
+    <!-- <image style='width: 7vw; margin-left: 3.2vw;' src='../../images/pic_icon.png' mode='widthFix'></image> -->
+    <input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur' ></input>
+    <image src='../../image/icon_add_emjoy.jpeg' class='add_contant' bindtap="sendImages" data-url="qrcode"></image>
+    <image src='../../image/icon_add_chat.jpeg' class='add_contant' bindtap="sendImages"></image>
+  </view>
+  
+  <view class='kftc' wx:if='{{kfshow}}'>
+    <view class='tcbg' bindtap='showkfhiden'></view>
+    <view class='tcbox'>
+      <view class='evaluatetext'>请您对本次的服务进行评价</view>
+      <view class='checkbtnbox'>
+        <checkbox-group  bindchange="checkboxChange">
+          <label class="checkbox" wx:for="{{items}}">
+            <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+          </label>
+        </checkbox-group>      
+      </view>
+      <textarea bindblur='changeproposal' class='textbox' placeholder="写下您的建议吧"></textarea>
+      <view class='conproblem'>请问本次咨询是否解决您的问题？</view>
+      <view class='checkbtnbox'>
+        <checkbox-group  bindchange="checkboxChangetwo">
+          <label class="checkbox" wx:for="{{itemstwo}}">
+            <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+          </label>
+        </checkbox-group>      
+      </view>
+      <view class='checkbtnsbox'>
+        <view class='checkbtn' bindtap='showkfhiden'>取消</view>
+        <view class='checkbtntrue' bindtap="pushkfpj">提交</view>
+      </view>
+    </view>
+  </view>
+  <view class="shoppic" wx:if='{{shopshow}}'>
+    <view class="shoptop">
+      <image src="{{shopdata.image}}" />
+      <view class="shoptioleft">
+        <view>{{shopdata.name}}</view>
+        <view class="engry"><title>{{shopdata.realPrice}}</title>{{shopdata.unit==1?'元':shopdata.unit==2?'能量值':''}}</view>
+      </view>
+    </view>
+    <view class="shopbottom" bindtap="pushshop" data-type="1">发送链接</view>
+  </view>
+    <view class="overdialogue" wx:if='{{overshow}}'>
+    <view class="overtop">
+      <image src="../../image/kfover.png" />
+      <view class="overtioleft">
+        <view>本次会话已结束</view>
+        <view class="overtext">感谢您的支持与认可,我们会继续努力持续为您提供优质的服务</view>
+      </view>
+    </view>
+  </view>
+</view>

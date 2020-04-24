@@ -1,0 +1,41 @@
+<view class="all">
+  <view class='nav_container'>
+    <view class="{{type==1?'select':'unselect'}}" bindtap='chooseType' data-type="1">店铺({{gymList.length}})</view>
+    <view class="{{type==2?'select':'unselect'}}" bindtap='chooseType' data-type="2">私教({{coachList.length}})</view>
+  </view>
+
+  <view wx:if="{{type==1}}" style='padding-top:40rpx'>
+      <view class='gym-list' wx:for="{{gymList}}" >
+        <view data-index='{{index}}' bindtap='navigateshop' data-url="../../pages/gym/index?id={{item.gymShopId}}&shopjl={{item.distancelength}}" bindtouchstart="touchS" bindtouchend="touchE">
+          <image src='{{item.image}}' class='gym-image'/>
+          <text class='gym-name'>{{item.gymName}}</text>
+          <text class='gym-position'>{{item.address}}</text>
+          <text class='power_value'>{{item.gymEnergy}}<text style="color:rgba(0,0,0,0.6);font-size:14rpx">能量值 每人每次</text></text>
+          <image src='../../res/imgs/icon_phone.png' class='phone' bindtap='callPhone' data-number='{{item.gymPhone}}'/>
+          <image src='../../res/imgs/icon_member_blue.png' class='member-blue'/>
+        </view>
+        <view wx:if='{{item.showtype==1}}' bindtap='delgymshop' class='delbtnbox' data-delid="{{item.gymShopId}}" >删除</view>
+      </view>
+  </view>
+
+  <view wx:if="{{type==2}}" class='coach_container'>
+      <view class='coach_btn' bindtap='delete'>{{deleteBtn?"完成":"编辑"}}</view>
+      <view data-id='{{item.userId}}' data-uid='{{item.id}}'  class='coach_box' wx:for="{{coachList}}">
+        <view class='choose_container' wx:if="{{deleteBtn}}"><image src="{{item.select?'../../res/imgs/icon_select_collection.png':'../../res/imgs/icon_unselect_collection.png'}}"
+         bindtap='select' data-id="{{item.id}}" data-type="1"
+        /></view>
+        <image bindtap='gocoach' data-uid="{{item.userId}}"  data-id="{{item.id}}" src='{{item.url}}'></image>
+        <text class='name'>{{item.name}}</text>
+        <text class='type'>{{item.title}}</text>
+      </view>
+  </view>
+
+</view>
+
+<view class='submit-box' wx:if="{{type==2&&deleteBtn==true}}">
+  <view class='submit-info'>
+    <image bindtap='select' data-type="2" src="{{all?'../../res/imgs/icon_select_collection.png':'../../res/imgs/icon_down_collection_unselect.png'}}" />
+    <text>全选</text>
+  </view>
+  <view bindtap='delall' class='submit-btn'>删除</view>
+</view>

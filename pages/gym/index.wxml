@@ -1,0 +1,141 @@
+<view class='all'>
+
+  <view class="all-box">
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+    <image bindtap='gotoshopimgs' src='{{gymInfo.image}}' class='gym-img-info'></image>
+    <view class='gymshopimg' bindtap='gotoshopimgs'><image src='../../res/imgs/shoptwopic.png' /><title>{{gymInfo.gymImagesPOList.length}}</title></view>
+    <view class='gym-info-container'>
+      <view class='name-info'>
+        <text class='name'>{{gymInfo.gymName}}</text>
+        <image bindtap='collectBtn' src="{{collect?'../../res/imgs/icon_star_big_select.png':'../../res/imgs/icon_star_big_unselect.png'}}" class='star' />
+        <image src='../../res/imgs/icon_phone.png' class='phone' bindtap='callPhone' data-number='{{gymInfo.gymPhone}}'/>
+      </view>
+      <view class='info-other-container'>
+        <view>
+          <image src='../../res/imgs/icon_info_1.png' />
+          <text>营业时间：{{gymInfo.businessTime}}</text>
+        </view>
+        <view>
+          <image src='../../res/imgs/icon_info_2.png' />
+          <text  decode="{{true}}">面&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;积：{{gymInfo.area}}平方米</text>
+        </view>
+        <view>
+          <image src='../../res/imgs/icon_info_3.png' />
+          <text>优惠活动：{{gymInfo.preferential}}</text>
+        </view>
+      </view>
+      <view bindtap='gojsroom' class='position-container'>
+        <image src='../../res/imgs/icon_info_4.png' class='logo'/>
+        <text>地址：{{gymInfo.address}}
+        </text>
+        <text wx:if="{{shopjs!=''}}" style='font-size:20rpx;color:#9FA0A0'>（距离{{shopjs}}）</text>
+        <image src='../../res/imgs/icon_member_blue.png' class='icon_member' />
+      </view>
+    </view>
+  </view>
+
+  <view class='power_container'>
+    <view class="powerboxone">
+      <view class="powerbox">
+        <view class="power_number">{{gymInfo.gymEnergy}}<text>能量值</text></view>
+        <view class="power_time">{{gymInfo.unit}}小时每次使用消耗值</view>
+      </view>
+    </view>
+     <view class="powerboxone">
+      <view bindtap='gorecharge' class="powerbox">
+        <view class="power_number">{{userInfo2.energy}}<text>能量值</text></view>
+        <view class="power_time">当前剩余能量值</view>
+      </view>
+     </view> 
+  </view>
+
+  <view class='exchange_container'>
+    <view class='exchange_card' wx:key='*this' wx:for="{{cardList}}" bindtap="navigatecard" data-url="../card/card?energy={{item.energy}}&my_energy={{userInfo2.energy}}&url={{item.url}}&name={{item.name}}&id={{item.id}}&remakes={{item.remakes}}">
+      <image src='{{item.url}}' />
+      <text class='name'>{{item.name}}</text>
+      <view class='price'>市场价
+        <text>¥{{item.marketPrice}}</text>
+      </view>
+      <text class='power_value'>{{item.energy}}能量兑换</text>
+      <view class='exchange_btn'>
+        <image src='../../res/imgs/icon_switch_white.png' />
+        <text>点击兑换</text>
+      </view>
+      <!-- <view class='exchange_number'>
+        已有99人兑换
+      </view> -->
+    </view>
+  </view>
+
+  <view class='place_has_container'>
+      <view class='title'><text>场地服务</text></view>
+      <view class='place_has_container2'>
+        <wxs src="./../filter.wxs" module="filter" />
+        <view class='place_box' wx:key='*this' wx:for="{{BuildingAll}}">
+          <view><image src="{{filter.container(gymInfo.gymBuildingPOList,item.bid,1)?item.urly:item.url}}"></image></view>
+          <view class="{{filter.container(gymInfo.gymBuildingPOList,item.bid,1)?'select':'unselect'}}">{{item.name}}</view>
+        </view>
+      </view>
+  </view>
+
+
+  <view class='class_has_container'>
+      <view class='title'><text>拥有课程</text></view>
+      <view class='class_has_container2'>
+        <wxs src="./../filter.wxs" module="filter" />
+        <view class='class_box' wx:key='*this' wx:for="{{SubjectAll}}">
+          <view><image src="{{filter.container(gymInfo.gymSubjectPOList,item.sid,2)?item.urly:item.url}}"></image></view>
+          <view class="{{filter.container(gymInfo.gymSubjectPOList,item.sid,2)?'select':'unselect'}}">{{item.name}}</view>
+        </view>
+      </view>
+  </view>
+
+
+  <view class='coach_container'>
+      <view class='title'>
+        <text>私教团队</text>
+        <!-- <view>
+          <text>查看更多教练</text>
+          <image src='../../res/imgs/icon_gym_details.png' />
+        </view> -->
+      </view>
+      <view class='coach_box' wx:key='*this' wx:for="{{coachList}}" bindtap="navigatejl" data-id="{{item.userId}}" data-uid="{{item.id}}">
+        <image src='{{item.url}}'></image>
+        <text class='name'>{{item.name}}</text>
+        <text class='type'>{{item.title}}</text>
+      </view>
+  </view>
+</view>
+
+<view wx:if='{{phoneshow==true}}' >
+  <view class='callbcakbox'  bindtap='callshowhidden'></view>
+  <view class='callphonebox'>
+    <view class='callphonenum'><image src='../../res/imgs/callphone.png'/></view>
+    <view class='phonebox'>{{callphoneNumber}}</view>
+    <view class='callbtn' bindtap='callPhoneok'>立即拨打</view>
+  </view>
+</view>
+
+  
+<view class='submit-box'>
+  <view class='submit-info'>
+    <image src='../../res/imgs/icon_power_logo.png'/>
+    <text>{{gymInfo.unit}}小时每次使用需：<text style="color:#0090FF;font-weight:500;font-size:32rpx">{{gymInfo.gymEnergy}}</text><text style="color:#0090FF;font-size:26rpx">能量值</text></text>
+  </view>
+  <view class='submit-btn' bindtap='scanCode'>
+    <view><image src='../../res/imgs/icon_scan_gym.png'></image></view>
+    <view>开始健身</view>
+  </view>
+</view>
+<view class='scan_screen_box' wx:if="{{tipsModal}}">
+  <view class='scan_screen'>
+    <image src='../../image/icon_toast_logo.png' />
+    <view class='desc'>您暂时还不是我们的会员</view>
+    <view class='desc'>请<text style='font-size:32rpx;color:#0090FF'>升级</text>成为我们的会员</view>
+    <view class='desc'>方可使用开始{{tipshowtext==1?'兑换转卡':'健身'}}功能!</view>
+    <view class='purchase_btn' bindtap="operatorBtn"  url="../purchase/index">立即购买成为会员</view>
+    <view style='display:flex;align-items: center;justify-content: center;' >
+      <image src='../../res/imgs/icon_screen_close.png' class='icon_screen_close' bindtap="closeModal" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<view class="all">
+  <view style="display:{{type==1?'':'none'}}">
+    <view class='top_container'>
+        <image  src='http://gymfiles.oss-cn-hangzhou.aliyuncs.com/4bb2973801ae4c55b5d64cf361e25601.png' class='icon_qrcode_bg_1' />
+        <view class='flex' style='position:absolute;bottom:80rpx;right:94.7rpx;'>
+          <canvas class='canvas' bindtap='ewshow' canvas-id='canvasids'></canvas>
+        </view>
+        <text class='qr_title'>了解详情,请长按二位码关注</text>
+        <view class='flex' style='position:absolute;bottom:56rpx;left:34rpx;'>
+          <image src="{{userimg}}"></image>
+        </view>
+        <text class='qr_title2'>好友推荐</text>
+    </view>
+     <view class='head_container'>
+        <image src='../../res/imgs/icon_agent_customer.png'  />
+        <text>如何分享好友</text>
+    </view>
+    <view class="bottom_container" style='display: inline-block'>
+      <view class="step_container">
+        <text class='title'>第一步</text>
+        <text class='content'>转发该图片或商品链接给微信好友；</text>
+      </view>
+      <view class="step_container">
+        <text class='title'>第二步</text>
+        <text class='content'>从您转发的图片或链接进入公众号的好友，系统将自动锁定成为您的分享，好友凭此可参与活动的优惠政策；</text>
+      </view>
+      <view class='tips_container'>
+          <text>说明:分享后会带独有的分享码，您的好友访问之后，系统会自动检测并记录分享链接关系。如果您的好友从其他人分享的图片或链接访问,他就不能成为您的分享链接关系，以最早分享链接访问的为准。</text>
+      </view>
+    </view>
+
+  </view>
+  <view class='tsbgbox' hidden='{{twoshow}}'>
+    <view class='tsbg' bindtap='ewhiden'></view>
+    <canvas class='cavbox' canvas-id="shareCanvas"></canvas>
+    <view bindtap='save' class='savebtn'>保存</view>
+  </view>
+
+</view>
+

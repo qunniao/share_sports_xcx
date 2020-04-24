@@ -1,0 +1,36 @@
+<view class="all">
+  <view class='title'>添加紧急联系人</view>
+  <view class='content'>建议添加信任的家人或好友</view>
+  <view class='flex'>
+    <view class='info_container'>
+        <view class='flex'>
+          <view class='input_container'>
+            <view class='label'>
+              <text style='font-size:25rpx'>紧急联系人姓名<text style='font-size:22rpx'>(必填<text style='color:#C30D23'>*</text>)</text></text>
+            </view>
+            <input placeholder='请输入紧急联系人姓名' bindblur='changeurgetname'  placeholder-style="color:#9FA0A0"/>
+          </view>
+        </view>
+
+         <view class='flex'>
+          <view class='input_container'>
+            <view class='label'>
+              <text style='font-size:25rpx'>联系方式<text style='font-size:22rpx'>(必填<text style='color:#C30D23'>*</text>)</text></text>
+            </view>
+            <input type='number' maxlength='11' placeholder='请输入紧急联系人号码' bindblur='changeurgetphone'  placeholder-style="color:#9FA0A0"/>
+          </view>
+        </view>
+    </view>
+  </view>
+
+  <view class='tips_container'>
+    <image src='../../res/imgs/icon_urgent_tips.png'></image>
+    <text>建议填写真实姓名，方便沟通！</text>
+  </view>
+
+  <view class='flex'>
+    <view class='confirm_btn' bindtap='saveeurget'>
+    保存
+    </view>
+  </view>
+</view>

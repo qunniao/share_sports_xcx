@@ -1,0 +1,132 @@
+page {
+  background-color: #F7F8F8;
+}
+.all{
+  width: 750rpx;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 50rpx;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.all_container{
+  flex-direction: column;
+  align-items: center;
+}
+.coach_img{
+  width: 694rpx;
+  height: 556rpx;
+  border-radius: 17rpx;
+  z-index: 10;
+}
+.info_container{
+  width: 694rpx;
+  height: 224rpx;
+  background: #FFF;
+  border-radius: 17rpx;
+  margin-top: -20rpx;
+  position: relative;
+}
+.info_container .name{
+  font-size: 33rpx;
+  line-height: 40rpx;
+  color: #000;
+  position: absolute;
+  left: 40rpx;
+  top: 40rpx;
+}
+.info_container .resume{
+  font-size: 25rpx;
+  line-height: 30rpx;
+  color: #000;
+  position: absolute;
+  left: 40rpx;
+  top: 88rpx;
+}
+.info_container .expertise{
+  height: 36rpx;
+  position: absolute;
+  left: 40rpx;
+  top: 140rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.expertise>text{
+  font-size: 22rpx;
+  color: #000;
+}
+.expertise>view{
+  height: 100%;
+  min-width: 75rpx;
+  border-radius: 7rpx;
+  border:1rpx solid rgba(0,144,255,1);
+  margin-right: 15rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #0090FF;
+  padding: 0 10rpx;
+}
+.star{
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  top: 40rpx;
+  right: 50rpx;
+}
+.curriculum_container{
+  width: 694rpx;
+  border-radius: 17rpx;
+  background: #FFF;
+  margin-top: 40rpx;
+  padding-bottom: 22rpx;
+}
+.title_container{
+  height: 84rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom:1rpx solid rgba(159,160,160,0.6);
+}
+.title_container>text{
+  font-size: 28rpx;
+  color: #000;
+  margin-left: 40rpx;
+}
+.desc_container{
+  margin-top: 22rpx;
+  flex-direction: row;
+  display: flex;
+  position: relative;
+}
+.desc_container .number{
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  font-size: 20rpx;
+  line-height: 32rpx;
+  position: absolute;
+  left: 36rpx;
+  top: 0;
+  background: #0090FF;
+}
+.desc_container .desc{
+  font-size: 25rpx;
+  width: 528rpx;
+  line-height: 32rpx;
+  background: #0090FF;
+  border-radius: 17rpx;
+  margin-left: 90rpx;
+  color: #FFF;
+  padding: 0 20rpx;
+}

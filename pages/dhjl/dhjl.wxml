@@ -1,0 +1,18 @@
+<view class="all">
+  <view class='jlbox' wx:for='{{userdetail}}'>
+    <view class='jlheader'>
+      <title class='jlheaderleft'>{{item.gymShopPO.gymName}}</title><title class='jlheaderright'>></title>
+    </view>
+    <view class='jlbottom'>
+      <image src='{{item.gymShopPO.image}}'></image>
+      <view class='bottomone'>
+        <view class='usernamebox'>{{item.username?item.username:'OYOC用户'}}</view>
+        <view class='bottomoneright'><image src='../../res/imgs/chat_logo.png'></image><text>{{item.nowzt}}</text></view>
+      </view>
+      <view class='bottomtwo'>
+        <title class='twoleft'>{{item.payfun}}</title>
+        <title class='tworight'>搭伙时间：{{item.ydtimes}}</title>
+      </view>
+    </view>
+  </view>
+</view>

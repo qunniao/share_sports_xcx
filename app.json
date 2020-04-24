@@ -1,0 +1,116 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/sharingcenter/sharingcenter",
+    "pages/dhjl/dhjl",
+    "pages/order/order",
+    "pages/order/index",
+    "pages/order/orderdetaile",
+    "pages/order/cardorderdetail",
+    "pages/square/publish",
+    "pages/chat/content",
+    "pages/chat/usergrzl",
+    "pages/chat/boarddetail",
+    "pages/square/person",
+    "pages/square/index",
+    "pages/square/principal",
+    "pages/square/myfollow",
+    "pages/gym/coach",
+    "pages/gym/gymshopicdetail",
+    "pages/map/map",
+    "pages/purchase/index",
+    "pages/purchase/changedz",
+    "pages/index/search",
+    "pages/agent/commission",
+    "pages/agent/index",
+    "pages/agent/desc",
+    "pages/agent/scheme",
+    "pages/agent/qrcode",
+    "pages/agent/order",
+    "pages/agent/team",
+    "pages/agent/usertx",
+    "pages/agent/secondorder",
+    "pages/agent/secondteam",
+    "pages/recharge/recharge",
+    "pages/card/card",
+    "pages/gym/index",
+    "pages/scan/scan",
+    "pages/channel/commission",
+    "pages/channel/index",
+    "pages/channel/desc",
+    "pages/channel/scheme",
+    "pages/channel/schemeconfig",
+    "pages/channel/qrcode",
+    "pages/channel/order",
+    "pages/channel/team",
+    "pages/channel/secondorder",
+    "pages/channel/secondteam",
+    "pages/channel/twoscheme",
+    "pages/applyexchange/applyexchange",
+    "pages/applyexchange/applyexchangedetail",
+    "pages/customerservice/customerindex",
+    "pages/customerservice/rewardkf",
+    "pages/customerservice/serviceeval",
+    "pages/customerservice/kfindex",
+    "pages/txdetail/txdetail"
+  ],
+  "subpackages": [
+    {
+      "root": "pagesA",
+      "pages": [
+        "mine/history",
+        "mine/collect",
+        "mine/member",
+        "mine/person",
+        "mine/giftpack",
+        "mine/urgent",
+        "mine/coupon",
+        "mine/wallet",
+        "mine/power",
+        "mine/userheaderpic",
+        "mine/powerdetail",
+        "mine/useridentity",
+        "recharge/recharge"
+      ],
+      "preloadRule": {
+        "pages/index": {
+          "network": "all",
+          "packages": [
+            "__APP__"
+          ]
+        }
+      }
+    },
+    {
+      "root": "pagesB",
+      "pages": [
+        "store/index",
+        "cart/cart",
+        "position/position",
+        "editpos/editpos",
+        "set/set"
+      ],
+      "preloadRule": {
+        "pages/index": {
+          "network": "all",
+          "packages": [
+            "__APP__"
+          ]
+        }
+      }
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0090FF",
+    "navigationBarTitleText": "OYOC共享健身",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

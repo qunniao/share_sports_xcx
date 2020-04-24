@@ -1,0 +1,45 @@
+<view style='background:#F7F8F8'>
+  <view class='orderheader'>
+    <view class='orderheaderleft'>
+      <view >{{cardcontent.type==1?'待取件':cardcontent.type==2?'已完成':cardcontent.type==0?'申请中':''}}</view>
+      <view wx:if='{{cardcontent.type==2}}' class='addressbox'>取件地址：{{cardcontent.gymShopPO.address}}</view>
+    </view>
+    <image class='orderheaderright' src="{{cardcontent.type==1?'../../image/order7.png':cardcontent.type==2?'../../image/orderdetail4.png':cardcontent.type==0?'../../image/orderdetail8.png':''}}"></image>    
+  </view>
+  <!-- 主体内容 -->
+  <view class='ordercontent'>
+    <view class='gymcardcontent'>
+      <view class='gymname' bindtap="gogymshop" data-gymid="{{cardcontent.gymShopPO.gymShopId}}">{{cardcontent.gymShopPO.gymName}}></view>
+      <view class='gymimgbox'>
+        <image class='gymimg' src="{{cardcontent.cardTypePO.url}}"></image>
+        <view class='gymprice'>
+          <view class='cardname'>{{cardcontent.cardTypePO.name}}</view>
+          <view class='cardprice'>市场价:￥{{cardcontent.cardTypePO.marketPrice}}</view>
+        </view>
+        <view class='gymnum'>
+          <view class='gymengry'><title>{{cardcontent.energy}}</title>能量值</view>
+          <view class='gymnums'>x1</view>
+        </view>
+      </view>
+      <view class='sqtime'>申请时间： {{cardcontent.createTime}}</view>
+      <view wx:if='{{cardcontent.type==1||cardcontent.type==2}}' class='kfphone'>办理时间： {{cardcontent.reviewTime}}</view>
+      <view wx:if='{{cardcontent.type==2}}' class='kfphone'>领取时间： {{cardcontent.handleTime}}</view>
+      <view class='kfphone'>客服热线： {{cardcontent.gymShopPO.gymPhone}}</view>
+    </view>
+    <view class='buyuserbox'>
+      <view class='buyusertitle'>OYOC对接负责人</view>
+      <view class='usernamebox boxpadding'><title>姓  名:</title><input value="{{cardcontent.dockingName?cardcontent.dockingName:'暂无'}}"  disabled/></view>
+      <view class='usernamebox boxmaring'><title>手机号:</title><input   value="{{cardcontent.dockingPhone?cardcontent.dockingPhone:'暂无'}}"  disabled/></view>
+    </view>
+    <view class='buyuserbox'>
+      <view class='buyusertitle'>办理人信息</view>
+      <view class='usernamebox boxpadding'><title>姓  名:</title><input value='{{cardcontent.reservedName}}'  disabled/></view>
+      <view class='usernamebox boxmaring'><title>手机号:</title><input   value='{{cardcontent.reservedPhone}}'  disabled/></view>
+    </view>
+    <view class='buyuserbox2'>
+      <view class='buyusertitle'>取件码</view>
+      <view class='getcardnum'>{{cardcontent.activationCode}}</view>
+    </view>
+    <view class='callkfphone'>OYOC客服热线：{{cardcontent.gymShopPO.gymPhone}}</view>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+<view class="all">
+
+      <view class='search-box'>
+        <image bindtap='searchshop' src='../../res/imgs/icon_search.png' />
+        <input bindconfirm='searchshops' placeholder='点击输入您想要的内容' maxlength='16' confirm-type="search" bindblur='changesearchtext'  placeholder-style="color:rgba(0,0,0,0.4)"/>
+      </view>
+    <view class='filter_container'>
+      <view class="{{type==0?'select':'unselect'}}" bindtap="chooseType" data-type="0">全部</view>
+      <view class="{{type==1?'select':'unselect'}}" bindtap="chooseType" data-type="1">会员</view>
+      <view class="{{type==2?'select':'unselect'}}" bindtap="chooseType" data-type="2">商城产品</view>
+      <view class='question_conatiner'  bindtap="navigate" data-url="desc">
+        <text>如何发展代理</text>
+        <image src='../../res/imgs/icon_agent_question_40.png' />
+      </view>
+    </view>
+
+     <view class='data_container' wx:key='*this' wx:for="{{dataList}}">
+      <image src='{{item.productPO.image}}' />
+      <text class='pcode'>产品编码:{{item.productPO.productNumber}}</text>
+      <text class='name'>{{item.productPO.name}}</text>
+      <text class='price'>{{item.productPO.floorPrice}}元</text>
+      <text class='line'></text>
+      <text class='code'>方案编码：{{item.agentCode}}</text>
+      <text class='custom_price'>客户佣金:{{item.agentCommission}}</text>
+       <text class='agent_price'>代理佣金:{{item.agentDeveloperCommission}}</text>
+    </view>
+</view>

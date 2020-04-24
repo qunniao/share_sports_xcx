@@ -1,0 +1,84 @@
+<view style='background:#F7F8F8'>
+  <view class='orderheader'>
+    <view class='orderheaderleft'>{{orderdata.orderState==0?'已取消':orderdata.orderState==1?'等待买家付款':orderdata.orderState==2?'卖家已付款,待发货':orderdata.orderState==3?'卖家已发货,待收货':orderdata.orderState==4?'交易完成':''}}</view>
+    <image class='orderheaderright' src="{{orderdata.orderState==0?'../../image/orderdetail6.png':orderdata.orderState==1?'../../image/orderdetail1.png':orderdata.orderState==2?'../../image/orderdetail2.png':orderdata.orderState==3?'../../image/orderdetail3.png':orderdata.orderState==4?'../../image/orderdetail4.png':''}}"></image>
+  </view>
+  <!-- 主体内容 -->
+  <view class='ordercontent'>
+    <view class='orderuserbox2' wx:if='{{orderdata.orderState>=3}}'>
+      <image class='userimg' src="../../image/orderdetail5.png"></image>
+      <view class='useradress'>
+        <view style='color:#0090FF'>【杭州市】包裹已签收,签收人:奶黄包</view>
+        <view><title class='gayphone'>{{orderdata.receivingTime}}</title></view>
+      </view>
+    </view>
+    <view class='orderuserbox'>
+      <image class='userimg' src='../../image/jiesuan.png' />
+      <view class='useradress'>
+        <view>{{orderdata.contactName}} <title class='gayphone'>{{orderdata.phone}}</title></view>
+        <view style='margin-top:20rpx'>{{orderdata.address?orderdata.address:''}}</view>
+      </view>
+    </view>
+    <view class='sp-list'>
+        <view  class='spbox'>
+          <image src="{{orderdata.level==1?'../../image/levelone.png':orderdata.level==2?'../../image/leveltwo.png':orderdata.level==3?'../../image/levelthree.png':orderdata.level==4?'../../image/levelfour.png':''}}"></image>
+          <view class='xp-right'>
+            <view class='xp-title'>{{orderdata.level==1?'体验会员':orderdata.level==2?'大众会员':orderdata.level==3?'精英会员':orderdata.level==4?'皇家会员':''}}卡</view>
+            <!-- <view class='gg-xh'>{{item.productPO.param?item.productPO.param:'暂无'}}</view> -->
+            <view class='price-num'>
+              <text class='price'>￥{{orderdata.memberPrice}}</text>
+              <text id='num'>x{{orderdata.number}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='pstext'>
+           <view class='pstextlabel'>商品总价
+              <view class='psnumcon'><title class='sp-text1'>共{{orderdata.number}}件商品</title><title class='sp-text2'>￥{{orderdata.price}}</title></view>
+           </view>
+        </view>
+        <view class='lineshow'></view>
+        <view class='pstext'>
+           <view class='pstextlabel'>需付款
+              <view class='psnumcon'><title class='sp-text2'>￥{{orderdata.price}}</title></view>
+           </view>
+        </view>
+      </view>
+      <!-- 订单信息 -->
+      <view class='ddbox'>
+        <view class='ddboxleft'>
+          <view class='pstextlabel'>订单编号:<title class='pspritext'>{{orderdata.orderNumber?orderdata.orderNumber:''}}</title></view>
+          <view class='pstextlabel'>下单时间:<title class='pspritext'>{{orderdata.createTime?orderdata.createTime:orderdata.createTime}}</title></view>
+          <view class='pstextlabel' wx:if='{{orderdata.orderState>=2}}'>付款时间:<title class='pspritext'>{{orderdata.payTime?orderdata.payTime:''}}</title></view> 
+          <!-- <view class='pstextlabel' wx:if='{{orderdata.orderState>=2}}'>付款方式:<title class='pspritext'></title></view>  -->
+          <view class='pstextlabel' wx:if='{{orderdata.orderState>=3}}' >发货时间:<title class='pspritext'>{{orderdata.deliveryTime?orderdata.deliveryTime:''}}</title></view> 
+          <view class='pstextlabel' wx:if='{{orderdata.orderState>=3}}'>配送方式:<title class='pspritext'>{{orderdata.deliveryWay?orderdata.deliveryWay:''}}</title></view> 
+          <view class='pstextlabel' wx:if='{{orderdata.orderState>=4}}'>成交时间:<title class='pspritext'>{{orderdata.receivingTime?orderdata.receivingTime:''}}</title></view>       
+        </view>
+        <view bindtap="copydata" class='ddboxright'>
+          复制
+        </view>
+      </view>
+  </view>
+  <view class='footerbtnlist'>
+    <view wx:if='{{orderdata.orderState==1}}' bindtap='payshow' class='footerbtn'>去付款</view>
+    <view class='footerbtn' bindtap='wanttokf'>联系客服</view>
+  </view>
+      <view class='payment' hidden='{{payment}}'>
+      <view class='payment_k'>
+        <view class='payment_none'>
+          <image src='../image/jiesuannone.png' bindtap='paymentnone'></image>
+          <text>确认付款</text>
+        </view>
+        <view class='payment_price'>￥{{orderdata.price}}</view>
+        <view class='pri_method'>
+          <view class='primethod1'>请选择支付方式</view>
+          <view bindtap='patconlist' class='we_pei'>
+            <image class='we_pei_img' src='../image/weixin.png'></image>
+            <text>微信支付</text>
+            <image class='patconlist_chack_img'  src="{{patconlist_chack_img ? '../image/quan.png' : '../image/quannone.png'}}"></image>
+          </view>
+          <view class='li_pri' bindtap='paynow'>立即付款</view>
+        </view>
+      </view>
+    </view>
+</view>

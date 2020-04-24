@@ -1,0 +1,26 @@
+<view class="all">
+  <view class='cardallbox'>
+    <view class='cardimg'><image src='{{url}}' /></view>
+    <view class='cardnames'>{{cardname}}</view>
+    <view class='carddetails'>{{remakes}}</view>
+    <view class='buyuserbox'>
+      <view class='buyusertitle'>购买人信息填写</view>
+      <view class='usernamebox boxpadding'><title>姓  名:</title><input bindblur='changename'  placeholder='请输入紧急联系人姓名'/></view>
+      <view class='usernamebox boxmaring'><title>手机号:</title><input bindblur='changephone' placeholder='请输入紧急联系人号码'/></view>
+    </view>
+    <view class='nowengry'>您当前的能量值：<title>{{my_energy}}</title></view>
+    <view class='nowengry2'>转卡需消耗能量值：<title>{{energy}}</title></view>
+    <view wx:if='{{my_energy<energy}}' bindtap='gorecharge' class='okcardbtn'>能量不足,请充值</view>
+    <view wx:if='{{my_energy>energy}}' class='okcardbtn' bindtap='tcbtnshow'>确定兑换</view>
+  </view>
+  <view class='tsbox' wx:if='{{tcshow ==true}}'>
+    <view class='tsboxbg' bindtap='tchiden'></view>
+    <view class='usercontentbox'>
+      <view class='tcheader'>信息确认</view>
+      <view class='tctitle'><title>姓  名:</title>{{cardusername}}</view>
+      <view class='tctitle'><title>手机号:</title>{{carduserphone}}</view>
+      <view class='tcfooter'>点击确定兑换后，将会有专职客服人员与您联系，进行兑换操作。</view>
+      <view class='tcokbtn' bindtap='tccheckok'>确定</view>
+    </view>
+  </view>
+</view>

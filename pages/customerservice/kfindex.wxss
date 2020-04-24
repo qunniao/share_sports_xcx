@@ -1,0 +1,616 @@
+/* pages/contact/contact.wxss */
+
+page {
+  background-color: #f1f1f1;
+}
+
+.inputRoom {
+  width: 100vw;
+  height: 16vw;
+  border-top: 1px solid #cdcdcd;
+  background-color: #008FFF;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  z-index: 20;
+}
+
+input {
+  width: 510rpx;
+  height: 72rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  margin-left: 50rpx;
+  padding: 0 10rpx;
+  font-size: 28rpx;
+  color: #444;
+}
+
+.leftMsg {
+  font-size: 35rpx;
+  color: #444;
+  line-height: 7vw;
+  padding: 2vw 2.5vw;
+  background-color: #fff;
+  margin-left: -1.6vw;
+  border-radius: 10rpx;
+  z-index: 1;
+}
+
+.rightMsg {
+  font-size: 35rpx;
+  color: #FFF;
+  line-height: 7vw;
+  padding: 2vw 2.5vw;
+  background-color: #008FFF;
+  margin-right: -1.6vw;
+  border-radius: 10rpx;
+  z-index: 1;
+  position:relative;
+}
+
+.right_msg{
+ position: absolute;
+ top: 0;
+ left: 0;
+ float: left;
+ width: 0; 
+ height: 0;
+ border-width: 3vw;
+ border-style: solid;
+ border-color: transparent transparent transparent #008FFF;
+}
+.left_msg{
+ position: absolute;
+ top: 0;
+ right: 0;
+ float: left;
+ width: 0; 
+ height: 0;
+ border-width: 3vw;
+ border-style: solid;
+ border-color: transparent #FFF transparent transparent;
+}
+
+.add_contant{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 20rpx;
+}
+.rightMsg2{
+  line-height: 7vw;
+  padding: 2vw 0;
+  margin-right: -1.6vw;
+  border-radius: 10rpx;
+  z-index: 10;
+  position:relative;
+}
+.rightMsg2>image{
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.leftMsg2{
+  line-height: 7vw;
+  padding: 2vw 0;
+  margin-right: -1.6vw;
+  border-radius: 10rpx;
+  z-index: 10;
+  position:relative;
+}
+.leftMsg2>image{
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.board-plan-time-box{
+  height: 110rpx;
+  width: 640rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid rgba(201,202,202,0.6);
+  align-items: center;
+  margin: 0 28rpx;
+  position: relative;
+}
+.board-plan-time-box .title,.board-plan-region-box .title,.board-plan-partner-box .title{
+  font-size: 22.2rpx;
+  color: #000;
+  font-weight: 800;
+  position: absolute;
+  left: 61.1rpx;
+}
+.board-plan-time-box .select{
+  width: 92rpx;
+  height: 32rpx;
+  color: #FFF;
+  font-size: 18rpx;
+  background: #0090FF;
+  border-radius: 4rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 22rpx;
+  box-sizing: border-box;
+}
+.board-plan-time-box .unselect{
+  width: 92rpx;
+  height: 32rpx;
+  color: #0090FF;
+  font-size: 18rpx;
+  background: #FFF;
+  border-radius: 4rpx;
+  border:1rpx solid #0090FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 22rpx;
+  box-sizing: border-box;
+}
+.board-plan-time-box .arrow{
+  width: 21rpx;
+  height: 21rpx;
+}
+.board-plan-region-box,.board-plan-partner-box{
+  height: 80.5rpx;
+  width: 494.4rpx;
+  display: flex;
+  flex-direction: row;
+  /* border-bottom: 1rpx solid rgba(201,202,202,0.6); */
+  align-items: center;
+  margin: 0 20.8rpx;
+  position: relative;
+}
+.board-plan-region-box .btn{
+  width: 122.2rpx;
+  height: 38.8rpx;
+  background: #0090FF;
+  border-radius: 7rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 4rpx;
+}
+.board-plan-region-box .btn>text{
+  color: #FFF;
+  font-size: 16.6rpx;
+  line-height: 38.8rpx;
+  height: 38.8rpx;
+  margin-right: 10rpx;
+  display: inline-block;
+  max-width: 120rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowarp;
+}
+.board-plan-region-box .arrow{
+  width: 15rpx;
+  height: 15rpx;
+}
+
+.dahuoboxshow{
+  position:fixed;
+  top:123.61rpx;
+  left:62.5rpx;
+  z-index:2;
+  width: 625rpx;
+  height: 632rpx;
+  background:#fff;
+  border-radius: 13.8rpx;
+  text-align:center;
+}
+.dahuotitle{
+  margin-top: 51.3rpx;
+  text-align: center;
+  font-size: 30.5rpx;
+  font-weight: bold;
+}
+
+.faqibtn{
+  text-align:center;
+  margin:41.6rpx auto;
+  width:245.2rpx;
+  height:55.5rpx;
+  background:#0090FF;
+  color:#fff;
+  font-size:27.7rpx;
+  line-height:55.5rpx;
+}
+
+.launchshow{
+  top: 0;
+  z-index:40;
+  left:201.4rpx;
+  position: fixed;
+  width:347.2rpx;
+  height:80.5rpx;
+  background:#008FFF;
+  color:#FFF;
+  font-size:34.7rpx;
+  line-height:80.5rpx;
+  text-align:center;
+  font-weight:bold;
+  margin:20rpx auto;
+  border-radius:40rpx;
+}
+
+.okornobox{
+  overflow: hidden;
+}
+.checkbox{
+  float: left;
+  margin-left: 20rpx;
+}
+.changelable{
+  color:#FFF;
+  font-size:20.8rpx;
+}
+
+.longbtn{
+  width: 386.1rpx;
+  height:38.8rpx;
+  background:#0090FF;
+  border-radius:7rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:row;
+  margin-left:4rpx;
+}
+
+.btnbox{
+  margin-left: 138rpx;
+}
+
+.timebtn{
+  width:168rpx;
+  height:38.8rpx;
+  background:#0090FF;
+  font-size:16.6rpx ;
+  border-radius:7rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:row;
+  margin-left:4rpx;
+
+}
+
+.rulebox{
+  font-size: 19.4rpx;
+  color: #9FA0A0;
+  width: 494.4rpx;
+  margin-left: 76rpx;
+  text-align: left;
+}
+
+.customuser{
+  height: 127.7rpx;
+  line-height: 127.7rpx;
+  padding-left: 20rpx;
+  width: 730rpx;
+  /* display: flex; */
+  /* align-items:center; */
+  overflow: hidden;
+}
+.customuser>text{
+  font-size: 25rpx;
+  font-weight: bold;
+}
+.customuser>image{
+  float: left;
+  margin-right: 15.7rpx;
+  border-radius: 50%;
+  margin-top: 20rpx;
+  width: 72.2rpx;
+  height: 72.2rpx;
+}
+.rightbtns{
+  float: right;
+  line-height: 40rpx;
+  font-size: 20rpx;
+  margin-top: 30rpx;
+  margin-right: 20.8rpx;
+  height: 55.5rpx;
+  display: inline-block;
+}
+.rightbtns>image{
+  width: 30.5rpx;
+  margin-left: 6rpx;
+  display: block;
+  height: 30.5rpx;
+}
+.rightbtns2{
+  float: right;
+  margin-top: 30rpx;
+  line-height: 40rpx;
+  font-size: 20rpx;
+  height: 55.5rpx;
+  margin-right: 47.2rpx;
+  display: inline-block;
+}
+.rightbtns2>image{
+  margin-left: 6rpx;
+  width: 30.5rpx;
+  display: block;
+  height: 30.5rpx;
+}
+.kftc{
+  position: fixed;
+  top: 0;
+  z-index: 32;
+}
+.tcbg{
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  background: rgba(0, 0, 0, 0.4)
+}
+.tcbox{
+  width: 670.8rpx;
+  position:fixed;
+  top:181.9rpx;
+  left:40.2rpx;
+  border-radius: 16.6rpx;
+  height: 820.8rpx;
+  z-index: 33;
+  background: #fff;
+}
+.evaluatetext{
+  text-align: center;
+  font-size: 27.7rpx;
+  font-weight: bold;
+  margin-top: 69.4rpx;
+}
+.checkbox{
+  width: 40%;
+}
+checkbox {
+  width: 60rpx;
+  height: 60rpx;
+}
+/*checkbox 选项框大小  */
+checkbox .wx-checkbox-input {
+  width: 31.9rpx;
+  height: 31.9rpx;
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #008FFF;
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 25rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+.checkbtnbox{
+  margin-top: 40.5rpx;
+  margin-left: 20.8rpx;
+  font-size: 25rpx;
+  overflow: hidden;
+}
+.textbox{
+  width: 508rpx;
+  margin-left: 38.8rpx;
+  height: 123.7rpx;
+  color: #9FA0A0;
+  font-size: 22.2rpx;
+  padding: 19.4rpx 41.6rpx;
+  border-radius: 16.6rpx;
+  background: #EFEFEF;
+}
+.conproblem{
+  font-size: 25rpx;
+  margin-left: 38.8rpx;
+  margin-top:44.4rpx;
+}
+.checkbtnsbox{
+  overflow: hidden;
+  margin-left: 38.8rpx;
+  margin-top: 41.6rpx;
+  font-size: 27.7rpx;
+}
+.checkbtn{
+  float: left;
+  width: 281.9rpx;
+  text-align: center;
+  height: 72.2rpx;
+  line-height: 72.2rpx;
+  border-radius: 16.6rpx;
+  background: #9FA0A0;
+}
+.checkbtntrue{
+  float: left;
+  margin-left: 26.3rpx;
+  width: 281.9rpx;
+  text-align: center;
+  height: 72.2rpx;
+  line-height: 72.2rpx;
+  border-radius: 16.6rpx;
+  background: #008FFF;
+  color: #fff;
+}
+
+.shoppic {
+  width: 694.4rpx;
+  height: 308.rpx;
+  border-top: 1px solid #cdcdcd;
+  background-color: #FFF;
+  position: fixed;
+  bottom: 140rpx;
+  left: 27.7rpx;
+  border-radius: 18rpx;
+  z-index: 20;
+}
+.shoptop{
+  margin-top: 38.9rpx;
+  overflow: hidden;
+  width: 100%;
+}
+.shoptop>image{
+  float: left;
+  width: 180.5rpx;
+  height: 137.5rpx;
+  background: red;
+  margin-left: 30.5rpx;
+}
+.shoptioleft{
+  float: left;
+  margin-left: 25rpx;
+  width: 422.2rpx;
+  font-size: 22.2rpx;
+  display: inline-block;
+}
+.engry{
+  margin-top: 20.8rpx;
+  color: #008EFF
+}
+.engry>title{
+   font-size: 27.7rpx;
+}
+.shopbottom{
+  border: 1rpx solid #008EFF;
+  border-radius: 8.3rpx;
+  margin-top: 41.6rpx;
+  margin-left: 213.8rpx;
+  width: 266.6rpx;
+  height: 54.1rpx;
+  line-height: 54.1rpx;
+  font-size: 23.6rpx;
+  text-align: center;
+  color: #008EFF;
+}
+.ordershoppic{
+  overflow: hidden
+}
+.ordershoppic>image{
+  float: left;
+  width: 111.1rpx;
+  height: 111.1rpx;
+}
+.ordershopright{
+  float: left;
+  padding-left: 23.6rpx;
+  width: 400rpx;
+  height:111.1rpx;
+  background: #F7F8F8;
+  font-size: 22.2rpx;
+}
+.ordershoprights{
+  float: left;
+  padding-left: 23.6rpx;
+  height:111.1rpx;
+  font-size: 25rpx;
+}
+.shopheadertext{
+  white-space: nowrap;
+  max-width: 360rpx;
+/* width: 400rpx; */
+text-overflow: ellipsis;
+overflow: hidden;
+
+}
+
+.shopheader{
+  font-size: 25rpx;
+}
+.shoptext{
+  overflow: hidden;
+  font-size: 21.4rpx;
+  width: 540rpx;
+  color: #727171;
+}
+.shoptext>title{
+  float: left;
+  display: inline-block;
+}
+.adresstitle{
+   width: 470rpx;
+}
+.shopbtnbox{
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+.shopchangebtn{
+  float: right;
+    width: 140.2rpx;
+  height: 52.7rpx;
+  border-radius: 27.7rpx;
+  border: 1rpx solid #B5B5B6;
+  color: #B5B5B6;
+  text-align: center;
+  line-height: 52.7rpx;
+  font-size: 25rpx;
+  margin-right: 27.7rpx;
+}
+.shopokbtn{
+  float: right;
+  width: 140.2rpx;
+  height: 52.7rpx;
+  border-radius: 27.7rpx;
+  background: #008FFF;
+  color: #FFF;
+  text-align: center;
+  line-height: 52.7rpx;
+  font-size: 25rpx;
+
+}
+
+.orderdetails{
+  width: 176.9rpx;
+  height: 52.7rpx;
+  text-align: center;
+    border-radius: 27.7rpx;
+  background: #008FFF;
+  color: #FFF;
+  line-height: 52.7rpx;
+  font-size: 25rpx;
+  margin-left: 352.2rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 结束对话 */
+.overdialogue {
+  width: 694.4rpx;
+  height: 215.2rpx;
+  border-top: 1px solid #cdcdcd;
+  background-color: #FFF;
+  position: fixed;
+  bottom: 140rpx;
+  left: 27.7rpx;
+  border-radius: 18rpx;
+  z-index: 20;
+}
+.overtop{
+  margin-top: 38.9rpx;
+  overflow: hidden;
+  width: 100%;
+}
+.overtop>image{
+  float: left;
+  width: 125rpx;
+  height: 125rpx;
+  margin-left: 30.5rpx;
+}
+.overtioleft{
+  float: left;
+  margin-left: 25rpx;
+  width: 422.2rpx;
+  font-size: 25rpx;
+  display: inline-block;
+}
+.overtext{
+  margin-top: 40.5rpx;
+}

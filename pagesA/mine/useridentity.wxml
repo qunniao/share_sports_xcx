@@ -1,0 +1,24 @@
+<view class="all">
+    <view class='buyuserbox'>
+      <view class='usernamebox boxpadding'><title>真实姓名</title><input bindblur='changeusername'  placeholder='请填写真实姓名'/></view>
+      <view class='usernamebox boxmaring'><title>身份证号</title><input bindblur='changeidcardnum' placeholder='请输入身份证号'/></view>
+    </view>
+    <view class='useridcard'>手持身份证照片</view>
+    <view class='imagebox'>
+      <view  class='imageList'>
+        <image  class='idpic' src='../../res/imgs/idcardshow.png'></image>
+      </view>
+      <view wx:if='{{showimage}}' class='imageList'>
+        <view >
+          <image bindtap="choosePhoto" class='idpic' src='{{imageList}}'></image>
+        </view>
+      </view>
+      <view wx:else class='imageList'>
+        <image src='{{item}}' wx:for="{{imageList}}" />
+        <view  bindtap="choosePhoto"><image  class='images'   src='../../image/icon_add_square_64.png' /></view>
+      </view>
+  </view>
+  <view class="tstext">请确保照片中面部及身份证清晰可见且无PS</view>
+  <view bindtap='tjidcheck' class='tjshbtn'>提交审核</view>
+</view>
+

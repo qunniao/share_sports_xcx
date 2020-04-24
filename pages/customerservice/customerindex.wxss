@@ -1,0 +1,166 @@
+page {
+  background-color: #F6F7F7;
+}
+.all{
+  width: 750rpx;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 70rpx;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-nav-container{
+  width: 100%;
+  position: relative;
+}
+.home-nav-bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 373rpx;
+  z-index: -1;
+}
+.userinfo-avatar{
+  width: 162rpx;
+  height: 162rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 38rpx;
+}
+.info_container{
+  border-radius: 17rpx;
+  background: #FFF;
+  margin-top: 150rpx;
+  width: 694rpx;
+}
+
+.kfname{
+  display: block;
+  width: 100%;
+  font-size: 23.6rpx;
+  font-weight: bold;
+  margin-top: 60rpx;
+  text-align: center;
+}
+.kfid{
+  display: block;
+  width: 100%;
+  margin-top: 10rpx;
+  text-align: center;
+  font-size: 25rpx;
+}
+.kfds{
+  font-size: 25rpx;
+  text-align: center;
+  color: #9FA0A0;
+  /* margin-top: 31.1rpx; */
+  margin-bottom: 31.9rpx;
+}
+.kfds>text{
+  font-size: 30rpx;
+  color: #008FFF;
+  margin-left: 37.5rpx;
+}
+/* 星星评价 */
+.comment1-description{
+  padding:30rpx 0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:row;
+}
+.comment1-description>text{
+  font-size: 25rpx;
+  color: #9FA0A0;
+}
+.star-pos{
+  display:flex;
+  flex-direction:row;
+}
+.stars{
+    /* background:url("http://外链图片地址/Xing.png（灰色）"); */
+    background: #000;
+    width: 25rpx;
+    height: 25rpx;
+    background-size: 25rpx 25rpx;
+    margin-left: 10rpx;
+    transition: 200ms;
+}
+.on{
+    /* background:url("http://外链图片地址/Xin.png（正常）"); */
+     background: red;
+    width: 25rpx;
+    height: 25rpx;
+    background-size: 25rpx 25rpx;
+    transition: 1s;
+    transform: scale(1,1)
+}
+/* 客服评价 */
+.info_message_box{
+  margin-top: 35rpx;
+  width:600rpx;
+  padding:0 47rpx;
+  border-bottom:1rpx solid rgba(180,180,181,0.6);
+}
+.info_container2{
+  border-radius:17rpx;
+  background:#FFF;
+  margin-top:67rpx;
+  width:694rpx;
+  margin-bottom: 50rpx;
+  position:relative;
+}
+.usercontent{
+  display:flex;
+  position:relative;
+  align-items:center;
+  overflow: hidden;
+}
+.usercontent>image{
+  width: 68rpx;
+  height: 68rpx;
+  float: left;
+  border-radius: 50%;
+}
+.usercontent>text{
+  font-size:22.2rpx; 
+  margin-left: 20rpx;
+  width: 250rpx;
+}
+.usercontent .content{
+ text-align: right;
+}
+.pingyu{
+ font-size: 27.8rpx;
+  margin:20rpx 0;
+  min-height: 30rpx;
+}
+/* 评价按钮 */
+.bootombtn{
+  position: fixed;
+  display: flex;
+  align-items:center;
+  bottom: 0;
+  width: 750rpx;
+  height: 118rpx;
+  background: #FFF
+}
+.bootombtn>view{
+  width: 319.4rpx;
+  height: 79.1rpx;
+  text-align: center;
+  border-radius: 13.8rpx;
+  color: #FFF;
+  margin-left: 40rpx;
+  line-height: 79.1rpx;
+  background: #4EB2FF;
+}
+.dsbtn{
+  margin-left: 56.9rpx;
+  background: #008FFF;
+}

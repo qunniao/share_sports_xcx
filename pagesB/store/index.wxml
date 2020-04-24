@@ -1,0 +1,150 @@
+<!--index.wxml-->
+<view class="all">
+  <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+  <!-- 轮播图 -->
+  <view class="swiper-box">
+    <swiper
+      indicator-dots=true
+      autoplay=true
+      interval="{{interval}}"
+      duration="{{duration}}"
+      indicator-color="#9A9E9F"
+      indicator-active-color="#FFF"
+    >
+      <block wx:for="{{goodspiclist}}">
+        <swiper-item>
+          <image src="{{item.url}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 商品信息 -->
+  <view class='shop'>
+    <view class='shoptitle'>{{goodsInfo.name?goodsInfo.name:''}}</view>
+    <view class='shopintro'>{{goodsInfo.intro?goodsInfo.intro:''}}</view>
+    <button open-type="share" class='sharp'>
+      <image src='../../image/fenxiang.png'></image>
+      <text >分享</text>
+    </button>
+    <view class='shopping_cart_container'>
+      <text wx:if="{{goodsInfo.settlementType==1}}"><text style='font-size:28rpx'>¥</text>{{goodsInfo.realPrice?goodsInfo.realPrice:''}}</text>
+      <text wx:if="{{goodsInfo.settlementType==2}}">{{goodsInfo.realPrice?goodsInfo.realPrice:''}}<text style='font-size:20rpx'>能量值</text></text>
+      <view wx:if="{{goodsInfo.isCoupon==1}}">可使用优惠券</view>
+    </view>
+   <view class='sale_price_container'>
+      <text>市场价：<text style='text-decoration:line-through;'>{{goodsInfo.showPrice?goodsInfo.showPrice:''}}</text></text>
+      <text>已售：{{goodsInfo.salesVolume?goodsInfo.salesVolume:'0'}}</text>
+    </view>
+  </view>
+  <!-- 服务 -->
+  <view class='service'>
+      <text>服务</text>
+      <view wx:if="{{goodsInfo.timelyDelivery==1}}">
+        <image src='../../image/service.png' />
+        <text>7天内发货</text>
+      </view>
+        <view wx:if="{{goodsInfo.salableProduct==1}}">
+        <image src='../../image/service.png' />
+        <text>正品保障</text>
+      </view>
+        <view wx:if="{{goodsInfo.fullService==1}}">
+        <image src='../../image/service.png' />
+        <text>全程服务</text>
+      </view>
+  </view>
+
+  <view class='choose'>
+    <view class='container' bindtap='chostylef'>
+        <text class='title'>选择</text>
+        <text class='desc'>{{choose_spec?choose_spec:'请选择 款式'}}</text>
+        <image src='../../image/fanhui.png'></image>
+    </view>
+
+    <view class='container' bindtap='completesf'>
+      <text class='title'>参数</text>
+      <text class='desc'>品牌  系列...</text>
+      <image src='../../image/fanhui.png'></image>
+    </view>
+
+  </view>
+  <!-- 商品详情 -->
+  <view class='details'>
+    <view>
+      <view class='line'></view>
+      <text>商品详情</text>
+      <view class='line'></view>
+    </view>
+    <image mode="widthFix" src='{{item}}' wx:for="{{detailsList}}"></image>
+  </view>
+</view>
+
+
+
+  <!-- 底部支付 -->
+<view class='submit-box'>
+    <view class='submit-left-box'>
+      <view class='customer_btn' bindtap='wanttokf' style='margin-left:5rpx'>
+        <image src='../../image/kefu.png'></image>
+        <text>客服</text>
+      </view>
+       <view class='customer_btn' bindtap="navigate" data-url="../cart/cart">
+        <image src='../../image/goucard.png'></image>
+        <text>购物车</text>
+        <view wx:if='{{buyshop != 0}}' class='gouwunum'>{{buyshop}}</view>
+      </view>
+        <text wx:if="{{goodsInfo.settlementType==1}}"><text style='font-size:28rpx'>¥</text>{{shopprices==null?'0':shopprices}}</text>
+      <text wx:if="{{goodsInfo.settlementType==2}}">{{goodsInfo.realPrice==null?'0':goodsInfo.realPrice}}<text style='font-size:20rpx'>能量值</text></text>
+    </view>
+     <view class='kefu_but'>
+        <view bindtap='addshopping' class='kefu_but_left'>加入购物车</view>
+        <view bindtap='buyshow' class='kefu_but_right'>立即购买</view>
+      </view>
+</view>
+
+  <view class='chostyle' hidden='{{chostyle}}'>
+    <view class='chostyle2' bindtap='chostylet'></view>
+    <view class='chostyle_box'>
+      <view class='top_container'>
+        <image src='{{goodsInfo.image}}' />
+        <text class='price'>{{goodsInfo.settlementType==1?'¥'+goodsInfo.realPrice:goodsInfo.realPrice+'能量值'}}</text>
+        <text class='stock'>库存{{goodsInfo.inventory?goodsInfo.inventory:'0'}}件</text>
+      <text class='spec' wx:if="{{goodsInfo.styleName}}">{{choose_spec?choose_spec:'请选择 规格'}}</text>
+      </view>
+      <scroll-view scroll-y="true" class='scroll-view2'>
+        <view class='spec_container'>
+          <text class='spec_name'>{{goodsInfo.styleName?goodsInfo.styleName:''}}</text>
+          <view class='spec_box_list'>
+            <view class="{{choose_spec==item?'select':''}}"
+             wx:for="{{speclist}}" bindtap='choosespec' data-value="{{item}}">{{item}}</view>
+          </view>
+        </view>
+        <view class='number_box'>
+            <text class='name'>购买数量</text>
+            <text class='reduce' bindtap='reduce'>-</text>
+            <view class='number'>{{purchnum}}</view>
+            <text class='add' bindtap='add'>+</text>
+          </view>
+      </scroll-view>
+        <view class='spec_btn_container'>
+          <view bindtap='addshopping' class='kefu_but_left'>加入购物车</view>
+           <view bindtap='buyimmediately' class='kefu_but_right'>立即购买</view>
+        </view>
+    </view>
+  </view>
+  
+  <!-- 查看参数 -->
+  <view class='parameter' hidden='{{parameter}}'>
+    <view class='chostyle2' bindtap='completest'></view>
+    <view class='parameter_box'>
+      <view class='parameter_container'>
+        <text class='title'>产品参数</text>
+        <scroll-view scroll-y="true" class='scroll-view'>
+        <view class='parameter_content' wx:for="{{parameterlist}}">
+          <view>{{item.title}}</view>
+          <view>{{item.text}}</view>
+        </view>
+        </scroll-view>
+        <view class='complete' bindtap='completest'>完成</view> 
+      </view>
+    </view>
+  </view>

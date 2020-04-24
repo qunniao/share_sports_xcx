@@ -1,0 +1,125 @@
+<!--pages/set/set.wxml-->
+<view class='control'>
+<!-- 没有收货地址 -->
+  <view class='position' hidden='{{positionnone}}' bindtap='Goposition'>
+    <image class='dizhi_img' src='../image/dizhi.png'></image>
+    <text class='tstext' wx:if="{{detailadreesshow==2}}">请选择收货地址</text>
+    <view wx:else class='top_container'>
+      <view >
+        <text class='name'>{{detailadrees.consignee}}</text>
+        <text class='phone'>{{detailadrees.phoneNumber}}</text>
+      </view>
+      <view class='container'>
+        <text class="{{item.isDefault==1?'address_0':'address_1'}}">{{detailadrees.area}}{{detailadrees.detailedAddress}}</text>
+      </view>
+    </view>
+    <image class='jinru_img' src='../image/jinru.png'></image>
+  </view>
+  <!-- 有收货地址 -->
+  <view class='positions' hidden='{{positionshow}}'>
+    <image class='dizhi_imgs' src='../image/dizhi.png'></image>
+    <view class='position_text'>
+      <view class='position_text_top'>
+        <text class='position_text_left'>奶黄包</text>
+        <text class='position_text_right'>46519866581</text>
+      </view>
+      <view class='position_text_pos'>浙江省杭州市滨江区长河街道滨文路520号</view>
+    </view>
+    <image class='jinru_imgs' src='../image/jinru.png'></image>
+  </view>
+  <view class='shop'>
+    <view class='shoplist' wx:for='{{shoplist}}'>
+      <image src='{{item.shoplist_img}}'></image>
+      <view class='shoplist_text'>
+        <view class='shoplist_text_name'>{{item.title}}</view>
+        <view class='shoplist_text_xiang'>
+          <text class='shoplist_text_pri' wx:if='{{settlementType==1}}'>￥{{item.price}}</text>
+          <text class='shoplist_text_pri' wx:if='{{settlementType==2}}'>{{item.price}}能量值</text>
+          <text class='shoplist_text_num'>x{{item.num}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 配送运费 -->
+    <view class='very'>
+      <view class='verylist'>
+        <text>配送运费</text>
+        <input type='text' disabled wx:if='{{settlementType==1}}' placeholder="{{price>=100?'免配送费':'配送费10元'}}"></input>
+        <input type='text' disabled wx:if='{{settlementType==2}}' placeholder="{{price>=20?'免配送费':'配送费2能量值'}}"></input>
+      </view>
+      <view class='verylist'>
+        <text>订单备注</text>
+        <input type='text' placeholder='选填，不超过140字'></input>
+      </view>
+    </view>
+    <!-- 价格 -->
+    <view class='set_pri'>
+      <text class='set_pri1'>共{{count}}件商品</text>
+      <text class='set_pri2'>小计:</text>
+      <text class='set_pri3' wx:if='{{settlementType==1}}'>￥{{price}}</text>
+      <text class='set_pri3' wx:if='{{settlementType==2}}'>{{price}}能量值</text>     
+    </view>
+  </view>
+  <!-- 优惠券 -->
+  <view class='coupon' bindtap='couponchangeshow'>
+    <text class='coupon1'>优惠券</text>
+    <title class='couponone'>{{coupontext}}</title>
+  </view>
+  <!-- 支付 -->
+  <view class='but_price'>
+    <text class='but_price1'>合计:</text>
+    <text class='but_price2' wx:if='{{settlementType==1}}'>￥{{zongprice}}</text>
+    <text class='but_price2' wx:if='{{settlementType==2}}'>{{zongprice}}能量值</text>
+    <view class='zhifu' bindtap='zhifu'>立即支付</view>
+  </view>
+  <!-- 底部谈起支付框 -->
+    <!-- 微信支付 -->
+    <view class='payment' hidden='{{payment}}'>
+      <view class='payment_k'>
+        <view class='payment_none'>
+          <image src='../image/jiesuannone.png' bindtap='paymentnone'></image>
+          <text>确认付款</text>
+        </view>
+        <view class='payment_price'>￥{{zongprice}}</view>
+        <view class='pri_method'>
+          <view class='primethod1'>请选择支付方式</view>
+          <view bindtap='patconlist' class='we_pei'>
+            <image class='we_pei_img' src='../image/weixin.png'></image>
+            <text>微信支付</text>
+            <image class='patconlist_chack_img'  src="{{patconlist_chack_img ? '../image/quan.png' : '../image/quannone.png'}}"></image>
+          </view>
+          <view class='li_pri' bindtap='paynow'>立即付款</view>
+        </view>
+      </view>
+    </view>
+    <!-- 能量支付 -->
+    <view class='payment' hidden='{{payments}}'>
+      <view class='payment_k'>
+        <view class='payment_none'>
+          <image src='../image/jiesuannone.png' bindtap='paymentnones'></image>
+          <text>确认付款</text>
+        </view>
+        <view class='nengpri'>
+          <text class='nengpri1'>{{zongprice}}</text>
+          <text class='nengpri2'>能量值</text>
+        </view>
+        <view class='current_pri'>
+          <text class='current_pri1'>您当前的能量值：</text>
+          <text class='current_pri2'>{{userengry?userengry:'0'}}</text>
+        </view>
+        <view wx:if='{{zongprice>userengry}}' class='current_pri' bindtap="buyshop">能量值不足</view>
+        <view wx:else class='current_pri' bindtap="buyshop">立即兑换</view>
+      </view>
+    </view>
+    <view class='footercoupon' wx:if='{{couponshow}}' >
+      <view class='couponbg' bindtap='changecouponshow'></view>
+      <view class='couponbox'>
+        <view class='couponheader'>优惠券</view>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <view class="radiobox" wx:for="{{couponlist}}">
+            <title>{{item.title}}</title><radio value="{{item.id}}" checked="{{item.checked}}"/>
+          </view>
+        </radio-group>
+        <view class='couponbtn' bindtap='changecouponok'>完成</view>
+      </view>
+    </view>
+</view>

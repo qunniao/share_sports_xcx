@@ -1,0 +1,21 @@
+<view class='all'>
+      <view class='info_box'>
+      <picker mode='region' value='{{area}}' bindchange='goodspos'>
+      <view class='info_box'>
+        <text class='label'>所在地区：</text>
+          
+            <input type='text' disabled='{{true}}' value='{{area}}' placeholder-style='color:#9FA0A0' placeholder='选择省市区'/>
+      </view>
+  </picker>
+      </view>
+  <view class='info_box'>
+    <text class='label'>详细地址：</text>
+    <input type='text' bindblur='receadreesschange' value='{{detailedAddress}}' placeholder-style='color:#9FA0A0' placeholder='请输入详细地址（如门牌号、小区、楼栋等）' />
+  </view>
+
+</view>
+
+  <view>
+    <view class='pos_buts3' bindtap="saveAddress">保存地址</view>
+    <view class='pos_buts2' bindtap="deleteAddess">返回</view>
+</view>

@@ -1,0 +1,95 @@
+<view class="all">
+  <view class="home-nav-container">
+    <image src='../../res/imgs/home_nav_bg.png' class='home-nav-bg'></image>
+  </view>
+  <view class='flex'>
+    <image class="userinfo-avatar" mode="cover" src="{{usersdata.avatarUrl?usersdata.avatarUrl:'../../res/imgs/default.jpg'}}" ></image>
+  </view>
+  <view class='flex'>
+    <view class='info_container'>
+      <view class='cash_succ_container'>
+          <view class='desc_title'>成功提现佣金</view>
+          <view class='amount'>{{userdata.cashed?userdata.cashed:'0'}}</view>
+          <view class='flex'>
+            <view class='desc_btn' bindtap='gotxdetail'>明细</view>
+          </view>
+      </view>
+      <view class='cash_info_container'>
+          <view class='desc_name'>{{usersdata.name}}</view>
+          <view class='desc_level'>[OYOC{{userdata.role==2?'一':'二'}}级渠道合伙人]</view>
+          <view class='desc_dev' wx:if='{{userdata.role==3}}'>一级渠道发展人:{{usersdata.developer_name?usersdata.developer_name:''}}</view>
+          <view class='desc_code'>渠道合伙人编码:{{usersdata.code}}</view>
+      </view>
+      <view class='cash_succ_container'>
+          <view class='desc_title'>可提现</view>
+          <view class='amount'>{{userdata.canCarry?userdata.canCarry:'0'}}</view>
+          <view class='flex'>
+            <view class='desc_btn' bindtap="navigate" data-url="commission">提现</view>
+          </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='flex'>
+      <view class='other_container'>
+
+          <view class='child_container' bindtap="navigate" data-url="commission">
+              <view class='flex'>
+                <image src='../../res/imgs/icon_agent_btn_1.png' />
+              </view>
+              <text class='child_title'>佣金管理</text>
+               <text class='child_content'>
+                  <text style='color:#F5B90A'>{{userdata.clientCommission+userdata.channelCommission}}</text>元
+               </text>
+          </view>
+          <view class='child_container' bindtap="navigate" data-url="order">
+            <view class='flex'>
+                  <image src='../../res/imgs/icon_agent_btn_2.png' />
+                </view>
+                <text class='child_title'>订单管理</text>
+                <text class='child_content'>
+                    <text style='color:#FF7D3A'>{{orderacc?orderacc:'0'}}</text>笔
+                </text>
+            </view>
+          <view class='child_container'   bindtap="navigate" data-url="team">
+            <view class='flex'>
+                  <image src='../../res/imgs/icon_agent_btn_3.png' />
+                </view>
+                <text class='child_title'>我的团队</text>
+                <text class='child_content'>
+                    <text style='color:#FF7D3A'>{{usersdata.teamSize?usersdata.teamSize:'0'}}</text>人
+                </text>
+            </view>
+          <view wx:if='{{userrole==3}}' class='child_container' bindtap="navigate" data-url="scheme">
+            <view class='flex'>
+                  <image src='../../res/imgs/icon_agent_btn_4.png' />
+                </view>
+                <text class='child_title'>合作方案</text>
+               
+            </view>
+          <view class='child_container bottom_no'  bindtap="navigate" data-url="qrcode">
+              <view class='flex'>
+                <image src='../../res/imgs/icon_agent_btn_5.png' />
+              </view>
+              <text class='child_title'>推广二维码</text>
+          </view>
+          <text class='line'></text>
+      </view>
+  </view>
+
+
+  <view class='flex'>
+    <view class='other_container2'>
+      <view>
+        <image src='../../res/imgs/icon_agent_question.png' />
+        <text>常见问题</text>
+      </view>
+      <view bindtap="gotokf">
+        <image src='../../res/imgs/icon_agent_customer.png' />
+        <text>在线客服</text>
+      </view>
+      <text class='line'></text>
+    </view>
+  </view>
+
+</view>
